@@ -37,31 +37,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Data.Edm, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\jsreport.Client\packages\Microsoft.Data.Edm.5.6.0\lib\net40\Microsoft.Data.Edm.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Data.OData, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\jsreport.Client\packages\Microsoft.Data.OData.5.6.0\lib\net40\Microsoft.Data.OData.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Data.Services.Client, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\jsreport.Client\packages\Microsoft.Data.Services.Client.5.6.0\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\jsreport.Client\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\jsreport.Client\packages\Newtonsoft.Json.6.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\jsreport.Client\packages\NUnit.2.6.2\lib\nunit.framework.dll</HintPath>
     </Reference>
-    <Reference Include="Simple.OData.Client.Net40">
-      <HintPath>..\jsreport.Client\packages\Simple.OData.Client.1.0.0.1\lib\net40\Simple.OData.Client.Net40.dll</HintPath>
+    <Reference Include="Simple.OData.Client.Net40, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\jsreport.Client\packages\Simple.OData.Client.1.1.2\lib\net40\Simple.OData.Client.Net40.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
-    <Reference Include="System.Spatial, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\jsreport.Client\packages\System.Spatial.5.6.0\lib\net40\System.Spatial.dll</HintPath>
-    </Reference>
     <Reference Include="System.Xml" />
   </ItemGroup>
   <Choose>
@@ -73,7 +63,6 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
-    <Compile Include="ODataTest.cs" />
     <Compile Include="ReportingServiceIntegrationTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -84,57 +73,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
-    <None Include="Report1.jsrep">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Service References\ServiceReference1\service.edmx" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Report1.jsrep.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>Report1.jsrep</DependentUpon>
-    </Content>
-    <Content Include="Report1.jsrep.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>Report1.jsrep</DependentUpon>
-    </Content>
-    <Content Include="Report2.jsrep.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>Report2.jsrep</DependentUpon>
-    </Content>
-    <Content Include="Report2.jsrep.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>Report2.jsrep</DependentUpon>
-    </Content>
-    <Content Include="Report3.jsrep.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>Report3.jsrep</DependentUpon>
-    </Content>
-    <Content Include="Report3.jsrep.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>Report3.jsrep</DependentUpon>
-    </Content>
-    <None Include="Service References\ServiceReference1\Reference.datasvcmap">
-      <Generator>DataServicesCoreClientGenerator</Generator>
-    </None>
-    <None Include="Report2.jsrep">
-      <SubType>Example</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Report3.jsrep">
-      <SubType>Example</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="schema.json" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ServiceReferenceMetadataStorage Include="Service References\ServiceReference1\">
-      <Type>datasvcmap</Type>
-    </ServiceReferenceMetadataStorage>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

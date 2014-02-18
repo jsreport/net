@@ -1,11 +1,10 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
+using System.Net;
 using JsReport;
 using NUnit.Framework;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+using Simple.OData.Client;
 
 namespace jsreport.Client.Test
 {
@@ -17,54 +16,8 @@ namespace jsreport.Client.Test
         [SetUp]
         public void SetUp()
         {
-            _reportingService = new ReportingService("http://localhost:3000/");
-        }
-
-        [Test]
-        public async void should_not_fail_when_creating_templates()
-        {
-            await _reportingService.CreateTemplateAsync(new Template()
-                {
-                    name = "testTemplate",
-                    html = "foo",
-                    engine = "handlebars"
-                });
-        }
-
-        [Test]
-        public async void create_and_get_back_template()
-        {
-            var template = await _reportingService.CreateTemplateAsync(new Template()
-            {
-                name = "testTemplate",
-                html = "foo",
-                helpers = "{ a: function() { return 'a'; }",
-                engine = "handlebars"
-            });
-
-            var templates = await _reportingService.GetTemplatesAsync();
-            
-            Assert.IsTrue(templates.Any(t => t._id == template._id));
-        }
-
-        [Test]
-        public async void create_update_get_back()
-        {
-            var template = await _reportingService.CreateTemplateAsync(new Template()
-            {
-                name = "testTemplate",
-                html = "foo",
-                helpers = "{ a: function() { return 'a'; }",
-                engine = "handlebars"
-            });
-
-            template.name = "updated";
-
-            await _reportingService.UpdateTemplateAsync(template);
-
-            var loaded = _reportingService.QueryTemplate().Where(t => t._id == template._id).ToList().Single();
-            
-            Assert.AreEqual("updated", loaded.name);
+            _reportingService = new ReportingService("https://localhost:3000/");
+            ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
         }
 
         [Test]
@@ -83,104 +36,100 @@ namespace jsreport.Client.Test
             Assert.IsTrue(engines.Count() > 2);
         }
 
+   
         [Test]
-        public async void create_template_and_render_preview()
+        public async void render_and_store_result()
         {
-            var template = await _reportingService.CreateTemplateAsync(new Template()
-            {
-                html = "t{{a}}",
-                engine = "handlebars",
+            var report = await _reportingService.RenderAsync(new RenderRequest() {
+                Template = new Template() { shortid = "ek-9DnfCt" },
+                Options = new RenderOptions() { SaveResult = true }
             });
 
-           var report = await _reportingService.RenderPreviewAsync(new RenderRequest()
-                {
-                    Data = new { a = "x"},
-                    Template = template,
-                });
+            var loadedReport = await _reportingService.ReadReportAsync(report.PermanentLink);
 
-            var reader = new StreamReader(report.Content);
+            var reader = new StreamReader(loadedReport.Content);
 
             var str = reader.ReadToEnd();
-            Assert.AreEqual("tx", str);
+            Assert.IsNotNull(str);
         }
 
         [Test]
-        public async void render_preview_anonymous_template()
+        public async void render_with_additional_overrides()
         {
-            var report = await _reportingService.RenderPreviewAsync(new RenderRequest()
-            {
-                Data = new { a = "x" },
-                Template = new Template()
-                {
-                    html = "t{{a}}",
-                    engine = "handlebars",
-                },
-            });
+            var report = await _reportingService.RenderAsync(new RenderRequest() { 
+                Template = new Template() { 
+                    recipe = "phantom-pdf",
+                    shortid = "ek-9DnfCt",
 
-            var reader = new StreamReader(report.Content);
-
-            var str = reader.ReadToEnd();
-            Assert.AreEqual("tx", str);
-        }
-
-        [Test]
-        public async void create_template_render_and_read_stram()
-        {
-            var template = await _reportingService.CreateTemplateAsync(new Template()
-            {
-                html = "foo",
-                engine = "handlebars",
-                name = "template name"
-            });
-
-            var report = await _reportingService.RenderAsync(new RenderRequest()
-            {
-                Template = template,
-            });
-
-            var stream = await _reportingService.ReadReportStreamAsync(report);
-            Assert.AreEqual("foo", new StreamReader(stream).ReadToEnd());
-        }
-        
-        [Test]
-        public async void recreate_templates_with_drop_should_create_new_template_from_file()
-        {
-            await _reportingService.RecreateTemplatesAsync(RecreateTemplatesOptionsEnum.DropCreate);
-
-            var templates = await _reportingService.GetTemplatesAsync();
-
-            Assert.AreEqual(1, templates.Count());
-        }
-
-        [Test]
-        public async void error_handling()
-        {
-            var template = await _reportingService.CreateTemplateAsync(new Template()
-            {
-                html = "{{for}}t{{a}}",
-                engine = "jsrender",
-            });
-
-            try
-            {
-                await _reportingService.RenderPreviewAsync(new RenderRequest()
+                    additional = new
                     {
-                        Data = new {a = "x"},
-                        Template = template,
-                    });
+                        phantom = new
+                        {
+                            header = "tx",
+                            margin = "2cm"
+                        }
+                    }
+                }
+            });
+            
+            var reader = new StreamReader(report.Content);
 
-                Assert.Fail("Should throw exception");
-            }
-            catch (JsReportException e)
-            {
-                Assert.NotNull(e.ResponseErrorMessage);
-            }
+            var str = reader.ReadToEnd();
+            Assert.IsNotNull("tx");
         }
 
         [Test]
-        public void query_test()
+        public void odata_search_should_work()
         {
-            _reportingService.QueryTemplate();
+            dynamic x = ODataDynamic.Expression;
+
+            var entry = _reportingService.CreateODataClient()
+                             .For(x.templates)
+                             .Filter(x.shortid == "xkz45vhMCt")
+                             .FindEntry();
+
+            Assert.IsNotNull(entry.name);
+        }
+
+
+        [Test]
+        public void odata_update_should_work()
+        {
+            var client = _reportingService.CreateODataClient();            
+
+            dynamic x = ODataDynamic.Expression;
+
+            var entry = client.For(x.templates)
+                             .Filter(x.shortid == "xkz45vhMCt")
+                             .FindEntry();
+
+            client
+                .For(x.templates)
+                .Key(entry._id)
+                .Set(new { name = "foo", _id = entry._id })
+                .UpdateEntry();
+
+            entry = client.For(x.templates)
+                           .Filter(x.shortid == "xkz45vhMCt")
+                           .FindEntry();
+
+            Assert.AreEqual("foo", entry.name);
+        }
+
+        [Test]
+        public void odata_delete_should_work()
+        {
+            var client = _reportingService.CreateODataClient();
+
+            dynamic x = ODataDynamic.Expression;
+
+            var entry = client.For(x.templates)
+                             .Filter(x.shortid == "ek-9DnfCt")
+                             .FindEntry();
+
+            client.For(x.templates)
+                .Key(entry._id)
+                .DeleteEntry();
         }
     }
 }
