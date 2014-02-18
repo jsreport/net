@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ReportDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Timeout>10</Timeout>
+  <SchemaPath>d:\work\jsreport\net\jsreport.client.test\schema.json</SchemaPath>
+  <Engine>handlebars</Engine>
+</ReportDefinition>

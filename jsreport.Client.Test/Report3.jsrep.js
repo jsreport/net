@@ -1,0 +1,5 @@
+﻿{
+    rekniBlbec : function() {
+        return "BLBEC";
+    }
+}
