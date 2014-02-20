@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Dynamic;
+using System.Reflection;
 using Newtonsoft.Json;
+using jsreport.Client;
 
 namespace JsReport
 {
@@ -35,7 +37,7 @@ namespace JsReport
 
             if (Template.additional != null)
             {
-                foreach (var p in Template.additional.GetType().GetProperties())
+                foreach (var p in Template.additional.GetType().GetRuntimeProperties())
                 {
                     ((IDictionary<string, object>)DynamicTemplate)[p.Name] = p.GetValue(Template.additional);
                 }

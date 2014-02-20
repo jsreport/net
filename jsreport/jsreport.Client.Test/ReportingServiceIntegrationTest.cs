@@ -36,11 +36,12 @@ namespace jsreport.Client.Test
             Assert.IsTrue(engines.Count() > 2);
         }
 
-   
+
         [Test]
         public async void render_and_store_result()
         {
-            var report = await _reportingService.RenderAsync(new RenderRequest() {
+            var report = await _reportingService.RenderAsync(new RenderRequest()
+            {
                 Template = new Template() { shortid = "g1xcKBanJc" },
                 Options = new RenderOptions() { SaveResult = true }
             });
@@ -56,8 +57,10 @@ namespace jsreport.Client.Test
         [Test]
         public async void render_with_additional_overrides()
         {
-            var report = await _reportingService.RenderAsync(new RenderRequest() { 
-                Template = new Template() { 
+            var report = await _reportingService.RenderAsync(new RenderRequest()
+            {
+                Template = new Template()
+                {
                     recipe = "phantom-pdf",
                     shortid = "ek-9DnfCt",
 
@@ -71,7 +74,7 @@ namespace jsreport.Client.Test
                     }
                 }
             });
-            
+
             var reader = new StreamReader(report.Content);
 
             var str = reader.ReadToEnd();
@@ -95,7 +98,7 @@ namespace jsreport.Client.Test
         [Test]
         public void odata_update_should_work()
         {
-            var client = _reportingService.CreateODataClient();            
+            var client = _reportingService.CreateODataClient();
 
             dynamic x = ODataDynamic.Expression;
 

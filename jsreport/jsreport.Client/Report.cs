@@ -1,9 +1,7 @@
 ﻿using System.IO;
 using System.Net.Http.Headers;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
 
-namespace JsReport
+namespace jsreport.Client
 {
     public class Report
     {

@@ -20,11 +20,7 @@ namespace JsReport
         public JsReportException(string message, Exception innerException) : base(message, innerException)
         {
         }
-
-        protected JsReportException(SerializationInfo info, StreamingContext context) : base(info, context)
-        {
-        }
-
+        
         public HttpResponseMessage Response { get; set; }
 
         public string ResponseContent { get; set; }

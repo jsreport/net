@@ -1,20 +1,16 @@
 ﻿using System;
-using System.Dynamic;
-using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml;
 using System.Collections.Generic;
+using JsReport;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using Simple.OData.Client;
 
-namespace JsReport
+namespace jsreport.Client
 {
     public class ReportingService
     {
@@ -47,8 +43,6 @@ namespace JsReport
                                                                                                        _username,
                                                                                                        _password))));
             }
-
-            //  client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
             return client;
         }
@@ -116,7 +110,9 @@ namespace JsReport
 
             response.EnsureSuccessStatusCode();
 
-            return await response.Content.ReadAsAsync<IEnumerable<string>>();
+            var content = await response.Content.ReadAsStringAsync();
+            
+            return JsonConvert.DeserializeObject<IEnumerable<string>>(content);
         }
 
         public async Task<IEnumerable<string>> GetEnginesAsync()
@@ -127,7 +123,9 @@ namespace JsReport
 
             response.EnsureSuccessStatusCode();
 
-            return await response.Content.ReadAsAsync<IEnumerable<string>>();
+            var content = await response.Content.ReadAsStringAsync();
+
+            return JsonConvert.DeserializeObject<IEnumerable<string>>(content);
         }
 
         public async Task<string> GetServerVersionAsync()
@@ -150,7 +148,7 @@ namespace JsReport
                             var encoded =
                                 System.Convert.ToBase64String(
                                     System.Text.Encoding.UTF8.GetBytes(_username + ":" + _password));
-                            r.Headers.Add("Authorization", "Basic " + encoded);
+                            r.Headers["Authorization"] = "Basic " + encoded;
                         }
                 });
         }
