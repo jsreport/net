@@ -46,11 +46,15 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>packages\Newtonsoft.Json.6.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="Simple.OData.Client.Net40">
-      <HintPath>packages\Simple.OData.Client.1.1.2\lib\net40\Simple.OData.Client.Net40.dll</HintPath>
+    <Reference Include="Simple.OData.Client.Core">
+      <HintPath>packages\Simple.OData.Client.1.1.2\lib\portable-net403+win8+sl5+wp8+MonoAndroid+MonoTouch\Simple.OData.Client.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Simple.OData.Client.Dynamic">
+      <HintPath>packages\Simple.OData.Client.1.1.2\lib\portable-net403+win8+sl5+wp8+MonoAndroid+MonoTouch\Simple.OData.Client.Dynamic.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Net.Http.Formatting, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -80,7 +84,6 @@
     <None Include="jsreport.snk" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -16,7 +16,7 @@ namespace jsreport.Client.Test
         [SetUp]
         public void SetUp()
         {
-            _reportingService = new ReportingService("https://localhost:3000/");
+            _reportingService = new ReportingService("https://pofider.local.net:3000/", "pofider", "password");
             ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
         }
 
@@ -41,7 +41,7 @@ namespace jsreport.Client.Test
         public async void render_and_store_result()
         {
             var report = await _reportingService.RenderAsync(new RenderRequest() {
-                Template = new Template() { shortid = "ek-9DnfCt" },
+                Template = new Template() { shortid = "g1xcKBanJc" },
                 Options = new RenderOptions() { SaveResult = true }
             });
 
@@ -85,7 +85,7 @@ namespace jsreport.Client.Test
 
             var entry = _reportingService.CreateODataClient()
                              .For(x.templates)
-                             .Filter(x.shortid == "xkz45vhMCt")
+                             .Filter(x.shortid == "g1xcKBanJc")
                              .FindEntry();
 
             Assert.IsNotNull(entry.name);

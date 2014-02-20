@@ -45,9 +45,11 @@
     <Reference Include="nunit.framework">
       <HintPath>..\jsreport.Client\packages\NUnit.2.6.2\lib\nunit.framework.dll</HintPath>
     </Reference>
-    <Reference Include="Simple.OData.Client.Net40, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\jsreport.Client\packages\Simple.OData.Client.1.1.2\lib\net40\Simple.OData.Client.Net40.dll</HintPath>
+    <Reference Include="Simple.OData.Client.Core">
+      <HintPath>..\jsreport.Client\packages\Simple.OData.Client.1.1.2\lib\portable-net403+win8+sl5+wp8+MonoAndroid+MonoTouch\Simple.OData.Client.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Simple.OData.Client.Dynamic">
+      <HintPath>..\jsreport.Client\packages\Simple.OData.Client.1.1.2\lib\portable-net403+win8+sl5+wp8+MonoAndroid+MonoTouch\Simple.OData.Client.Dynamic.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Runtime.Serialization" />
