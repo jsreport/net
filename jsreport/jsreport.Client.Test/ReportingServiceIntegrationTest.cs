@@ -2,7 +2,6 @@
 using System.IO;
 using System.Linq;
 using System.Net;
-using JsReport;
 using NUnit.Framework;
 using Simple.OData.Client;
 
@@ -12,11 +11,24 @@ namespace jsreport.Client.Test
     public class ReportingServiceIntegrationTest
     {
         private ReportingService _reportingService;
+        private ODataClient _oDataClient;
 
         [SetUp]
         public void SetUp()
         {
             _reportingService = new ReportingService("https://pofider.local.net:3000/", "pofider", "password");
+            _oDataClient = new ODataClient(new ODataClientSettings()
+            {
+                UrlBase = "https://pofider.local.net:3000/odata",
+                BeforeRequest = (r) =>
+                {
+                    var encoded =
+                    System.Convert.ToBase64String(
+                        System.Text.Encoding.UTF8.GetBytes("pofider:password"));
+                    r.Headers["Authorization"] = "Basic " + encoded;
+                }
+            });
+
             ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
         }
 
@@ -42,8 +54,8 @@ namespace jsreport.Client.Test
         {
             var report = await _reportingService.RenderAsync(new RenderRequest()
             {
-                Template = new Template() { shortid = "g1xcKBanJc" },
-                Options = new RenderOptions() { SaveResult = true }
+                template = new Template() { shortid = "g1xcKBanJc" },
+                options = new RenderOptions() { saveResult = true }
             });
 
             var loadedReport = await _reportingService.ReadReportAsync(report.PermanentLink);
@@ -59,7 +71,7 @@ namespace jsreport.Client.Test
         {
             var report = await _reportingService.RenderAsync(new RenderRequest()
             {
-                Template = new Template()
+                template = new Template()
                 {
                     recipe = "phantom-pdf",
                     shortid = "ek-9DnfCt",
@@ -86,34 +98,30 @@ namespace jsreport.Client.Test
         {
             dynamic x = ODataDynamic.Expression;
 
-            var entry = _reportingService.CreateODataClient()
-                             .For(x.templates)
+            var entry = _oDataClient.For(x.templates)
                              .Filter(x.shortid == "g1xcKBanJc")
                              .FindEntry();
 
             Assert.IsNotNull(entry.name);
         }
 
-
         [Test]
         public void odata_update_should_work()
         {
-            var client = _reportingService.CreateODataClient();
-
             dynamic x = ODataDynamic.Expression;
 
-            var entry = client.For(x.templates)
-                             .Filter(x.shortid == "xkz45vhMCt")
+            var entry = _oDataClient.For(x.templates)
+                             .Filter(x.shortid == "g1xcKBanJc")
                              .FindEntry();
 
-            client
+            _oDataClient
                 .For(x.templates)
                 .Key(entry._id)
                 .Set(new { name = "foo", _id = entry._id })
                 .UpdateEntry();
 
-            entry = client.For(x.templates)
-                           .Filter(x.shortid == "xkz45vhMCt")
+            entry = _oDataClient.For(x.templates)
+                           .Filter(x.shortid == "g1xcKBanJc")
                            .FindEntry();
 
             Assert.AreEqual("foo", entry.name);
@@ -122,15 +130,13 @@ namespace jsreport.Client.Test
         [Test]
         public void odata_delete_should_work()
         {
-            var client = _reportingService.CreateODataClient();
-
             dynamic x = ODataDynamic.Expression;
 
-            var entry = client.For(x.templates)
+            var entry = _oDataClient.For(x.templates)
                              .Filter(x.shortid == "ek-9DnfCt")
                              .FindEntry();
 
-            client.For(x.templates)
+            _oDataClient.For(x.templates)
                 .Key(entry._id)
                 .DeleteEntry();
         }

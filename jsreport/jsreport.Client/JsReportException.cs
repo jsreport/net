@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Net.Http;
-using System.Runtime.Serialization;
 using Newtonsoft.Json.Linq;
 
-namespace JsReport
+namespace jsreport.Client
 {
     public class JsReportException : Exception 
     {

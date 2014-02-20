@@ -1,16 +1,16 @@
 ﻿using Newtonsoft.Json;
 
-namespace JsReport
+namespace jsreport.Client
 {
     public class RenderOptions
     {
         [JsonProperty("timeout")]
-        public int Timeout { get; set; }
+        public int timeout { get; set; }
 
         [JsonProperty("recipe")]
-        public string Recipe { get; set; }
+        public string recipe { get; set; }
 
         [JsonProperty("saveResult")]
-        public bool SaveResult { get; set; }
+        public bool saveResult { get; set; }
     }
 }

@@ -6,9 +6,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-using JsReport;
 using Newtonsoft.Json;
-using Simple.OData.Client;
 
 namespace jsreport.Client
 {
@@ -18,14 +16,15 @@ namespace jsreport.Client
         private readonly string _password;
         public Uri ServiceUri { get; set; }
 
-        public int Timeout { get; set; }
-
-        public ReportingService(string serviceUri, string username, string password)
+        public ReportingService(string serviceUri, string username, string password) : this(serviceUri)
         {
             _username = username;
             _password = password;
+        }
+
+        public ReportingService(string serviceUri)
+        {
             ServiceUri = new Uri(serviceUri);
-            Timeout = 5000;
         }
 
         private HttpClient CreateClient()
@@ -34,22 +33,25 @@ namespace jsreport.Client
 
             if (_username != null)
             {
-                //ASCII
-                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic",
-                                                                                           System.Convert.ToBase64String
-                                                                                               (Encoding.UTF8.GetBytes(
-                                                                                                   String.Format(
-                                                                                                       "{0}:{1}",
-                                                                                                       _username,
-                                                                                                       _password))));
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", System.Convert.ToBase64String(
+                    Encoding.UTF8.GetBytes(String.Format("{0}:{1}",_username,_password))));
             }
 
             return client;
         }
 
+        public async Task<Report> RenderAsync(string templateShortid, object data)
+        {
+            return await RenderAsync(new RenderRequest()
+            {
+                template = new Template() { shortid = templateShortid },
+                data = data
+            });
+        }
+
         public async Task<Report> RenderAsync(RenderRequest request)
         {
-            request.Options = request.Options ?? new RenderOptions();
+            request.options = request.options ?? new RenderOptions();
             request.CopyToDynamicTemplate();
 
             var client = CreateClient();
@@ -133,24 +135,6 @@ namespace jsreport.Client
             var client = CreateClient();
 
             return await client.GetStringAsync("/api/version");
-        }
-
-        public ODataClient CreateODataClient()
-        {
-            return new ODataClient(new ODataClientSettings()
-                {
-                    UrlBase = ServiceUri.ToString() + "odata",
-                    BeforeRequest = (r) =>
-                        {
-                            if (_username == null)
-                                return;
-
-                            var encoded =
-                                System.Convert.ToBase64String(
-                                    System.Text.Encoding.UTF8.GetBytes(_username + ":" + _password));
-                            r.Headers["Authorization"] = "Basic " + encoded;
-                        }
-                });
         }
     }
 }

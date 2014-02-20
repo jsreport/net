@@ -2,44 +2,43 @@
 using System.Dynamic;
 using System.Reflection;
 using Newtonsoft.Json;
-using jsreport.Client;
 
-namespace JsReport
+namespace jsreport.Client
 {
     public class RenderRequest
     {
         [JsonIgnore]
-        public Template Template { get; set; }
+        public Template template { get; set; }
 
         [JsonProperty("template")]
-        public dynamic DynamicTemplate { get; set; }
+        public dynamic dynamicTemplate { get; set; }
 
         [JsonProperty("data")]
-        public object Data { get; set; }
+        public object data { get; set; }
 
         [JsonProperty("options")]
-        public RenderOptions Options { get; set; }
+        public RenderOptions options { get; set; }
 
         internal void CopyToDynamicTemplate()
         {
-            DynamicTemplate = new ExpandoObject();
+            dynamicTemplate = new ExpandoObject();
 
-            if (Template.html != null)
-                DynamicTemplate.html = Template.html;
-            if (Template.helpers != null)
-                DynamicTemplate.helpers = Template.helpers;
-            if (Template.shortid != null)
-                DynamicTemplate.shortid = Template.shortid;
-            if (Template.recipe != null)
-                DynamicTemplate.recipe = Template.recipe;
-            if (Template.engine != null)
-                DynamicTemplate.engine = Template.engine;
+            if (template.html != null)
+                dynamicTemplate.html = template.html;
+            if (template.helpers != null)
+                dynamicTemplate.helpers = template.helpers;
+            if (template.shortid != null)
+                dynamicTemplate.shortid = template.shortid;
+            if (template.recipe != null)
+                dynamicTemplate.recipe = template.recipe;
+            if (template.engine != null)
+                dynamicTemplate.engine = template.engine;
 
-            if (Template.additional != null)
+            if (template.additional != null)
             {
-                foreach (var p in Template.additional.GetType().GetRuntimeProperties())
+                foreach (var p in template.additional.GetType().GetRuntimeProperties())
                 {
-                    ((IDictionary<string, object>)DynamicTemplate)[p.Name] = p.GetValue(Template.additional);
+                    ((IDictionary<string, object>)dynamicTemplate)[p.Name] = p.GetValue(template.additional);
                 }
             }
             

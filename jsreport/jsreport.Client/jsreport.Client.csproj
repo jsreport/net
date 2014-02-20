@@ -50,12 +50,6 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.6.0.1\lib\portable-net45+wp80+win8\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="Simple.OData.Client.Core">
-      <HintPath>..\packages\Simple.OData.Client.1.1.2\lib\portable-net403+win8+sl5+wp8+MonoAndroid+MonoTouch\Simple.OData.Client.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Simple.OData.Client.Dynamic">
-      <HintPath>..\packages\Simple.OData.Client.1.1.2\lib\portable-net403+win8+sl5+wp8+MonoAndroid+MonoTouch\Simple.OData.Client.Dynamic.dll</HintPath>
-    </Reference>
     <Reference Include="System.Net.Http">
       <HintPath>..\packages\Microsoft.Net.Http.2.2.18\lib\portable-net40+sl4+win8+wp71\System.Net.Http.dll</HintPath>
     </Reference>
