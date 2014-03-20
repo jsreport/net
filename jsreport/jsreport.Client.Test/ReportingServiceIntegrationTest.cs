@@ -16,20 +16,20 @@ namespace jsreport.Client.Test
         [SetUp]
         public void SetUp()
         {
-            _reportingService = new ReportingService("https://pofider.local.net:3000/", "pofider", "password");
+            ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
+
+            _reportingService = new ReportingService("https://local.net:3000/", "pofider@pofider.com", "password");
             _oDataClient = new ODataClient(new ODataClientSettings()
             {
-                UrlBase = "https://pofider.local.net:3000/odata",
+                UrlBase = "https://local.net:3000/odata",
                 BeforeRequest = (r) =>
                 {
                     var encoded =
                     System.Convert.ToBase64String(
-                        System.Text.Encoding.UTF8.GetBytes("pofider:password"));
+                        System.Text.Encoding.UTF8.GetBytes("pofider@pofider.com:password"));
                     r.Headers["Authorization"] = "Basic " + encoded;
                 }
             });
-
-            ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
         }
 
         [Test]
@@ -54,7 +54,7 @@ namespace jsreport.Client.Test
         {
             var report = await _reportingService.RenderAsync(new RenderRequest()
             {
-                template = new Template() { shortid = "g1xcKBanJc" },
+                template = new Template() { shortid = "ekVX9G9crc" },
                 options = new RenderOptions() { saveResult = true }
             });
 

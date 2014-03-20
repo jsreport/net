@@ -8,7 +8,7 @@ namespace jsreport.Client
 
         public string shortid { get; set; }
         
-        public string html { get; set; }
+        public string content { get; set; }
         
         public string helpers { get; set; }
 

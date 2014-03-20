@@ -1,24 +1,24 @@
 ﻿<?xml version="1.0"?>
 <package xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
-    <id>jsreport.Client</id>
-    <title>jsreport Client</title>
+    <id>jsreport.MVC</id>
+    <title>jsreport asp.net mvc integration</title>
     <authors>Jan Blaha</authors>
     <version>0.0.0.0</version>
     <owners>Jan Blaha</owners>
-    <description>Client for jsreport, javascript based platform for designing and rendering business reports. </description>
+    <description>Pdf rendering from asp.net views using jsreport.</description>
     <projectUrl>http://jsreport.net</projectUrl>
     <licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
     <iconUrl>http://jsreport.net/img/favicon.ico</iconUrl>
     <copyright>Copyright 2013-2014 Jan Blaha</copyright>
     <language>en-us</language>
-    <tags>jsreport client</tags>
+    <tags>jsreport asp.net mvc</tags>
     <dependencies>
-      <dependency id="Microsoft.Net.Http" version="2.2.18" />
-      <dependency id="Newtonsoft.Json" version="6.0.1"/>     
+      <dependency id="Microsoft.AspNet.Mvc " version="5.0.0" />      
+      <dependency id="jsreport.Client" version="0.0.4"/>
     </dependencies>
   </metadata>
-  <files>   
-    <file src="jsreport.Client\bin\Release\jsreport.Client.dll" target="lib\jsreport.Client.dll" />    
+  <files>
+    <file src="jsreport.MVC\bin\Release\jsreport.MVC.dll" target="lib\net45\jsreport.MVC.dll" />
   </files>
 </package>

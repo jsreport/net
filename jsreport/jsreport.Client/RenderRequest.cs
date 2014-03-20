@@ -23,8 +23,8 @@ namespace jsreport.Client
         {
             dynamicTemplate = new ExpandoObject();
 
-            if (template.html != null)
-                dynamicTemplate.html = template.html;
+            if (template.content != null)
+                dynamicTemplate.content = template.content;
             if (template.helpers != null)
                 dynamicTemplate.helpers = template.helpers;
             if (template.shortid != null)

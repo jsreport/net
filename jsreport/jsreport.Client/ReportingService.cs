@@ -10,7 +10,7 @@ using Newtonsoft.Json;
 
 namespace jsreport.Client
 {
-    public class ReportingService
+    public class ReportingService 
     {
         private readonly string _username;
         private readonly string _password;
@@ -46,7 +46,7 @@ namespace jsreport.Client
             {
                 template = new Template() { shortid = templateShortid },
                 data = data
-            });
+            }).ConfigureAwait(false);
         }
 
         public async Task<Report> RenderAsync(RenderRequest request)
@@ -64,25 +64,26 @@ namespace jsreport.Client
                 await
                 client.PostAsync("/api/report",
                                  new StringContent(JsonConvert.SerializeObject(request, settings), Encoding.UTF8,
-                                                   "application/json"));
+                                                   "application/json")).ConfigureAwait(false);
 
             if (response.StatusCode != HttpStatusCode.OK)
                 throw new JsReportException("Unable to render template. ", response);
 
             response.EnsureSuccessStatusCode();
 
-            return await ReportFromResponse(response);
+            return await ReportFromResponse(response).ConfigureAwait(false);
         }
 
         private static async Task<Report> ReportFromResponse(HttpResponseMessage response)
         {
-            var stream = await response.Content.ReadAsStreamAsync();
+            var stream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
 
             return new Report
                 {
                     Content = stream,
                     ContentType = response.Content.Headers.ContentType,
-                    FileExtension = response.Headers.Single(k => k.Key == "File-Extension").Value.First(),
+                    FileExtension =  response.Headers.Any(k => k.Key == "Permanent-Link") ?
+                            response.Headers.Single(k => k.Key == "File-Extension").Value.First() : null,
                     PermanentLink =
                         response.Headers.Any(k => k.Key == "Permanent-Link")
                             ? response.Headers.Single(k => k.Key == "Permanent-Link").Value.First()
@@ -94,25 +95,25 @@ namespace jsreport.Client
         {
             var client = CreateClient();
 
-            var response = await client.GetAsync(permanentLink);
+            var response = await client.GetAsync(permanentLink).ConfigureAwait(false);
 
             if (response.StatusCode != HttpStatusCode.OK)
                 throw new JsReportException("Unable to retrieve report content. ", response);
 
             response.EnsureSuccessStatusCode();
 
-            return await ReportFromResponse(response);
+            return await ReportFromResponse(response).ConfigureAwait(false);
         }
 
         public async Task<IEnumerable<string>> GetRecipesAsync()
         {
             var client = CreateClient();
 
-            var response = await client.GetAsync("/api/recipe");
+            var response = await client.GetAsync("/api/recipe").ConfigureAwait(false);
 
             response.EnsureSuccessStatusCode();
 
-            var content = await response.Content.ReadAsStringAsync();
+            var content = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
             
             return JsonConvert.DeserializeObject<IEnumerable<string>>(content);
         }
@@ -121,11 +122,11 @@ namespace jsreport.Client
         {
             var client = CreateClient();
 
-            var response = await client.GetAsync("/api/engine");
+            var response = await client.GetAsync("/api/engine").ConfigureAwait(false);
 
             response.EnsureSuccessStatusCode();
 
-            var content = await response.Content.ReadAsStringAsync();
+            var content = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
 
             return JsonConvert.DeserializeObject<IEnumerable<string>>(content);
         }
@@ -134,7 +135,7 @@ namespace jsreport.Client
         {
             var client = CreateClient();
 
-            return await client.GetStringAsync("/api/version");
+            return await client.GetStringAsync("/api/version").ConfigureAwait(false);
         }
     }
 }
