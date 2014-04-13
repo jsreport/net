@@ -49,6 +49,15 @@ namespace jsreport.Client
             }).ConfigureAwait(false);
         }
 
+        public async Task<Report> RenderAsync(string templateShortid, int version, object data)
+        {
+            return await RenderAsync(new RenderRequest()
+            {
+                template = new Template() { shortid = templateShortid, version = version},
+                data = data
+            }).ConfigureAwait(false);
+        }
+
         public async Task<Report> RenderAsync(RenderRequest request)
         {
             request.options = request.options ?? new RenderOptions();
