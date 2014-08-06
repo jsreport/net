@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "jsreport.Client", "jsreport.Client\jsreport.Client.csproj", "{FAE7D435-2660-4745-97B6-438FBFB22905}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "jsreport.Client.Test", "jsreport.Client.Test\jsreport.Client.Test.csproj", "{B4F1BE1A-0325-41A2-B3AB-1721F61F4B29}"
@@ -15,12 +17,17 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F0E1E229-E3B3-4D48-AA4D-3BE2BFAFDA20}"
 	ProjectSection(SolutionItems) = preProject
 		jsreport.Client.nuspec = jsreport.Client.nuspec
+		jsreport.Embedded.nuspec = jsreport.Embedded.nuspec
 		jsreport.MVC.nuspec = jsreport.MVC.nuspec
 		NugetPack.cmd = NugetPack.cmd
 		NugetPush.cmd = NugetPush.cmd
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "jsreport.MVC", "jsreport.MVC\jsreport.MVC.csproj", "{A034C198-7D8D-4B0F-B202-4D11AFBD0431}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "jsreport.Embedded", "jsreport.Embedded\jsreport.Embedded.csproj", "{5A6C35FD-7AAF-4583-AD41-3B6AEDE96D41}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "jsreport.Embedded.Test", "jsreport.Embedded.Test\jsreport.Embedded.Test.csproj", "{499A473C-2B66-4DBA-8B65-FC0B760C5B87}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -40,6 +47,14 @@ Global
 		{A034C198-7D8D-4B0F-B202-4D11AFBD0431}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A034C198-7D8D-4B0F-B202-4D11AFBD0431}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A034C198-7D8D-4B0F-B202-4D11AFBD0431}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A6C35FD-7AAF-4583-AD41-3B6AEDE96D41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A6C35FD-7AAF-4583-AD41-3B6AEDE96D41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A6C35FD-7AAF-4583-AD41-3B6AEDE96D41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A6C35FD-7AAF-4583-AD41-3B6AEDE96D41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{499A473C-2B66-4DBA-8B65-FC0B760C5B87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{499A473C-2B66-4DBA-8B65-FC0B760C5B87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{499A473C-2B66-4DBA-8B65-FC0B760C5B87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{499A473C-2B66-4DBA-8B65-FC0B760C5B87}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

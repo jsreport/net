@@ -19,6 +19,7 @@
     </dependencies>
   </metadata>
   <files>   
-    <file src="jsreport.Client\bin\Release\jsreport.Client.dll" target="lib\jsreport.Client.dll" />    
+    <file src="jsreport.Client\bin\Release\jsreport.Client.dll" target="lib\jsreport.Client.dll" />
+    <file src="jsreport.Client\bin\Debug\jsreport.Client.pdb" target="lib\jsreport.Client.pdb" />
   </files>
 </package>

@@ -4,6 +4,12 @@ namespace jsreport.Client
 {
     public class Template
     {
+        public Template()
+        {
+            //engine = "handlebars";
+            //recipe = "phantom-pdf";
+        }
+
         public string _id { get; set; }
 
         public string shortid { get; set; }
@@ -17,6 +23,8 @@ namespace jsreport.Client
         public string engine { get; set; }
 
         public string recipe { get; set; }
+
+        public string name { get; set; }
 
         [JsonIgnore()]
         public object additional { get; set; }

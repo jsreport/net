@@ -20,5 +20,6 @@
   </metadata>
   <files>
     <file src="jsreport.MVC\bin\Release\jsreport.MVC.dll" target="lib\net45\jsreport.MVC.dll" />
+    <file src="jsreport.MVC\bin\Debug\jsreport.MVC.pdb" target="lib\net45\jsreport.MVC.pdb" />
   </files>
 </package>

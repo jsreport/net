@@ -91,8 +91,7 @@ namespace jsreport.Client
                 {
                     Content = stream,
                     ContentType = response.Content.Headers.ContentType,
-                    FileExtension =  response.Headers.Any(k => k.Key == "Permanent-Link") ?
-                            response.Headers.Single(k => k.Key == "File-Extension").Value.First() : null,
+                    FileExtension =  response.Headers.Any(k => k.Key == "File-Extension") ? response.Headers.Single(k => k.Key == "File-Extension").Value.First() : null,
                     PermanentLink =
                         response.Headers.Any(k => k.Key == "Permanent-Link")
                             ? response.Headers.Single(k => k.Key == "Permanent-Link").Value.First()
