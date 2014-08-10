@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using NUnit.Framework;
 using Simple.OData.Client;
+using jsreport.Client.Entities;
 
 namespace jsreport.Client.Test
 {

@@ -7,9 +7,6 @@ namespace jsreport.Client
         [JsonProperty("timeout")]
         public int timeout { get; set; }
 
-        [JsonProperty("recipe")]
-        public string recipe { get; set; }
-
         [JsonProperty("saveResult")]
         public bool saveResult { get; set; }
     }

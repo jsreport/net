@@ -94,6 +94,12 @@
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="ReportSchema1.jsrep.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Schemas\NestedSchema.jsrep.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\jsreport.Client\jsreport.Client.csproj">
@@ -106,6 +112,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Image1.jsrep.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Report1.jsrep.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Report1.jsrep</DependentUpon>

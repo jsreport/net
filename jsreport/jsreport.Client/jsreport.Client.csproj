@@ -25,6 +25,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\jsreport.Client.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -41,13 +42,17 @@
     <AssemblyOriginatorKeyFile>jsreport.Client.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Entities\DataItem.cs" />
+    <Compile Include="Entities\Image.cs" />
+    <Compile Include="Entities\Phantom.cs" />
+    <Compile Include="IReportingService.cs" />
     <Compile Include="JsReportException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RenderOptions.cs" />
     <Compile Include="RenderRequest.cs" />
     <Compile Include="Report.cs" />
     <Compile Include="ReportingService.cs" />
-    <Compile Include="Template.cs" />
+    <Compile Include="Entities\Template.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp">

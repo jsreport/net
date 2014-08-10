@@ -7,10 +7,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using jsreport.Client.Entities;
 
 namespace jsreport.Client
 {
-    public class ReportingService 
+    /// <summary>
+    /// jsreport API .net Wrapper
+    /// </summary>
+    public class ReportingService : IReportingService
     {
         private readonly string _username;
         private readonly string _password;
@@ -40,6 +44,14 @@ namespace jsreport.Client
             return client;
         }
 
+
+        /// <summary>
+        /// The simpliest rendering using template shortid and input data
+        /// </summary>
+        /// <param name="templateShortid">template shortid can be taken from jsreport studio or from filename in jsreport embedded</param>
+        /// <param name="data">any json serializable object</param>
+        /// <exception cref="JsReportException"></exception>
+        /// <returns>Report result promise</returns>
         public async Task<Report> RenderAsync(string templateShortid, object data)
         {
             return await RenderAsync(new RenderRequest()
@@ -49,6 +61,14 @@ namespace jsreport.Client
             }).ConfigureAwait(false);
         }
 
+        /// <summary>
+        /// The simpliest rendering using template shortid and input data used with https://playground.jsreport.net
+        /// </summary>
+        /// <param name="templateShortid">template shortid can be taken from jsreport playground studio</param>
+        /// <param name="data">any json serializable object</param>
+        /// <param name="version">template version number taken from playground</param>
+        /// <exception cref="JsReportException"></exception>
+        /// <returns>Report result promise</returns>
         public async Task<Report> RenderAsync(string templateShortid, int version, object data)
         {
             return await RenderAsync(new RenderRequest()
@@ -58,6 +78,12 @@ namespace jsreport.Client
             }).ConfigureAwait(false);
         }
 
+        /// <summary>
+        /// Overload for more sophisticated rendering.
+        /// </summary>
+        /// <param name="request">ram name="request">Description of rendering process <see cref="RenderRequest"/></param>
+        /// <exception cref="JsReportException"></exception>
+        /// <returns>Report result promise</returns>
         public async Task<Report> RenderAsync(RenderRequest request)
         {
             request.options = request.options ?? new RenderOptions();
@@ -76,7 +102,7 @@ namespace jsreport.Client
                                                    "application/json")).ConfigureAwait(false);
 
             if (response.StatusCode != HttpStatusCode.OK)
-                throw new JsReportException("Unable to render template. ", response);
+                throw JsReportException.Create("Unable to render template. ", response);
 
             response.EnsureSuccessStatusCode();
 
@@ -99,6 +125,12 @@ namespace jsreport.Client
                 };
         }
 
+        /// <summary>
+        /// Reads previously rendered report. see http://jsreport.net/learn/reports
+        /// </summary>
+        /// <param name="permanentLink">link Report.PernamentLink from previously rendered report</param>
+        /// <exception cref="JsReportException"></exception>
+        /// <returns>Report result promise</returns>
         public async Task<Report> ReadReportAsync(string permanentLink)
         {
             var client = CreateClient();
@@ -106,13 +138,17 @@ namespace jsreport.Client
             var response = await client.GetAsync(permanentLink).ConfigureAwait(false);
 
             if (response.StatusCode != HttpStatusCode.OK)
-                throw new JsReportException("Unable to retrieve report content. ", response);
+                throw JsReportException.Create("Unable to retrieve report content. ", response);
 
             response.EnsureSuccessStatusCode();
 
             return await ReportFromResponse(response).ConfigureAwait(false);
         }
 
+        /// <summary>
+        /// Request list of recipes registered in jsreport server
+        /// </summary>
+        /// <returns>list of recipes names</returns>
         public async Task<IEnumerable<string>> GetRecipesAsync()
         {
             var client = CreateClient();
@@ -126,6 +162,10 @@ namespace jsreport.Client
             return JsonConvert.DeserializeObject<IEnumerable<string>>(content);
         }
 
+        /// <summary>
+        /// Request list of engines registered in jsreport server
+        /// </summary>
+        /// <returns>list of recipes names</returns>
         public async Task<IEnumerable<string>> GetEnginesAsync()
         {
             var client = CreateClient();
@@ -139,6 +179,10 @@ namespace jsreport.Client
             return JsonConvert.DeserializeObject<IEnumerable<string>>(content);
         }
 
+        /// <summary>
+        /// Request jsreport package version
+        /// </summary>
+        /// <returns></returns>
         public async Task<string> GetServerVersionAsync()
         {
             var client = CreateClient();
