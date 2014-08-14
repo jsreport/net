@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net.Http;
+using System.Runtime.Serialization;
 using Newtonsoft.Json.Linq;
 
 namespace jsreport.Client
@@ -7,6 +8,7 @@ namespace jsreport.Client
     /// <summary>
     /// Exception used when communication with jsreport fails
     /// </summary>
+    [Serializable]
     public class JsReportException : Exception
     {
         public JsReportException()
@@ -34,7 +36,7 @@ namespace jsreport.Client
         /// <summary>
         /// Original response from jsreport server
         /// </summary>
-        /// 
+        [IgnoreDataMember]
         public HttpResponseMessage Response { get; set; }
 
         /// <summary>
@@ -48,6 +50,11 @@ namespace jsreport.Client
             var responseMessage = JObject.Parse(responseContent)["message"].Value<string>();
 
             return new JsReportException(message + " " + responseMessage, responseContent, responseMessage, response);
+        }
+
+        public override string ToString()
+        {
+            return ResponseErrorMessage;
         }
     }
 }

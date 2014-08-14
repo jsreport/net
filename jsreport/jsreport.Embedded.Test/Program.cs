@@ -18,7 +18,9 @@ namespace jsreport.Embedded.Test
         {
             var embededReportingServer = new EmbeddedReportingServer() { PingTimeout = new TimeSpan(0,0,10)};
             embededReportingServer.StartAsync().Wait();
-            embededReportingServer.SynchronizeTemplatesAsync().Wait();
+
+            var reportingService = new ReportingService(embededReportingServer.EmbeddedServerUri);
+            reportingService.SynchronizeTemplatesAsync().Wait();
             Thread.Sleep(15000);
 
             var rs = new ReportingService("http://localhost:2000");

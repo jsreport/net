@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Net.Http.Headers;
 
 namespace jsreport.Client
@@ -6,6 +7,7 @@ namespace jsreport.Client
     /// <summary>
     /// Output of jsreport rendering process
     /// </summary>
+    [Serializable]
     public class Report
     {
         /// <summary>

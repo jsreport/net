@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using jsreport.Client;
 
 namespace jsreport.Embedded
 {
@@ -24,11 +25,6 @@ namespace jsreport.Embedded
         Task StopAsync();
 
         /// <summary>
-        /// Synchronize all *.jsrep files into jsreport server including images and schema json files
-        /// </summary>
-        Task SynchronizeTemplatesAsync();
-
-        /// <summary>
         /// Relative path (from bin) to directory where the jsreport server should be exreacted  and where it should run
         /// You want to use something like ../App_Data for web applications and just null for other types of applications 
         /// where jsreport can stay in bin folder
@@ -46,5 +42,10 @@ namespace jsreport.Embedded
         /// PingTimeout specifies time how to keep jsreport nodejs process runing when no ping is comming from .NET
         /// </summary>
         TimeSpan PingTimeout { get; set; }
+
+        /// <summary>
+        /// Shortcut to new ReportingService(EmbeddedServerUri)
+        /// </summary>
+        IReportingService ReportingService { get;}
     }
 }

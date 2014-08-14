@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Dynamic;
 using System.Reflection;
 using Newtonsoft.Json;
@@ -57,6 +58,18 @@ namespace jsreport.Client
                 }
             }
             
+        }
+
+        public void Validate()
+        {
+            if (template == null)
+                throw new ArgumentNullException("template cannot be null");
+
+            if (template.shortid == null && string.IsNullOrEmpty(template.recipe))
+                throw new ArgumentNullException("recipe cannot be null");
+
+            if (template.shortid == null &&  string.IsNullOrEmpty(template.content))
+                throw new ArgumentNullException("template.content cannot be null");
         }
     }
 }

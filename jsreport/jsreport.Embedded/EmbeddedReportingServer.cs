@@ -44,6 +44,13 @@ namespace jsreport.Embedded
         /// </summary>
         public TimeSpan PingTimeout { get; set; }
 
+        /// <summary>
+        /// Shortcut to new ReportingService(EmbeddedServerUri)
+        /// </summary>
+        public IReportingService ReportingService {
+            get { return new ReportingService(EmbeddedServerUri);  }
+        }
+
         //used in visual studio tools to override AssemblyDirectory, because there we get some visual studio location folder...
         public string BinPath { get; set; }
 
@@ -239,150 +246,6 @@ namespace jsreport.Embedded
             }
         }
 
-        private IEnumerable<string> ValidateUniquenes(IEnumerable<string> files)
-        {
-            var firstNonUnique = files.Select(Path.GetFileName).GroupBy(f => f).Where(g => g.Count() > 1).Select(g => g.Key).FirstOrDefault();
-            
-            if (firstNonUnique != null)
-                throw new InvalidOperationException("Non unique item found during jsreprot synchronization: " + firstNonUnique);
-
-            return files;
-        }
-
-        /// <summary>
-        /// Synchronize all *.jsrep files into jsreport server including images and schema json files
-        /// </summary>
-        public async Task SynchronizeTemplatesAsync()
-        {
-            string path = AssemblyDirectory;
-
-            ODataClient client = CreateODataClient();
-
-            await SynchronizeImagesAsync(client, path).ConfigureAwait(false);
-            await SynchronizeSchemasAsync(client, path).ConfigureAwait(false);
-
-            foreach (string reportFilePath in ValidateUniquenes(Directory.GetFiles(path, "*.jsrep", SearchOption.AllDirectories)))
-            {
-                string reportName = Path.GetFileNameWithoutExtension(reportFilePath);
-
-                string content = File.ReadAllText(reportFilePath + ".html");
-                string helpers = File.ReadAllText(reportFilePath + ".js");
-
-
-                var serializer = new XmlSerializer(typeof (ReportDefinition));
-                var reportDefinition = serializer.Deserialize(new StreamReader(reportFilePath)) as ReportDefinition;
-
-                Template template =
-                    await
-                    (client.For<Template>().Filter(x => x.name == reportName).FindEntryAsync()).ConfigureAwait(false);
-
-                dynamic operation = new ExpandoObject();
-                operation.name = reportName;
-                operation.shortid = reportName;
-                operation.engine = reportDefinition.Engine;
-                operation.recipe = reportDefinition.Recipe;
-
-                if (!string.IsNullOrEmpty(reportDefinition.Schema))
-                    operation.dataItemId = reportDefinition.Schema;
-
-                operation.content = content;
-                operation.helpers = helpers;
-
-                if (reportDefinition.Phantom != null && reportDefinition.Phantom.IsDirty)
-                {
-                    operation.phantom = new ExpandoObject();
-
-                    if (reportDefinition.Phantom.Margin != null)
-                        operation.phantom.margin = reportDefinition.Phantom.Margin;
-
-                    if (reportDefinition.Phantom.Header != null)
-                        operation.phantom.header = reportDefinition.Phantom.Header;
-
-                    if (reportDefinition.Phantom.HeaderHeight != null)
-                        operation.phantom.headerHeight = reportDefinition.Phantom.HeaderHeight;
-
-                    if (reportDefinition.Phantom.Footer != null)
-                        operation.phantom.footer = reportDefinition.Phantom.Footer;
-
-                    if (reportDefinition.Phantom.FooterHeight != null)
-                        operation.phantom.footerHeight = reportDefinition.Phantom.FooterHeight;
-
-                    if (reportDefinition.Phantom.Orientation != null)
-                        operation.phantom.orientation = reportDefinition.Phantom.Orientation;
-
-                    if (reportDefinition.Phantom.Format != null)
-                        operation.phantom.format = reportDefinition.Phantom.Format;
-
-                    if (reportDefinition.Phantom.Width != null)
-                        operation.phantom.width = reportDefinition.Phantom.Width;
-
-                    if (reportDefinition.Phantom.Height != null)
-                        operation.phantom.height = reportDefinition.Phantom.Height;
-                }
-
-                if (template == null)
-                {
-                    await ((Task) client.For<Template>().Set(operation).InsertEntryAsync()).ConfigureAwait(false);
-                }
-                else
-                {
-                    operation._id = template._id;
-                    await
-                        ((Task)
-                         client.For<Template>().Filter(x => x.name == reportName).Set(operation).UpdateEntryAsync())
-                            .ConfigureAwait(false);
-                }
-            }
-        }
-
-        private async Task SynchronizeImagesAsync(ODataClient client, string path)
-        {
-            foreach (string imagePath in ValidateUniquenes(Directory.GetFiles(path, "*.jsrep.png", SearchOption.AllDirectories)))
-            {
-                string imageName = Path.GetFileNameWithoutExtension(Path.GetFileNameWithoutExtension(imagePath));
-                dynamic operation = new ExpandoObject();
-                operation.content = File.ReadAllBytes(imagePath);
-                operation.shortid = imageName;
-                operation.name = operation.shortid;
-
-                var image = await (client.For<Image>().Filter(x => x.name == imageName).FindEntryAsync()).ConfigureAwait(false);
-
-                if (image == null)
-                {
-                    await ((Task)client.For<Image>().Set(operation).InsertEntryAsync()).ConfigureAwait(false);
-                }
-                else
-                {
-                    operation._id = image._id;
-                    await ((Task)client.For<Image>().Filter(x => x.name == imageName).Set(operation).UpdateEntryAsync()).ConfigureAwait(false);
-                }
-            }
-        }
-
-        private async Task SynchronizeSchemasAsync(ODataClient client, string path)
-        {
-            foreach (string dataItemPath in ValidateUniquenes(Directory.GetFiles(path, "*.jsrep.json", SearchOption.AllDirectories)))
-            {
-                var dataItemName = Path.GetFileNameWithoutExtension(Path.GetFileNameWithoutExtension(dataItemPath));
-                dynamic operation = new ExpandoObject();
-                operation.dataJson = File.ReadAllText(dataItemPath);
-                operation.shortid = dataItemName;
-                operation.name = operation.shortid;
-
-                var dataItem = await (client.For<DataItem>("data").Filter(x => x.name == dataItemName).FindEntryAsync()).ConfigureAwait(false);
-
-                if (dataItem == null)
-                {
-                    await ((Task)client.For<DataItem>("data").Set(operation).InsertEntryAsync()).ConfigureAwait(false);
-                }
-                else
-                {
-                    operation._id = dataItem._id;
-                    await ((Task)client.For<DataItem>("data").Filter(x => x.name == dataItemName).Set(operation).UpdateEntryAsync()).ConfigureAwait(false);
-                }
-            }
-        }
-
         public void CleanServerData()
         {
             InitializeServerPath();
@@ -390,14 +253,6 @@ namespace jsreport.Embedded
             string dataPath = Path.Combine(AbsolutePathToServer, "jsreport-net-embedded", "data");
             if (Directory.Exists(dataPath))
                 Directory.Delete(dataPath, true);
-        }
-
-        public ODataClient CreateODataClient()
-        {
-            return new ODataClient(new ODataClientSettings
-                {
-                    UrlBase = EmbeddedServerUri + "/odata",
-                });
         }
 
         private void DomainUnloadOrProcessExit(object sender, EventArgs e)

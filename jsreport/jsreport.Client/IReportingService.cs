@@ -22,6 +22,15 @@ namespace jsreport.Client
         /// <exception cref="JsReportException"></exception>
         /// <returns>Report result promise</returns>
         Task<Report> RenderAsync(string templateShortid, object data);
+
+        /// <summary>
+        /// The simpliest rendering using template shortid and input data
+        /// </summary>
+        /// <param name="templateShortid">template shortid can be taken from jsreport studio or from filename in jsreport embedded</param>
+        /// <param name="jsonData">any json string</param>
+        /// <exception cref="JsReportException"></exception>
+        /// <returns>Report result promise</returns>
+        Task<Report> RenderAsync(string templateShortid, string jsonData);
         
         /// <summary>
         /// The simpliest rendering using template shortid and input data used with https://playground.jsreport.net
@@ -66,5 +75,12 @@ namespace jsreport.Client
         /// </summary>
         /// <returns></returns>
         Task<string> GetServerVersionAsync();
+
+        /// <summary>
+        /// Synchronize all *.jsrep files into jsreport server including images and schema json files
+        /// </summary>
+        Task SynchronizeTemplatesAsync();
+
+        Task CreateOrUpdateSchema(string name, string content);
     }
 }

@@ -16,6 +16,7 @@
     <dependencies>
       <dependency id="Microsoft.AspNet.Mvc " version="5.0.0" />      
       <dependency id="jsreport.Client" version="0.0.4"/>
+      <dependency id="Microsoft.Bcl.Async" version="1.0.168"/>
     </dependencies>
   </metadata>
   <files>
