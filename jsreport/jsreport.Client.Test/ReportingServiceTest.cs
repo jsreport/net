@@ -35,7 +35,7 @@ namespace jsreport.Client.Test
             _embeddedReportingServer.StopAsync().Wait();
             Monitor.Exit(_locker);
         }
-
+     
         [Test]
         public async void get_recipes()
         {
@@ -264,7 +264,7 @@ namespace jsreport.Client.Test
         }
 
         [Test]
-        public async void synchronize_and_use_schema()
+        public async void synchronize_and_use_sampleData()
         {
             await _reportingService.SynchronizeTemplatesAsync();
 
@@ -277,7 +277,7 @@ namespace jsreport.Client.Test
         }
 
         [Test]
-        public async void synchronize_and_use_schema_from_child_directory()
+        public async void synchronize_and_use_sampleData_from_child_directory()
         {
             await _reportingService.SynchronizeTemplatesAsync();
 

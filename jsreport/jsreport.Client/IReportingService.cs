@@ -77,10 +77,10 @@ namespace jsreport.Client
         Task<string> GetServerVersionAsync();
 
         /// <summary>
-        /// Synchronize all *.jsrep files into jsreport server including images and schema json files
+        /// Synchronize all *.jsrep files into jsreport server including images and sample json files
         /// </summary>
         Task SynchronizeTemplatesAsync();
 
-        Task CreateOrUpdateSchema(string name, string content);
+        Task CreateOrUpdateSampleData(string name, string content);
     }
 }

@@ -242,7 +242,7 @@ namespace jsreport.Client
         }
 
         /// <summary>
-        /// Synchronize all *.jsrep files into jsreport server including images and schema json files
+        /// Synchronize all *.jsrep files into jsreport server including images and sample json files
         /// </summary>
         public async Task SynchronizeTemplatesAsync()
         {
@@ -274,8 +274,8 @@ namespace jsreport.Client
                 operation.engine = reportDefinition.Engine;
                 operation.recipe = reportDefinition.Recipe;
 
-                if (!string.IsNullOrEmpty(reportDefinition.Schema))
-                    operation.dataItemId = reportDefinition.Schema;
+                if (!string.IsNullOrEmpty(reportDefinition.SampleData))
+                    operation.dataItemId = reportDefinition.SampleData;
 
                 operation.content = content;
                 operation.helpers = helpers;
@@ -324,7 +324,7 @@ namespace jsreport.Client
             }
         }
 
-        public async Task CreateOrUpdateSchema(string name, string content)
+        public async Task CreateOrUpdateSampleData(string name, string content)
         {
             ODataClient client = CreateODataClient();
 

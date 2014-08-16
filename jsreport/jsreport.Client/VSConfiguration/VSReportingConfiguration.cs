@@ -7,8 +7,8 @@ namespace jsreport.Client.VSConfiguration
     {
         public VSReportingConfiguration()
         {
-            Schemas = new Dictionary<string, object>();
-            DynamicSchemas = new Dictionary<string, Func<object>>();
+            SampleData = new Dictionary<string, object>();
+            DynamicSampleData = new Dictionary<string, Func<object>>();
         }
 
         public string RemoteServerUri { get; private set; }
@@ -16,8 +16,8 @@ namespace jsreport.Client.VSConfiguration
         public string RemoteServerPassword { get; private set; }
         public bool UseEmbeddedServer { get { return string.IsNullOrEmpty(RemoteServerUri); } }
 
-        public IDictionary<string, object> Schemas { get; private set; }
-        public IDictionary<string, Func<object>> DynamicSchemas { get; private set; }
+        public IDictionary<string, object> SampleData { get; private set; }
+        public IDictionary<string, Func<object>> DynamicSampleData { get; private set; }
 
         public IVSReportingConfiguration UseRemoteServer(string uri, string username = null, string password = null)
         {
@@ -34,15 +34,15 @@ namespace jsreport.Client.VSConfiguration
             return this;
         }
 
-        public IVSReportingConfiguration RegisterSchema(string name, object schema)
+        public IVSReportingConfiguration RegisterSampleData(string name, object sampleData)
         {
-            Schemas.Add(name, schema);
+            SampleData.Add(name, sampleData);
             return this;
         }
 
-        public IVSReportingConfiguration RegisterSchema(string name, Func<object> fnGetSchema)
+        public IVSReportingConfiguration RegisterSampleData(string name, Func<object> fnSampleData)
         {
-            DynamicSchemas.Add(name, fnGetSchema);
+            DynamicSampleData.Add(name, fnSampleData);
             return this;
         }
     }

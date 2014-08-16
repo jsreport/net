@@ -2,16 +2,18 @@
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Web;
 using System.Web.Mvc;
 using jsreport.Client;
+using jsreport.Client.Entities;
 
 namespace jsreport.MVC
 {
     public class JsReportFilterAttribute : Attribute, IActionFilter
     {
-        private readonly ReportingService _reportingService;
+        private readonly IReportingService _reportingService;
 
-        public JsReportFilterAttribute(ReportingService reportingService)
+        public JsReportFilterAttribute(IReportingService reportingService)
         {
             _reportingService = reportingService;
         }
@@ -56,16 +58,13 @@ namespace jsreport.MVC
                 {
                     content = htmlContent,
                     recipe = "phantom-pdf",
-                    additional = new
+                    phantom = new Phantom()
                     {
-                        phantom = new
-                        {
                             margin = jsreportAttribute.Margin,
                             headerHeight = jsreportAttribute.HeaderHeight,
                             header = jsreportAttribute.HeaderPartialView != null ? RenderPartialViewToString(context, jsreportAttribute.HeaderPartialView, null) : null,
                             footerHeight = jsreportAttribute.FooterHeight,
                             footer = jsreportAttribute.FooterPartialView != null ? RenderPartialViewToString(context, jsreportAttribute.FooterPartialView, null) : null
-                        }
                     }
                 }
             }).ConfigureAwait(false);

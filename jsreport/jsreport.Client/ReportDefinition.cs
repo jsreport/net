@@ -5,7 +5,7 @@ namespace jsreport.Client
     public class ReportDefinition
     {
         public string Timeout { get; set; }
-        public string Schema { get; set; }
+        public string SampleData { get; set; }
         public string Engine { get; set; }
 
         public string Recipe { get; set; }

@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
-MinimumVisualStudioVersion = 10.0.40219.1
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "jsreport.Client", "jsreport.Client\jsreport.Client.csproj", "{FAE7D435-2660-4745-97B6-438FBFB22905}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "jsreport.Client.Test", "jsreport.Client.Test\jsreport.Client.Test.csproj", "{B4F1BE1A-0325-41A2-B3AB-1721F61F4B29}"

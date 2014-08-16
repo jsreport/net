@@ -8,7 +8,7 @@ namespace jsreport.Client.VSConfiguration
 
         IVSReportingConfiguration UseEmbedded();
 
-        IVSReportingConfiguration RegisterSchema(string name, object schema);
-        IVSReportingConfiguration RegisterSchema(string name, Func<object> fnGetSchema);
+        IVSReportingConfiguration RegisterSampleData(string name, object sampleData);
+        IVSReportingConfiguration RegisterSampleData(string name, Func<object> fnGetSampleData);
     }
 }
