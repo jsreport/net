@@ -1,0 +1,97 @@
+﻿<html>
+    <head>
+        {#child Styles}
+
+        {#child jquery}
+        {#child highcharts}
+    </head>
+<body>
+    {#child Header}
+    
+    {{include "Students report" tmpl="header"/}}
+
+    <p id="test">
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy 
+        text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+        It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
+        It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with 
+        desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+    </p>
+
+    <div class="table">
+        <h3>List of students</h3>
+
+        <table class="gridtable">
+            <tr>
+                <th>Name</th>
+                <th>EnrollmentDate</th>
+                
+            </tr>
+            {{for students}}
+            <tr>
+                <td>{{:FullName}}</td>
+                <td>{{:~formatDate(EnrollmentDate)}}</td>
+            </tr>
+            {{/for}}
+        </table>
+    </div>
+
+    <div class="chart-wrap">
+        <h3>Enrollments in time chart</h3>
+
+        <div class="chart"></div>
+    </div>
+    
+    <script>
+    $(function() {
+        var data = [];
+        {{for students}}
+        data.push({ name: "{{:FullName}}", year: {{:~getYear(EnrollmentDate)}} });
+        {{/for}}
+          
+        var years = []; 
+        var values = [];
+        for (var i = 2005; i < 2016; i++) {
+            years.push(i + "");
+            values.push(0);
+        }
+        
+        data.forEach(function(d) {
+            if (d.year >= 2005 && d.year <= 2015) {
+                values[d.year - 2005]++;
+            }
+        });
+
+        $('.chart').highcharts({
+            credits: false,
+            chart: {
+                type: 'column'
+            },
+            xAxis: {
+                categories: years
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Enrolled students'
+                }
+            },
+            title: {
+                text: null,
+            },
+            exporting: {
+                enabled: false
+            },
+            series: [
+                {
+                    animation: false,
+                    data: values,
+                    name: "Enrollments in time"
+                }
+            ]
+        });
+     });
+    </script>
+
+</body>
+</html>

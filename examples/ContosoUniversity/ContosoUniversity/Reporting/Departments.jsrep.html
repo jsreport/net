@@ -1,0 +1,100 @@
+﻿<html>
+    <head>
+        <!-- linking global styles from child report template-->
+        {#child Styles}
+        
+        <!-- also linking common js libraries-->
+        <!-- using public cdn or other remote endpoint would also work-->
+        <!-- example : <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>-->
+        {#child jquery}
+        {#child highcharts}
+    </head>
+
+    <body>
+        <!-- adding jsrender sub template definition-->
+        {#child Header}
+        
+        <!-- actual sub template rendering-->
+        {{include "Departments report" tmpl="header"/}}
+
+        <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+            standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type3
+            specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially
+            unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more
+            recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        </p>
+
+        <div class="table">
+            <h3>List of departments</h3>
+
+            <table class="gridtable">
+                <tr>
+                    <th>Name</th>
+                    <th>Administrator</th>
+                    <th>StartDate</th>
+                    <th>Budget</th>
+                </tr>
+                <!-- std jsrender loop-->
+                {{for departments ~root=departments}}
+                <tr>
+                    <td>{{:Name}}</td>
+                    <td>{{:Administrator}}</td>
+                    <td>{{:~formatDate(StartDate)}}</td>
+                    <td class="{{:~dangerClass(~root,Budget)}}">{{:Budget}}</td>
+                </tr>
+                {{/for}}
+            </table>
+        </div>
+
+        <div class="chart-wrap">
+            <h3>Departments budgets share</h3>
+
+            <div class="chart"></div>
+        </div>
+
+        <script>
+            $(function() {
+                var data = [];
+                //the report is first rendered using jsrender and then is evaluated the actual javascript. There fore you don't have 
+                //access to input data from javascript, but you can forward data there using following trick
+                {{for departments}}
+                    data.push(["{{:Name}}", {{:Budget}}]);
+                {{/for}}
+
+                $('.chart').highcharts({
+                    credits: false,
+                    chart: {
+                        plotBackgroundColor: null,
+                        plotBorderWidth: 1, //null,
+                        plotShadow: false
+                    },
+                    title: {
+                        text: null,
+                    },
+                    plotOptions: {
+                        pie: {
+                            dataLabels: {
+                                enabled: true,
+                                format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                                style: {
+                                    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                                }
+                            }
+                        }
+                    },
+                    exporting: {
+                        enabled: false
+                    },
+                    series: [
+                        {
+                            animation: false,
+                            type: 'pie',
+                            data: data
+                        }
+                    ]
+                });
+            });
+        </script>
+    </body>
+</html>

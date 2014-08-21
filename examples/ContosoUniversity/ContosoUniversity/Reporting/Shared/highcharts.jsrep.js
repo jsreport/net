@@ -1,0 +1,3 @@
+﻿function sayWorld() {
+    return "world";
+}
