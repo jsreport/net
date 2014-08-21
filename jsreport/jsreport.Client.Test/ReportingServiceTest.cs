@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -300,5 +301,35 @@ namespace jsreport.Client.Test
                 Assert.AreEqual("nested", reader.ReadToEnd());
             }
         }
+
+        [Test]
+        public async void render_a_circular_structure_should_work()
+        {
+            var data = new Teacher() { Name = "John"};
+            data.Students = new List<Student>() { new Student() { Name = "Doe", Teachers = new List<Teacher>() { data}}};
+
+            var report = await _reportingService.RenderAsync(new RenderRequest()
+            {
+                template = new Template() { content = "{{help this}}", recipe = "html", engine = "handlebars", helpers = "function help(data) { return data.Students[0].Name; }" },
+                data = data
+            });
+
+            var reader = new StreamReader(report.Content);
+
+            var str = reader.ReadToEnd();
+            Assert.AreEqual("Doe", str);
+        }
+    }
+
+    public class Teacher
+    {
+        public string Name { get; set; }
+        public IEnumerable<Student> Students { get; set; } 
+    }
+
+    public class Student
+    {
+        public string Name { get; set; }
+        public IEnumerable<Teacher> Teachers { get; set; }
     }
 }

@@ -12,7 +12,7 @@
     <iconUrl>http://jsreport.net/img/favicon.ico</iconUrl>
     <copyright>Copyright 2013-2014 Jan Blaha</copyright>
     <language>en-us</language>
-    <tags>jsreport client</tags>
+    <tags>jsreport report pdf</tags>
     <dependencies>
       <dependency id="Microsoft.Net.Http" version="2.2.18" />
       <dependency id="Microsoft.Bcl.Async" version="1.0.168"/>

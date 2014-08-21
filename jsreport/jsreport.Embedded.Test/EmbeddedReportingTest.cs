@@ -23,5 +23,13 @@ namespace jsreport.Embedded.Test
 
             Assert.IsFalse(Process.GetProcesses().Any(p => p.ProcessName == "node"));
         }
+
+        [Test]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public async void start_should_timeout_when_it_takes_too_long()
+        {
+            var server = new EmbeddedReportingServer() { StartTimeout = new TimeSpan(0,0,0)};
+            await server.StartAsync();
+        }
     }
 }

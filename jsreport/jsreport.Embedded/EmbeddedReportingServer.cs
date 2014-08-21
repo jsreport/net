@@ -32,6 +32,7 @@ namespace jsreport.Embedded
             EmbeddedServerUri = "http://localhost:" + port;
             PingTimeout = new TimeSpan(0, 0, 0, 120);
             RelativePathToServer = "";
+            StartTimeout = new TimeSpan(0, 0, 0, 10);
 
             AppDomain.CurrentDomain.DomainUnload += DomainUnloadOrProcessExit;
             AppDomain.CurrentDomain.ProcessExit += DomainUnloadOrProcessExit;
@@ -48,7 +49,7 @@ namespace jsreport.Embedded
         /// Shortcut to new ReportingService(EmbeddedServerUri)
         /// </summary>
         public IReportingService ReportingService {
-            get { return new ReportingService(EmbeddedServerUri);  }
+            get { return new ReportingService(EmbeddedServerUri) { ReportsDirectory = AssemblyDirectory }; }
         }
 
         //used in visual studio tools to override AssemblyDirectory, because there we get some visual studio location folder...
@@ -73,6 +74,8 @@ namespace jsreport.Embedded
         /// </summary>
         public string AbsolutePathToServer { get; set; }
 
+        public TimeSpan StartTimeout { get; set; }
+
         public string AssemblyDirectory
         {
             get
@@ -80,10 +83,8 @@ namespace jsreport.Embedded
                 if (BinPath != null)
                     return BinPath;
 
-                string codeBase = Assembly.GetExecutingAssembly().CodeBase;
-                var uri = new UriBuilder(codeBase);
-                string path = Uri.UnescapeDataString(uri.Path);
-                return Path.GetDirectoryName(path);
+                string codeBase = Assembly.GetExecutingAssembly().CodeBase.Replace("file:///", "");
+                return Path.GetDirectoryName(codeBase);
             }
         }
 
@@ -183,18 +184,28 @@ namespace jsreport.Embedded
             _stopping = false;
             _stopped = false;
 
+            var timeoutSw = new Stopwatch();
+            timeoutSw.Start();
+
             bool done = false;
             var client = new HttpClient();
             client.BaseAddress = new Uri(EmbeddedServerUri);
 
             var tcs = new TaskCompletionSource<object>();
 
-            Task.Run(() =>
+            Task.Run(async () =>
                 {
                     while (true)
                     {
                         if (_stopping || _stopped)
                             return;
+
+                        if (!done && timeoutSw.Elapsed > StartTimeout)
+                        {
+                            await StopAsync();
+                            tcs.SetException(new InvalidOperationException("Timeout during starting jsreport server."));
+                            return;
+                        }
 
                         try
                         {

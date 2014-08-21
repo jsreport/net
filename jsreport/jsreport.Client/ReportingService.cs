@@ -25,8 +25,6 @@ namespace jsreport.Client
         private readonly string _username;
         private readonly string _password;
         public Uri ServiceUri { get; set; }
-        //used in visual studio tools to override AssemblyDirectory, because there we get some visual studio location folder...
-        public string BinPath { get; set; }
 
         public ReportingService(string serviceUri, string username, string password) : this(serviceUri)
         {
@@ -39,6 +37,9 @@ namespace jsreport.Client
             ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true; 
             
             ServiceUri = new Uri(serviceUri);
+
+            string codeBase = Assembly.GetExecutingAssembly().CodeBase.Replace("file:///", "");
+            ReportsDirectory = Path.GetDirectoryName(codeBase);
         }
 
         private HttpClient CreateClient()
@@ -119,8 +120,11 @@ namespace jsreport.Client
 
             var settings = new JsonSerializerSettings()
                 {
-                    NullValueHandling = NullValueHandling.Ignore
+                    NullValueHandling = NullValueHandling.Ignore,
+                    ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Serialize,
+                    PreserveReferencesHandling = PreserveReferencesHandling.All
                 };
+          
             var response =
                 await
                 client.PostAsync("/api/report",
@@ -227,26 +231,14 @@ namespace jsreport.Client
             return new ODataClient(settings);
         }
 
-        public string AssemblyDirectory
-        {
-            get
-            {
-                if (BinPath != null)
-                    return BinPath;
-
-                string codeBase = Assembly.GetExecutingAssembly().CodeBase;
-                var uri = new UriBuilder(codeBase);
-                string path = Uri.UnescapeDataString(uri.Path);
-                return Path.GetDirectoryName(path);
-            }
-        }
+        public string ReportsDirectory { get; set; }
 
         /// <summary>
         /// Synchronize all *.jsrep files into jsreport server including images and sample json files
         /// </summary>
         public async Task SynchronizeTemplatesAsync()
         {
-            string path = AssemblyDirectory;
+            string path = ReportsDirectory;
 
             ODataClient client = CreateODataClient();
 
