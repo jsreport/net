@@ -18,7 +18,11 @@ namespace Mvc
         public static IEmbeddedReportingServer EmbeddedReportingServer { get; set; }
         protected void Application_Start()
         {
-            EmbeddedReportingServer = new EmbeddedReportingServer();
+            EmbeddedReportingServer = new EmbeddedReportingServer()
+            {
+                RelativePathToServer = "../App_Data"
+            };
+
             EmbeddedReportingServer.StartAsync().Wait();
 
             AreaRegistration.RegisterAllAreas();
