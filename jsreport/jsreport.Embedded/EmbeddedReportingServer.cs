@@ -32,7 +32,7 @@ namespace jsreport.Embedded
             EmbeddedServerUri = "http://localhost:" + port;
             PingTimeout = new TimeSpan(0, 0, 0, 120);
             RelativePathToServer = "";
-            StartTimeout = new TimeSpan(0, 0, 0, 10);
+            StartTimeout = new TimeSpan(0, 0, 1, 0);
 
             AppDomain.CurrentDomain.DomainUnload += DomainUnloadOrProcessExit;
             AppDomain.CurrentDomain.ProcessExit += DomainUnloadOrProcessExit;

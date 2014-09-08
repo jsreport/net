@@ -11,11 +11,11 @@ namespace jsreport.MVC
 {
     public class JsReportFilterAttribute : Attribute, IActionFilter
     {
-        private readonly IReportingService _reportingService;
+        protected IReportingService ReportingService { get; set; }
 
         public JsReportFilterAttribute(IReportingService reportingService)
         {
-            _reportingService = reportingService;
+            ReportingService = reportingService;
         }
 
         public JsReportFilterAttribute()
@@ -52,11 +52,11 @@ namespace jsreport.MVC
 
         protected virtual async Task<Report> RenderReport(ActionExecutedContext context, EnableJsReportAttribute jsreportAttribute, string htmlContent)
         {
-            var output = await _reportingService.RenderAsync(new RenderRequest()
+            var output = await ReportingService.RenderAsync(new RenderRequest()
             {
                 template = new Template()
                 {
-                    content = htmlContent,
+                    content = RemoveVisualStudioBrowserLink(htmlContent),
                     recipe = "phantom-pdf",
                     phantom = new Phantom()
                     {
@@ -72,6 +72,20 @@ namespace jsreport.MVC
             context.HttpContext.Response.ContentType = output.ContentType.MediaType;
 
             return output;
+        }
+
+        //https://github.com/jsreport/net/issues/1
+        protected virtual string RemoveVisualStudioBrowserLink(string content)
+        {
+            var start = content.IndexOf("<!-- Visual Studio Browser Link -->", System.StringComparison.Ordinal);
+            var end = content.IndexOf("<!-- End Browser Link -->", System.StringComparison.Ordinal);
+
+            if (start > -1 && end > -1)
+            {
+                return content.Remove(start, end - start);
+            }
+
+            return content;
         }
 
 
