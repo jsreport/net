@@ -47,6 +47,8 @@ namespace jsreport.Client
                 dynamicTemplate.recipe = template.recipe;
             if (template.engine != null)
                 dynamicTemplate.engine = template.engine;
+            if (template.phantom != null)
+                dynamicTemplate.phantom = template.phantom;
             
             dynamicTemplate.version = template.version;
 

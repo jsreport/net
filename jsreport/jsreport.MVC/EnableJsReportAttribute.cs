@@ -4,13 +4,18 @@ namespace jsreport.MVC
 {
     public class EnableJsReportAttribute : Attribute
     {
-        public EnableJsReportAttribute(string headerHeight, string headerPartialView, string footerHeight, string footerPartialView, string margin)
+        public EnableJsReportAttribute(string headerHeight, string headerPartialView, string footerHeight, string footerPartialView, string margin, 
+            string orientation, string width, string height, string format)
         {
             HeaderHeight = headerHeight;
             HeaderPartialView = headerPartialView;
             FooterHeight = footerHeight;
             FooterPartialView = footerPartialView;
             Margin = margin;
+            Orientation = orientation;
+            Width = width;
+            Height = height;
+            Format = format;
         }
 
         public EnableJsReportAttribute()
@@ -22,5 +27,9 @@ namespace jsreport.MVC
         public string FooterHeight { get; set; }
         public string FooterPartialView { get; set; }
         public string Margin { get; set; }
+        public string Orientation { get; set; }
+        public string Format { get; set; }
+        public string Width { get; set; }
+        public string Height { get; set; }
     }
 }

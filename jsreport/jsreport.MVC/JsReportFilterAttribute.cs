@@ -64,7 +64,11 @@ namespace jsreport.MVC
                             headerHeight = jsreportAttribute.HeaderHeight,
                             header = jsreportAttribute.HeaderPartialView != null ? RenderPartialViewToString(context, jsreportAttribute.HeaderPartialView, null) : null,
                             footerHeight = jsreportAttribute.FooterHeight,
-                            footer = jsreportAttribute.FooterPartialView != null ? RenderPartialViewToString(context, jsreportAttribute.FooterPartialView, null) : null
+                            footer = jsreportAttribute.FooterPartialView != null ? RenderPartialViewToString(context, jsreportAttribute.FooterPartialView, null) : null,
+                            orientation = jsreportAttribute.Orientation,
+                            width = jsreportAttribute.Width,
+                            height = jsreportAttribute.Height,
+                            format = jsreportAttribute.Format
                     }
                 }
             }).ConfigureAwait(false);
