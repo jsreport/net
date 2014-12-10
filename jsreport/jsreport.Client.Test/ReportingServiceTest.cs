@@ -319,6 +319,19 @@ namespace jsreport.Client.Test
             var str = reader.ReadToEnd();
             Assert.AreEqual("Doe", str);
         }
+
+        [Test]
+        public async void synchronize_and_render_many_images()
+        {
+            await _reportingService.SynchronizeTemplatesAsync();
+
+            var result = await _reportingService.RenderAsync("Report5", null);
+
+            using (var reader = new StreamReader(result.Content))
+            {
+                Assert.IsTrue(reader.ReadToEnd().StartsWith("%PDF"));
+            }
+        }
     }
 
     public class Teacher

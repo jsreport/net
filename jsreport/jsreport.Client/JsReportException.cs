@@ -47,7 +47,17 @@ namespace jsreport.Client
         public static JsReportException Create(string message, HttpResponseMessage response)
         {
             string responseContent = response.Content.ReadAsStringAsync().Result;
-            var responseMessage = JObject.Parse(responseContent)["message"].Value<string>();
+
+            string responseMessage = responseContent;
+
+            try
+            {
+                responseMessage = JObject.Parse(responseContent)["message"].Value<string>();
+            }
+            catch(Exception e)
+            {
+                
+            }
 
             return new JsReportException(message + " " + responseMessage, responseContent, responseMessage, response);
         }
