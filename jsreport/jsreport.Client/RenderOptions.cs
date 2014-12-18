@@ -9,5 +9,8 @@ namespace jsreport.Client
 
         [JsonProperty("saveResult")]
         public bool saveResult { get; set; }
+
+        [JsonProperty("preview")]
+        public bool preview { get; set; }
     }
 }

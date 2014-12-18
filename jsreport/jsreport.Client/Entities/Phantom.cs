@@ -50,5 +50,7 @@
         /// Paper height like 2cm
         /// </summary>
         public string height { get; set; }
+        
+        public string url { get; set; }
     }
 }

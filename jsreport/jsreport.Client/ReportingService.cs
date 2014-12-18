@@ -210,6 +210,7 @@ namespace jsreport.Client
 
             return new Report
             {
+                Response = response,
                 Content = stream,
                 ContentType = response.Content.Headers.ContentType,
                 FileExtension = response.Headers.Any(k => k.Key == "File-Extension") ? response.Headers.Single(k => k.Key == "File-Extension").Value.First() : null,

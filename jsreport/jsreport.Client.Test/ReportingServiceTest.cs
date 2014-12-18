@@ -23,7 +23,7 @@ namespace jsreport.Client.Test
         public void SetUp()
         {
             Monitor.Enter(_locker);
-            _embeddedReportingServer = new EmbeddedReportingServer(3000) { PingTimeout = new TimeSpan(0, 0, 30) };
+            _embeddedReportingServer = new EmbeddedReportingServer(3000);
             _embeddedReportingServer.CleanServerData();
             _embeddedReportingServer.StartAsync().Wait();
 

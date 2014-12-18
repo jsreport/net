@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Net.Http;
 using System.Net.Http.Headers;
 
 namespace jsreport.Client
@@ -29,5 +31,7 @@ namespace jsreport.Client
         /// Optional pernament link to report
         /// </summary>
         public string PermanentLink { get; set; }
+
+        public HttpResponseMessage Response { get; set; }
     }
 }
