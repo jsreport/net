@@ -1,0 +1,31 @@
+﻿<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+<h1>Widget with dta table</h1>
+
+<label for="titleFilter">Filter by title</label>
+<input type="text" id="titleFilter">
+<input type="button" id="filter" value="Filter"/>
+
+<br/><br/>
+
+<table id="issuesTable">
+    {{for issues}}
+        <tr>
+            <td>{{:title}}</td>
+            <td>{{:priority}}</td>
+        </tr>
+    {{/for}}
+</table>
+
+<script>
+    jsreport.context.loadData(function (data) {
+        jsreport.reload("#issuesTable", data);
+    });
+
+    $("#filter").click(function() {
+        var filter = $("#titleFilter").val();
+        jsreport.context.loadData(filter, function(data) {
+            jsreport.reload("#issuesTable", data);
+        });
+    });
+</script>

@@ -1,0 +1,46 @@
+﻿<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+
+<div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+
+<script>
+    $(function () {
+
+        jsreport.context.loadData(function (data) {
+            var chartData = {};
+
+            data.issues.forEach(function (i) {
+                chartData[i.priority] = chartData[i.priority] || 0;
+                chartData[i.priority]++;
+            });
+
+            chartData = Object.keys(chartData).map(function (p) {
+                return [p, chartData[p]];
+            });
+
+            $('#container').highcharts({
+                title: { text: "Issues by priorities" },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: true,
+                            format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                            style: {
+                                color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                            }
+                        }
+                    }
+                },
+                series: [{
+                    type: 'pie',
+                    data: chartData
+                }]
+            });
+        });
+    });
+
+</script>
+

@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title>End user customizable reports</title>
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"> </script>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body>
+
+        <div class="container">
+            <h1>Server side reports</h1>
+            <div class="well">
+                <p>
+                    This example shows how to add jsreport editor into your front ends and bring customizable reporting directly to your users. This page is 
+                    running on the asp.net mvc project using <a href="http://jsreport.net/learn/net-embedded">jsreport embedded nuget package</a>. 
+                    The whole editor user interface and rendering is forwarded through custom asp.net web handler without any cross domain calls 
+                    or insecure access.
+                </p>
+
+                <p>
+                    When embedding jsreport into the front end you can use jsreport template storage or listen to the events and provide one on your own.  
+                    Using <b>Edit</b> button you open editor which is bypassing template storage into browser's cache. Using <b>Edit using jsreport storage</b> button 
+                    you open editor which is storing report templates directly in the jsreport storage located in the asp.net App_Data folder.
+                </p>
+                
+                <p>
+                    Source codes to this example can be found <a href="https://github.com/jsreport/net/tree/master/examples"><b>here</b></a> <br/>
+                    Documentation for embedding jsreport to the front end <a href="http://jsreport.net/learn/embedding"><b>here</b></a><br/>
+                    Documentation for jsreport and .net integration <a href="http://jsreport.net/learn/visual-studio-and-net"><b>here</b></a>
+                </p>
+            </div>
+            
+             <div>
+                <form role="form">
+                    <button id="renderReport" class="btn btn-lg btn-success" type="button">Render</button>
+                    <button id="renderToPlaceholder" class="btn btn-lg btn-success" type="button">Render to placeholder</button>
+                    <button id="editReport" class="btn btn-lg btn-primary" type="button">Edit</button>
+                    <button id="editFromJsReportStorage" class="btn btn-lg btn-primary" type="button">Edit using jsreport storage</button>
+                    <button id="resetReport" class="btn btn-lg btn-warning" type="button">Reset To Default</button>
+                </form>
+            </div>
+            
+            <div class="well" id="placeholder">
+            </div>
+           
+        </div>
+        
+        <div class="container">
+            <h1>Customizable client widgets</h1>
+            <div class="well">
+                <p>
+                    jsreport embedded editor together with <a href="http://jsreport.net/learn/client-html">client-html</a> recipe can be used to create editable client 
+                    side widgets. client-html recipe is currently the only one recipe running in the browser on the client side. This can be used to create more 
+                    interactive visualizations. Because the widget rendering runs in the browser you can easily use parent page functions to access data and so on.
+                </p>
+                <p>
+                    The report templates in the next example use helper function <code>loadData</code> provided by the parent page. It also shows how 
+                    to create interactive widget using <code>reload</code> function.
+                </p>
+            </div>
+            <div>
+                <div class="grid">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <button id="editClientTable" class="btn btn-lg btn-primary" type="button">Edit table widget</button>
+                            <div style="display: block; height: 500px;" id="clientTable"></div>
+                        </div>
+                        <div class="col-md-8">
+                            <button id="editClientChart" class="btn btn-lg btn-primary" style="float:right" type="button">Edit chart widget</button>
+                            <div style="display: block; height: 500px;" id="clientChart"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        <div class="jsreport-backdrop" style="background-color: #a3a3a3; bottom: 0; display: none; left: 0; opacity: 0.5; position: fixed; right: 0; top: 0; z-index: 100;"></div>
+
+
+        <script>
+            
+            /** the first part - server side rendering **/
+
+            var defaultInvoce = JSON.parse("@Html.Raw(ViewBag.DefaultInvoice)");
+
+            var template = defaultInvoce;
+            if (localStorage.getItem("template"))
+                template = JSON.parse(localStorage.getItem("template"));
+
+            $("#resetReport").click(function() {
+                template = defaultInvoce;
+                localStorage.setItem("template", JSON.stringify(template));
+            });
+
+            $("#editReport").click(function() {
+                jsreport.openEditor(template, { useServerStorage: false }).on("template-change", function (tmpl) {
+                    localStorage.setItem("template", JSON.stringify(tmpl));
+                    template = tmpl;
+                });
+            });
+
+            $("#editFromJsReportStorage").click(function () {
+                var shortid = localStorage.getItem("shortid");
+
+                if (shortid === 'undefined')
+                    shortid = null;
+                
+                jsreport.openEditor({ shortid: shortid }, { useServerStorage: true }).on("template-change", function (tmpl) {
+                    localStorage.setItem("shortid", tmpl.shortid);
+                });
+            });
+
+            $("#renderReport").click(function() {
+                jsreport.render(template);
+            });
+
+            $("#renderToPlaceholder").click(function() {
+                jsreport.render($("#placeholder"), template);
+            });
+            
+
+            /** the second part - client side rendering **/
+
+            var clientTable = JSON.parse("@Html.Raw(ViewBag.ClientTable)");
+            var clientChart = JSON.parse("@Html.Raw(ViewBag.ClientChart)");
+
+            $("#editClientTable").click(function() {
+                jsreport.openEditor(clientTable, { useServerStorage: false }).on("template-change", function (tmpl) {
+                    clientTable = tmpl;
+                }).on("close", function() {
+                    jsreport.render($("#clientTable"), clientTable);
+                });
+            });
+
+            $("#editClientChart").click(function() {
+                jsreport.openEditor(clientChart, { useServerStorage: false }).on("template-change", function (tmpl) {
+                    clientChart = tmpl;
+                }).on("close", function() {
+                    jsreport.render($("#clientChart"), clientChart);
+                });
+            });
+
+            var issues = [
+                { title: "Invalid html", priority: "important" },
+                { title: "Failure on startup", priority: "minor" },
+                { title: "Missing validation for email", priority: "medium" },
+                { title: "Performance issues", priority: "medium" },
+                { title: "Blue screen", priority: "medium" },
+                { title: "Double click prevention", priority: "medium" },
+                { title: "Reset password", priority: "minor" },
+                { title: "Deleting account", priority: "medium" }
+            ];
+
+
+            jsreportInit = function() {
+                jsreport.setClientContext({
+                    loadData: function(filter, cb) {
+                        if (!cb) {
+                            return filter({ issues: issues });
+                        }
+
+                        var filteredIssues = issues.filter(function(i) {
+                            return i.title.lastIndexOf(filter, 0) === 0;
+                        });
+
+                        console.log("requesting load data " + filteredIssues.length);
+
+                        cb({ issues: filteredIssues });
+                    }
+                });
+
+                jsreport.render($("#clientTable"), clientTable);
+                jsreport.render($("#clientChart"), clientChart);
+            };
+        </script>
+
+        <script>
+            //add jsreport embedding script, just change url to jsreport server
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {
+                    return;
+                }
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "/jsreport.axd?url=/extension/embedding/public/js/embed.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'jsreport-embedding'));
+        </script>
+    </body>
+</html>
