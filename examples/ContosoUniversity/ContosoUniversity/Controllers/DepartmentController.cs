@@ -28,7 +28,7 @@ namespace ContosoUniversity.Controllers
         [OutputCache(NoStore = true, Duration = 0, VaryByParam = "*")]
         public async Task<ActionResult> Report()
         {
-            var result = await MvcApplication.EmbeddedReportingServer.ReportingService.RenderAsync("Departments", db.QueryDepartmentsForReport());
+            var result = await MvcApplication.ReportingService.RenderAsync("Departments", db.QueryDepartmentsForReport());
             return new FileStreamResult(result.Content, result.ContentType.MediaType);
         }
 

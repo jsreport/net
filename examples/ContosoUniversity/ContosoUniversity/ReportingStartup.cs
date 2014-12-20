@@ -12,7 +12,7 @@ namespace ContosoUniversity
     public class ReportingStartup
     {
         public void Configure(IVSReportingConfiguration configuration)
-        {
+        {            
             var db = new SchoolContext("Data Source=(LocalDb)\\v11.0;Initial Catalog=ContosoUniversity2;Integrated Security=SSPI;");
 
             //register dynamic sample data as an action loading data from local db

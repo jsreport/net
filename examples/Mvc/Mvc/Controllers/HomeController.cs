@@ -17,6 +17,7 @@ namespace Mvc.Controllers
             return View();
         }
 
+        [EnableJsReport(Recipe = "html-to-xlsx")]
         public ActionResult About()
         {
             ViewBag.Message = "Your app description page.";

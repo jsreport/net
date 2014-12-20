@@ -25,7 +25,7 @@ namespace EndUserCustomizations
                 RelativePathToServer = "../App_Data"
             };
             EmbeddedReportingServer.StartAsync().Wait();
-            JsReportWebHandler.ServiceUri = EmbeddedReportingServer.EmbeddedServerUri;
+            JsReportWebHandler.ReportingService = EmbeddedReportingServer.ReportingService;
 
             AreaRegistration.RegisterAllAreas();
 

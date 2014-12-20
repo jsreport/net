@@ -95,7 +95,7 @@
             });
 
             $("#editReport").click(function() {
-                jsreport.openEditor(template, { useServerStorage: false }).on("template-change", function (tmpl) {
+                jsreport.openEditor(template).on("template-change", function (tmpl) {
                     localStorage.setItem("template", JSON.stringify(tmpl));
                     template = tmpl;
                 });
@@ -107,7 +107,7 @@
                 if (shortid === 'undefined')
                     shortid = null;
                 
-                jsreport.openEditor({ shortid: shortid }, { useServerStorage: true }).on("template-change", function (tmpl) {
+                jsreport.openEditor({ shortid: shortid }, { useStandardStorage: true }).on("template-change", function (tmpl) {
                     localStorage.setItem("shortid", tmpl.shortid);
                 });
             });
@@ -127,7 +127,7 @@
             var clientChart = JSON.parse("@Html.Raw(ViewBag.ClientChart)");
 
             $("#editClientTable").click(function() {
-                jsreport.openEditor(clientTable, { useServerStorage: false }).on("template-change", function (tmpl) {
+                jsreport.openEditor(clientTable).on("template-change", function (tmpl) {
                     clientTable = tmpl;
                 }).on("close", function() {
                     jsreport.render($("#clientTable"), clientTable);
@@ -135,7 +135,7 @@
             });
 
             $("#editClientChart").click(function() {
-                jsreport.openEditor(clientChart, { useServerStorage: false }).on("template-change", function (tmpl) {
+                jsreport.openEditor(clientChart).on("template-change", function (tmpl) {
                     clientChart = tmpl;
                 }).on("close", function() {
                     jsreport.render($("#clientChart"), clientChart);
@@ -154,7 +154,8 @@
             ];
 
 
-            jsreportInit = function() {
+            jsreportInit = function () {
+                
                 jsreport.setClientContext({
                     loadData: function(filter, cb) {
                         if (!cb) {
