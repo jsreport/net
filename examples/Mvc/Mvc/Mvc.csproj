@@ -80,7 +80,7 @@
     </Reference>
     <Reference Include="jsreport.Client, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\jsreport.Client.0.1.0.0\lib\net45\jsreport.Client.dll</HintPath>
+      <HintPath>..\packages\jsreport.Client.0.1.1.0\lib\net45\jsreport.Client.dll</HintPath>
     </Reference>
     <Reference Include="jsreport.Embedded, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -88,7 +88,7 @@
     </Reference>
     <Reference Include="jsreport.MVC, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\jsreport\jsreport.MVC\bin\Debug\jsreport.MVC.dll</HintPath>
+      <HintPath>..\packages\jsreport.MVC.0.1.0.0\lib\net45\jsreport.MVC.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Data.Edm, Version=5.6.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
