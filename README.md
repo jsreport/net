@@ -2,17 +2,17 @@
 
 ##jsreport.Client
 Consuming jsreport API in c#
-> Install-Package **[jsreport.Client](https://www.nuget.org/packages/jsreport.Client)**
+> Install-Package **[jsreport.Client](https://www.nuget.org/packages/jsreport.Client)**   
 > **[Documentation](http://jsreport.net/learn/net-client)**
 
 ##jsreport.Embedded
 Running jsreport side by side .NET process lifecycle...
-> Install-Package **[jsreport.Embedded](https://www.nuget.org/packages/jsreport.Embedded)**
+> Install-Package **[jsreport.Embedded](https://www.nuget.org/packages/jsreport.Embedded)**   
 > **[Documentation](http://jsreport.net/learn/net-embedded)**
 
 ##jsreport.MVC
 Rendering pdf from asp.net mvc views...
-> Install-Package **[jsreport.Embedded](https://www.nuget.org/packages/jsreport.MVC)**
+> Install-Package **[jsreport.Embedded](https://www.nuget.org/packages/jsreport.MVC)**   
 > **[Documentation](http://jsreport.net/blog/rendering-pdf-from-aspnet-mvc-views)**
 
 See also [jsreport visual studio tools repository](https://github.com/jsreport/vstools)
