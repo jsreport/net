@@ -30,10 +30,13 @@ namespace jsreport.Client
         /// <summary>
         /// Rendering custom options, OPTIONAL
         /// </summary>
-        [JsonProperty("options")]
+         [JsonIgnore]
         public RenderOptions options { get; set; }
 
-        internal void CopyToDynamicTemplate()
+        [JsonProperty("options")]
+        internal dynamic dynamicOptions { get; set; }
+
+        internal void CopyDynamicAttributes()
         {
             dynamicTemplate = new ExpandoObject();
 
@@ -59,7 +62,20 @@ namespace jsreport.Client
                     ((IDictionary<string, object>)dynamicTemplate)[p.Name] = p.GetValue(template.additional);
                 }
             }
-            
+
+            dynamicOptions = new ExpandoObject();
+            if (options.preview != null)
+                dynamicOptions.preview = dynamicOptions.preview;
+            if (options.timeout != null)
+                dynamicOptions.timeout = dynamicOptions.timeout;
+
+            if (options.additional != null)
+            {
+                foreach (var p in options.additional.GetType().GetRuntimeProperties())
+                {
+                    ((IDictionary<string, object>)dynamicOptions)[p.Name] = p.GetValue(options.additional);
+                }
+            }
         }
 
         public void Validate()

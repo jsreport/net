@@ -22,14 +22,14 @@ namespace jsreport.Client
     /// </summary>
     public class ReportingService : IReportingService
     {
-        private readonly string _username;
-        private readonly string _password;
+        public string Username { get; set; }
+        public string Password { get; set; }
         public Uri ServiceUri { get; set; }
 
         public ReportingService(string serviceUri, string username, string password) : this(serviceUri)
         {
-            _username = username;
-            _password = password;
+            Username = username;
+            Password = password;
         }
 
         public ReportingService(string serviceUri)
@@ -46,10 +46,10 @@ namespace jsreport.Client
         {
             var client = new HttpClient() {BaseAddress = ServiceUri};
 
-            if (_username != null)
+            if (Username != null)
             {
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", System.Convert.ToBase64String(
-                    Encoding.UTF8.GetBytes(String.Format("{0}:{1}",_username,_password))));
+                    Encoding.UTF8.GetBytes(String.Format("{0}:{1}",Username,Password))));
             }
 
             return client;
@@ -112,7 +112,7 @@ namespace jsreport.Client
         public async Task<Report> RenderAsync(RenderRequest request)
         {
             request.options = request.options ?? new RenderOptions();
-            request.CopyToDynamicTemplate();
+            request.CopyDynamicAttributes();
 
             request.Validate();
 
@@ -226,8 +226,8 @@ namespace jsreport.Client
             var settings = new ODataClientSettings { UrlBase = ServiceUri + "odata" };
 
 
-            if (_username != null)
-                settings.Credentials = new NetworkCredential(_username, _password);
+            if (Username != null)
+                settings.Credentials = new NetworkCredential(Username, Password);
 
             return new ODataClient(settings);
         }

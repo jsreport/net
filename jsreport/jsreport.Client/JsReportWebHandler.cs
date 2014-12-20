@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net;
 using System.Net.Http;
+using System.Text;
 using System.Web;
 
 namespace jsreport.Client
@@ -12,14 +13,17 @@ namespace jsreport.Client
             get { return false; }
         }
 
-        public static string ServiceUri { get; set; }
+        public static IReportingService ReportingService { get; set; }
 
         public void ProcessRequest(HttpContext context)
         {
+            if (ReportingService == null)
+                throw new InvalidOperationException("Missing ReportingService on JsReportWebHandler");
+
             var url = CreateRequestUrl(context);
 
             var request =
-                (HttpWebRequest)WebRequest.Create(ServiceUri.TrimEnd('/') + (url.StartsWith("/") ? url : ("/" + url)));
+                (HttpWebRequest)WebRequest.Create(ReportingService.ServiceUri.ToString().TrimEnd('/') + (url.StartsWith("/") ? url : ("/" + url)));
             request.Method = context.Request.HttpMethod;
 
             ParseRequestHeaders(context, request);
@@ -96,6 +100,12 @@ namespace jsreport.Client
                     case "User-Agent":
                         request.Referer = headerValue;
                         continue;
+                }
+
+                if (ReportingService.Username != null)
+                {
+                    request.Headers.Add("Authorization", "Basic " + System.Convert.ToBase64String(
+                        Encoding.UTF8.GetBytes(String.Format("{0}:{1}", ReportingService.Username, ReportingService.Password))));
                 }
 
                 request.Headers.Add(header, context.Request.Headers.Get(header));

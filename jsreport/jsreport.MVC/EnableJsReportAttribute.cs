@@ -5,7 +5,7 @@ namespace jsreport.MVC
     public class EnableJsReportAttribute : Attribute
     {
         public EnableJsReportAttribute(string headerHeight, string headerPartialView, string footerHeight, string footerPartialView, string margin, 
-            string orientation, string width, string height, string format)
+            string orientation, string width, string height, string format, string recipe, string contentDisposition)
         {
             HeaderHeight = headerHeight;
             HeaderPartialView = headerPartialView;
@@ -16,6 +16,8 @@ namespace jsreport.MVC
             Width = width;
             Height = height;
             Format = format;
+            Recipe = recipe;
+            ContentDisposition = contentDisposition;
         }
 
         public EnableJsReportAttribute()
@@ -31,5 +33,8 @@ namespace jsreport.MVC
         public string Format { get; set; }
         public string Width { get; set; }
         public string Height { get; set; }
+        public string Recipe { get; set; }
+        public string ContentDisposition { get; set; }
+
     }
 }

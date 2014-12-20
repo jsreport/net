@@ -59,8 +59,14 @@ namespace jsreport.Client.Test
         {
             var report = await _reportingService.RenderAsync(new RenderRequest()
             {
-                template = new Template() { content = "foo", recipe = "html", engine = "jsrender"},
-                options = new RenderOptions() { saveResult = true }
+                template = new Template() { content = "foo", recipe = "html", engine = "jsrender" },
+                options = new RenderOptions()
+                {
+                    additional = new
+                        {
+                            reports = new { save = true }
+                        }
+                }
             });
 
             var loadedReport = await _reportingService.ReadReportAsync(report.PermanentLink);

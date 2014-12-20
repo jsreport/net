@@ -37,13 +37,6 @@ namespace jsreport.Embedded
         string AbsolutePathToServer { get; set; }
 
         /// <summary>
-        /// To avoid orphans of nodejs processes jsreport server kills itself when no ping is comming from .NET process.
-        /// EmbeddedReportingServer takes care of sending regular ping to jsreport server.
-        /// PingTimeout specifies time how to keep jsreport nodejs process runing when no ping is comming from .NET
-        /// </summary>
-        TimeSpan PingTimeout { get; set; }
-
-        /// <summary>
         /// Shortcut to new ReportingService(EmbeddedServerUri)
         /// </summary>
         IReportingService ReportingService { get;}

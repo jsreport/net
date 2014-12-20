@@ -25,7 +25,7 @@ namespace jsreport.Embedded.Test
         }
 
         [Test]
-        [ExpectedException(typeof(InvalidOperationException))]
+        [ExpectedException(typeof(EmbeddedReportingServerException))]
         public async void start_should_timeout_when_it_takes_too_long()
         {
             var server = new EmbeddedReportingServer() { StartTimeout = new TimeSpan(0,0,0)};

@@ -82,5 +82,8 @@ namespace jsreport.Client
         Task SynchronizeTemplatesAsync();
 
         Task CreateOrUpdateSampleData(string name, string content);
+
+        string Username { get; set; }
+        string Password { get; set; }
     }
 }
