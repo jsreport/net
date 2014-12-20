@@ -12,7 +12,7 @@ Running jsreport side by side .NET process lifecycle...
 
 ##jsreport.MVC
 Rendering pdf from asp.net mvc views...
-> Install-Package **[jsreport.Embedded](https://www.nuget.org/packages/jsreport.MVC)**   
+> Install-Package **[jsreport.MVC](https://www.nuget.org/packages/jsreport.MVC)**   
 > **[Documentation](http://jsreport.net/blog/rendering-pdf-from-aspnet-mvc-views)**
 
 See also [jsreport visual studio tools repository](https://github.com/jsreport/vstools)
