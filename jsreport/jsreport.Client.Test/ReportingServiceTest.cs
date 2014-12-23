@@ -78,6 +78,25 @@ namespace jsreport.Client.Test
         }
 
         [Test]
+        public async void render_preview_should_return_excel_online()
+        {
+            var report = await _reportingService.RenderAsync(new RenderRequest()
+            {
+                template = new Template() { content = "<table><tr><td>a</td></tr></table>", recipe = "html-to-xlsx", engine = "jsrender" },
+                options = new RenderOptions()
+                {
+                    preview = true
+                }
+            });
+
+
+            var reader = new StreamReader(report.Content);
+
+            var str = reader.ReadToEnd();
+            Assert.IsTrue(str.Contains("iframe"));
+        }
+
+        [Test]
         public async void odata_delete_should_work()
         {
             await _reportingService.SynchronizeTemplatesAsync();

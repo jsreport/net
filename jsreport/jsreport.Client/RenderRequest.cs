@@ -65,9 +65,9 @@ namespace jsreport.Client
 
             dynamicOptions = new ExpandoObject();
             if (options.preview != null)
-                dynamicOptions.preview = dynamicOptions.preview;
+                dynamicOptions.preview = options.preview;
             if (options.timeout != null)
-                dynamicOptions.timeout = dynamicOptions.timeout;
+                dynamicOptions.timeout = options.timeout;
 
             if (options.additional != null)
             {
