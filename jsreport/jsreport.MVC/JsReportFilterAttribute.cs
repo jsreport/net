@@ -82,8 +82,7 @@ namespace jsreport.MVC
                                 }
                         }
                 }).ConfigureAwait(false);
-
-
+           
             AddResponseHeaders(context, jsreportAttribute, output);
 
             return output;
@@ -94,7 +93,7 @@ namespace jsreport.MVC
         {
             foreach (var httpResponseHeader in output.Response.Headers)
             {
-                if (httpResponseHeader.Key == "Connection" || httpResponseHeader.Key == "Transfer-Encoding")
+                if (httpResponseHeader.Key == "connection" || httpResponseHeader.Key.ToLower() == "transfer-encoding")
                     continue;
 
 
@@ -104,7 +103,7 @@ namespace jsreport.MVC
 
             foreach (var httpContentHeader in output.Response.Content.Headers)
             {
-                if (jsreportAttribute.ContentDisposition != null && httpContentHeader.Key == "Content-Disposition")
+                if (jsreportAttribute.ContentDisposition != null && httpContentHeader.Key.ToLower() == "content-disposition")
                 {
                     context.HttpContext.Response.AddHeader(httpContentHeader.Key, jsreportAttribute.ContentDisposition);
                 }
