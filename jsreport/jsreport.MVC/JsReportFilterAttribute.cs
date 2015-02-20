@@ -29,7 +29,7 @@ namespace jsreport.MVC
         {
             EnableJsReportAttribute attr;
             if (ShouldUseJsReport(filterContext, out attr))
-            {
+            {                
                 filterContext.HttpContext.Response.Filter = new JsReportStream(filterContext, attr, RenderReport);
             }
         }
@@ -93,7 +93,7 @@ namespace jsreport.MVC
         {
             foreach (var httpResponseHeader in output.Response.Headers)
             {
-                if (httpResponseHeader.Key == "connection" || httpResponseHeader.Key.ToLower() == "transfer-encoding")
+                if (httpResponseHeader.Key.ToLower() == "connection" || httpResponseHeader.Key.ToLower() == "transfer-encoding")
                     continue;
 
 
