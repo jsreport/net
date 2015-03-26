@@ -16,7 +16,7 @@ namespace jsreport.Client.Entities
         public string shortid { get; set; }
         public string name { get; set; }
         public string dataJson { get; set; }
-        public DateTime? creationDate { get; set; }
-        public DateTime? modificationDate { get; set; }
+        public DateTimeOffset? creationDate { get; set; }
+        public DateTimeOffset? modificationDate { get; set; }
     }
 }

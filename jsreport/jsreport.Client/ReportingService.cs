@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Dynamic;
 using System.IO;
 using System.Linq;
@@ -25,7 +26,7 @@ namespace jsreport.Client
         public string Username { get; set; }
         public string Password { get; set; }
         public Uri ServiceUri { get; set; }
-
+        
         public ReportingService(string serviceUri, string username, string password) : this(serviceUri)
         {
             Username = username;
@@ -239,6 +240,7 @@ namespace jsreport.Client
         /// </summary>
         public async Task SynchronizeTemplatesAsync()
         {
+            await EnsureVersion();
             string path = ReportsDirectory;
 
             ODataClient client = CreateODataClient();
@@ -268,7 +270,7 @@ namespace jsreport.Client
                 operation.recipe = reportDefinition.Recipe;
 
                 if (!string.IsNullOrEmpty(reportDefinition.SampleData))
-                    operation.dataItemId = reportDefinition.SampleData;
+                    operation.data = new {shortid = reportDefinition.SampleData};
 
                 operation.content = content;
                 operation.helpers = helpers;
@@ -312,7 +314,7 @@ namespace jsreport.Client
                 else
                 {
                     operation._id = template._id;
-                    await ((Task)client.For<Template>().Filter(x => x.name == reportName).Set(operation).UpdateEntryAsync()).ConfigureAwait(false);
+                    await ((Task)client.For<Template>().Key(template._id).Set(operation).UpdateEntryAsync()).ConfigureAwait(false);
                 }
             }
         }
@@ -342,7 +344,7 @@ namespace jsreport.Client
             {
                 operation._id = dataItem._id;
                 await
-                    ((Task) client.For<DataItem>("data").Filter(x => x.name == name).Set(operation).UpdateEntryAsync())
+                    ((Task) client.For<DataItem>("data").Key(dataItem._id).Set(operation).UpdateEntryAsync())
                         .ConfigureAwait(false);
             }
         }
@@ -366,7 +368,7 @@ namespace jsreport.Client
                 else
                 {
                     operation._id = image._id;
-                    await ((Task)client.For<Image>().Filter(x => x.name == imageName).Set(operation).UpdateEntryAsync()).ConfigureAwait(false);
+                    await ((Task)client.For<Image>().Key(operation._id).Set(operation).UpdateEntryAsync()).ConfigureAwait(false);
                 }
             }
         }
@@ -390,6 +392,17 @@ namespace jsreport.Client
                 throw new InvalidOperationException("Non unique item found during jsreprot synchronization: " + firstNonUnique);
 
             return files;
+        }
+
+        private Version _cachedVersion;
+        private async Task<bool> EnsureVersion()
+        {
+            _cachedVersion = _cachedVersion ?? new Version(await GetServerVersionAsync());
+
+            if (_cachedVersion < new Version("0.3.0"))
+                throw new InvalidOperationException("This version of jsreport.Client works only with jsreport server 0.3 and higher. Please update jsreport server or downgrade jsreport.Client");
+
+            return true;
         }
     }
 }
