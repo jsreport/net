@@ -20,11 +20,6 @@ namespace jsreport.Client.Entities
         public string shortid { get; set; }
 
         /// <summary>
-        /// Used only when rendering in https://playground.jsreport.nets
-        /// </summary>
-        public int version { get; set; }
-        
-        /// <summary>
         /// Content of report, most often this is html with javasript templating engines
         /// </summary>
         public string content { get; set; }

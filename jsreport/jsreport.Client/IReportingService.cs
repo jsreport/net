@@ -31,16 +31,6 @@ namespace jsreport.Client
         /// <exception cref="JsReportException"></exception>
         /// <returns>Report result promise</returns>
         Task<Report> RenderAsync(string templateShortid, string jsonData);
-        
-        /// <summary>
-        /// The simpliest rendering using template shortid and input data used with https://playground.jsreport.net
-        /// </summary>
-        /// <param name="templateShortid">template shortid can be taken from jsreport playground studio</param>
-        /// <param name="data">any json serializable object</param>
-        /// <param name="version">template version number taken from playground</param>
-        /// <exception cref="JsReportException"></exception>
-        /// <returns>Report result promise</returns>
-        Task<Report> RenderAsync(string templateShortid, int version, object data);
 
         /// <summary>
         /// Overload for more sophisticated rendering.

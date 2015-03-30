@@ -19,7 +19,7 @@ namespace jsreport.Embedded
     /// </summary>
     public class EmbeddedReportingServer : IEmbeddedReportingServer
     {
-        public const string PACKAGE_VERSION = "0.2.3";
+        public const string PACKAGE_VERSION = "0.3.0";
         private readonly long _port;
         private bool _disposed;
         private bool _stopped = true;

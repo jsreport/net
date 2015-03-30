@@ -104,6 +104,7 @@ namespace jsreport.Client
 
                 if (ReportingService.Username != null)
                 {
+                    request.Headers.Remove("Authorization");
                     request.Headers.Add("Authorization", "Basic " + System.Convert.ToBase64String(
                         Encoding.UTF8.GetBytes(String.Format("{0}:{1}", ReportingService.Username, ReportingService.Password))));
                 }

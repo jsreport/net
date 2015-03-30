@@ -53,8 +53,6 @@ namespace jsreport.Client
             if (template.phantom != null)
                 dynamicTemplate.phantom = template.phantom;
             
-            dynamicTemplate.version = template.version;
-
             if (template.additional != null)
             {
                 foreach (var p in template.additional.GetType().GetRuntimeProperties())

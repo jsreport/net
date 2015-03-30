@@ -88,23 +88,6 @@ namespace jsreport.Client
         }
 
         /// <summary>
-        /// The simpliest rendering using template shortid and input data used with https://playground.jsreport.net
-        /// </summary>
-        /// <param name="templateShortid">template shortid can be taken from jsreport playground studio</param>
-        /// <param name="data">any json serializable object</param>
-        /// <param name="version">template version number taken from playground</param>
-        /// <exception cref="JsReportException"></exception>
-        /// <returns>Report result promise</returns>
-        public async Task<Report> RenderAsync(string templateShortid, int version, object data)
-        {
-            return await RenderAsync(new RenderRequest()
-            {
-                template = new Template() { shortid = templateShortid, version = version},
-                data = data
-            }).ConfigureAwait(false);
-        }
-
-        /// <summary>
         /// Overload for more sophisticated rendering.
         /// </summary>
         /// <param name="request">ram name="request">Description of rendering process <see cref="RenderRequest"/></param>
@@ -241,13 +224,18 @@ namespace jsreport.Client
         public async Task SynchronizeTemplatesAsync()
         {
             await EnsureVersion();
+            await SynchronizeTemplatesAsyncInner();
+        }
+
+        private async Task SynchronizeTemplatesAsyncInner()
+        {
             string path = ReportsDirectory;
 
             ODataClient client = CreateODataClient();
 
             await SynchronizeImagesAsync(client, path).ConfigureAwait(false);
             await SynchronizeSchemasAsync(client, path).ConfigureAwait(false);
-            
+
             foreach (string reportFilePath in ValidateUniquenes(Directory.GetFiles(path, "*.jsrep", SearchOption.AllDirectories)))
             {
                 string reportName = Path.GetFileNameWithoutExtension(reportFilePath);
@@ -270,7 +258,7 @@ namespace jsreport.Client
                 operation.recipe = reportDefinition.Recipe;
 
                 if (!string.IsNullOrEmpty(reportDefinition.SampleData))
-                    operation.data = new {shortid = reportDefinition.SampleData};
+                    operation.data = new { shortid = reportDefinition.SampleData };
 
                 operation.content = content;
                 operation.helpers = helpers;
@@ -357,6 +345,7 @@ namespace jsreport.Client
                 dynamic operation = new ExpandoObject();
                 operation.content = File.ReadAllBytes(imagePath);
                 operation.shortid = imageName;
+                operation.contentType = "image/png";
                 operation.name = operation.shortid;
 
                 var image = await (client.For<Image>().Filter(x => x.name == imageName).FindEntryAsync()).ConfigureAwait(false);
