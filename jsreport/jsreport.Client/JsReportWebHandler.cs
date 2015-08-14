@@ -50,7 +50,7 @@ namespace jsreport.Client
         {
             string url = context.Request.QueryString["url"] ?? "/";
 
-            if (url.EndsWith("main_embed"))
+            if (url.EndsWith("main_embed") || url.EndsWith("main_dev") || url.EndsWith("main"))
                 url += ".js";
 
             if (url.Contains("?"))
@@ -58,6 +58,7 @@ namespace jsreport.Client
             else
                 url += "?";
 
+            //TODO this should be maybe removed
             if (!url.Contains("studio=embed"))
                 url += "studio=embed";
 

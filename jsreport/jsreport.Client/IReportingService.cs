@@ -75,5 +75,7 @@ namespace jsreport.Client
 
         string Username { get; set; }
         string Password { get; set; }
+
+        TimeSpan? HttpClientTimeout { get; set; }
     }
 }

@@ -26,6 +26,7 @@ namespace jsreport.Client
         public string Username { get; set; }
         public string Password { get; set; }
         public Uri ServiceUri { get; set; }
+        public TimeSpan? HttpClientTimeout { get; set; }
         
         public ReportingService(string serviceUri, string username, string password) : this(serviceUri)
         {
@@ -43,7 +44,8 @@ namespace jsreport.Client
             ReportsDirectory = Path.GetDirectoryName(codeBase);
         }
 
-        private HttpClient CreateClient()
+
+        protected virtual HttpClient CreateClient()
         {
             var client = new HttpClient() {BaseAddress = ServiceUri};
 
@@ -52,6 +54,9 @@ namespace jsreport.Client
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", System.Convert.ToBase64String(
                     Encoding.UTF8.GetBytes(String.Format("{0}:{1}",Username,Password))));
             }
+
+            if (HttpClientTimeout != null)
+                client.Timeout = HttpClientTimeout.Value;
 
             return client;
         }
@@ -100,8 +105,7 @@ namespace jsreport.Client
 
             request.Validate();
 
-            var client = CreateClient();
-
+            var client = CreateClient();           
             var settings = new JsonSerializerSettings()
                 {
                     NullValueHandling = NullValueHandling.Ignore,
@@ -111,7 +115,7 @@ namespace jsreport.Client
           
             var response =
                 await
-                client.PostAsync("/api/report",
+                client.PostAsync("api/report",
                                  new StringContent(JsonConvert.SerializeObject(request, settings), Encoding.UTF8,
                                                    "application/json")).ConfigureAwait(false);
 

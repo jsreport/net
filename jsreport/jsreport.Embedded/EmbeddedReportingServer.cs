@@ -19,7 +19,7 @@ namespace jsreport.Embedded
     /// </summary>
     public class EmbeddedReportingServer : IEmbeddedReportingServer
     {
-        public const string PACKAGE_VERSION = "0.3.0";
+        public const string PACKAGE_VERSION = "0.8.1";
         private readonly long _port;
         private bool _disposed;
         private bool _stopped = true;
@@ -54,6 +54,7 @@ namespace jsreport.Embedded
 
         public TimeSpan StartTimeout { get; set; }
         public TimeSpan StopTimeout { get; set; }
+        public object Configuration { get; set; }
 
         public string AssemblyDirectory
         {
@@ -70,12 +71,13 @@ namespace jsreport.Embedded
         public string ServerStandardOutput { get; set; }
         public string ServerErrorOutput { get; set; }
 
+        private IReportingService _reportingService;
         /// <summary>
         ///     Shortcut to new ReportingService(EmbeddedServerUri)
         /// </summary>
         public IReportingService ReportingService
         {
-            get { return new ReportingService(EmbeddedServerUri) {ReportsDirectory = AssemblyDirectory}; }
+            get { return _reportingService = _reportingService ?? new ReportingService(EmbeddedServerUri) { ReportsDirectory = AssemblyDirectory }; }
         }
 
         /// <summary>
@@ -245,7 +247,7 @@ namespace jsreport.Embedded
             Worker = new Process();
             Worker.StartInfo.FileName = Path.Combine(AssemblyDirectory, "node.exe");
             Worker.StartInfo.WorkingDirectory = Path.Combine(AbsolutePathToServer, "jsreport-net-embedded");
-            Worker.StartInfo.Arguments = "server.js " + " --httpPort=" + _port +
+            Worker.StartInfo.Arguments = "server.js " + " --httpPort=" + _port + SerializeConfiguration() + 
                                          (Debugger.IsAttached
                                               ? (" --pingTimeout=" + PingTimeout.TotalSeconds)
                                               : "");
@@ -274,6 +276,45 @@ namespace jsreport.Embedded
 
             Worker.BeginOutputReadLine();
             Worker.BeginErrorReadLine();
+        }
+
+        private string SerializeConfiguration()
+        {
+            if (Configuration == null)
+                return "";
+
+            return InnerSerializeConfiguration(Configuration, "");
+        }
+
+        private string InnerSerializeConfiguration(object obj, string path)
+        {
+            Type type = obj.GetType();
+            PropertyInfo[] properties = type.GetProperties();
+
+            var result = "";
+            foreach (PropertyInfo property in properties)
+            {
+                var value = property.GetValue(obj, null);
+
+                if (property.PropertyType.IsPrimitive || property.PropertyType == typeof(Decimal) || property.PropertyType == typeof(String))
+                {
+                    result += " --";
+                    if (!string.IsNullOrEmpty(path))
+                    {
+                        result += path + ":";
+                    }
+                    result += property.Name + "=" + value;
+                }
+                else
+                {
+                    result += InnerSerializeConfiguration(value,
+                                                          string.IsNullOrEmpty(path)
+                                                              ? property.Name
+                                                              : (path + ":" + property.Name));
+                }
+            }
+
+            return result;
         }
 
         private async Task WaitForStarted()
