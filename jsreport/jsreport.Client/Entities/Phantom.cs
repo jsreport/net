@@ -52,5 +52,10 @@
         public string height { get; set; }
         
         public string url { get; set; }
+
+        /// <summary>
+        /// Milliseconds to wait for js rendering like 1000
+        /// </summary>
+        public int printDelay { get; set; }
     }
 }
