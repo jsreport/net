@@ -1,0 +1,7 @@
+﻿{ 
+    "connectionString": {
+        "name": "fs"       
+    },
+	"extensions": ["templates", "data", "express", "scripts", "fs-store", "phantom-pdf", "html-to-xlsx", "xlsx", "resources", "xlsx", "handlebars", "jsrender", "child-templates", "images", "text"],
+    "httpPort": 3000  
+}

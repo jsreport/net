@@ -1,0 +1,9 @@
+﻿{ 
+    "connectionString": {
+        "name": "fs"       
+    },
+	"extensions": ["templates", "data", "scripts", "fs-store", "phantom-pdf", "html-to-xlsx", "xlsx", "resources", "xlsx", "handlebars", "jsrender", "child-templates", "images", "text"],
+	"logger": {
+		"providerName" : "console"
+	}
+}
