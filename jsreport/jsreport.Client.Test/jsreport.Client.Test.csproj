@@ -140,9 +140,6 @@
     <None Include="Schemas\NestedSchema.jsrep.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="test.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\jsreport.Client\jsreport.Client.csproj">
@@ -200,9 +197,6 @@
     <Content Include="Report5.jsrep.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Report5.jsrep</DependentUpon>
-    </Content>
-    <Content Include="test.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
