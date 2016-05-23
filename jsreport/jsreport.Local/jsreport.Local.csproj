@@ -100,7 +100,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="jsreport\pack-production.js" />
-    <Content Include="jsreport\readme.txt" />
     <Content Include="jsreport\reports\templates\Sample report\helpers.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

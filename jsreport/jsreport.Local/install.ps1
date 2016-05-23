@@ -72,3 +72,5 @@ if ($lastexitcode) {
 	throw 'Failed to pack jsreport for publishing, see the package manager output window for details'
 }
 
+start "http://jsreport.net/blog/csharp-integration-improvements"
+

@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
+using System.Linq;
 using System.Reflection;
 using Newtonsoft.Json;
 
@@ -37,13 +38,12 @@ namespace jsreport.Local
                 return Path.GetDirectoryName(codeBase);
             }
         }
-        
+
         /// <summary>
         /// Decompress the jsreport.zip and copy server.js and prod.config.json from jsreport/production folder
         /// </summary>
         public void Initialize()
         {
-
             if (RelativePathToServer == null)
             {
                 if (IsWebApp(AppDomain.CurrentDomain))
@@ -126,7 +126,7 @@ namespace jsreport.Local
             worker.StartInfo.EnvironmentVariables.Add("JSREPORT_REQUEST", requestString);
             worker.StartInfo.EnvironmentVariables.Remove("NODE_ENV");
             worker.StartInfo.EnvironmentVariables.Add("NODE_ENV", "production");
-            
+
             var outputPath = "";
             var logs = "";
 
@@ -145,7 +145,8 @@ namespace jsreport.Local
                     }
                 };
 
-            worker.ErrorDataReceived += (sender, e) => {
+            worker.ErrorDataReceived += (sender, e) =>
+                {
                     if (e.Data != null)
                     {
                         logs += e.Data;
@@ -166,13 +167,22 @@ namespace jsreport.Local
             }
             worker.Close();
 
-            return new Report() { Content = new FileStream(outputPath, FileMode.Open) };
+            return new Report() {Content = new FileStream(outputPath, FileMode.Open)};
         }
 
         private void Decompress()
         {
-            if (!Directory.Exists(Path.Combine(AbsolutePathToServer, "node_modules")))
+            var zippedFromSolution =
+                new FileInfo(Path.Combine(AssemblyDirectory, "jsreport", "production", "jsreport.zip"));
+            var zippedFromApp = new FileInfo(Path.Combine(AbsolutePathToServer, "jsreport.zip"));
+            var isSame = zippedFromApp.Exists && zippedFromSolution.Exists &&
+                             (zippedFromApp.Length == zippedFromSolution.Length);
+
+
+            if (!Directory.Exists(Path.Combine(AbsolutePathToServer, "node_modules")) || !isSame)
             {
+                DeleteDirectoryContent(AbsolutePathToServer);
+
                 var fileToDecompress =
                     new FileInfo(Path.Combine(AssemblyDirectory, "jsreport", "production", "jsreport.zip"));
 
@@ -187,17 +197,62 @@ namespace jsreport.Local
                       Path.Combine(AbsolutePathToServer, "server.js"), true);
             File.Copy(Path.Combine(AssemblyDirectory, "jsreport", "production", "prod.config.json"),
                       Path.Combine(AbsolutePathToServer, "prod.config.json"), true);
+            File.Copy(Path.Combine(AssemblyDirectory, "jsreport", "production", "jsreport.zip"),
+                      Path.Combine(AbsolutePathToServer, "jsreport.zip"), true);
         }
 
         private static bool IsWebApp(AppDomain appDomain)
         {
-            var configFile = (string)appDomain.GetData("APP_CONFIG_FILE");
+            var configFile = (string) appDomain.GetData("APP_CONFIG_FILE");
             if (string.IsNullOrEmpty(configFile)) return false;
             return (
-              Path.GetFileNameWithoutExtension(configFile) ?? string.Empty
-              ).Equals(
-                "WEB",
-                StringComparison.OrdinalIgnoreCase);
+                       Path.GetFileNameWithoutExtension(configFile) ?? string.Empty
+                   ).Equals(
+                       "WEB",
+                       StringComparison.OrdinalIgnoreCase);
+        }
+
+
+        private void DeleteDirectoryContent(string path, bool skipMainDir = true)
+        {
+            if (!Directory.Exists(path))
+                return;
+
+            foreach (string directory in Directory.GetDirectories(path))
+            {
+                DeleteDirectoryContent(directory, false);
+            }
+
+            try
+            {
+                Directory.EnumerateFiles(path).ToList().ForEach(File.Delete);
+            }
+            catch (IOException)
+            {
+                Directory.EnumerateFiles(path).ToList().ForEach(File.Delete);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                Directory.EnumerateFiles(path).ToList().ForEach(File.Delete);
+            }
+
+            if (skipMainDir)
+            {
+                return;
+            }
+
+            try
+            {
+                Directory.Delete(path, true);
+            }
+            catch (IOException)
+            {
+                Directory.Delete(path, true);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                Directory.Delete(path, true);
+            }
         }
     }
 }
