@@ -32,6 +32,8 @@ namespace jsreport.Client
         /// <returns>Report result promise</returns>
         Task<Report> RenderAsync(string templateShortid, string jsonData);
 
+        Task<Report> RenderAsync(object request);
+
         /// <summary>
         /// Overload for more sophisticated rendering.
         /// </summary>

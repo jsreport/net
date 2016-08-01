@@ -24,7 +24,6 @@ namespace jsreport.Client.Test
         {
             Monitor.Enter(_locker);
             _embeddedReportingServer = new EmbeddedReportingServer(3000);
-            _embeddedReportingServer.CleanServerData();
             _embeddedReportingServer.StartAsync().Wait();
 
             _reportingService = new ReportingService("http://localhost:3000");

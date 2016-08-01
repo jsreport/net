@@ -123,6 +123,7 @@ namespace jsreport.Local
                             RedirectStandardError = true,
                         }
                 };
+            
             worker.StartInfo.EnvironmentVariables.Add("JSREPORT_REQUEST", requestString);
             worker.StartInfo.EnvironmentVariables.Remove("NODE_ENV");
             worker.StartInfo.EnvironmentVariables.Add("NODE_ENV", "production");
@@ -193,6 +194,9 @@ namespace jsreport.Local
                 ZipFile.ExtractToDirectory(fileToDecompress.FullName, AbsolutePathToServer);
             }
 
+            CopyFilesRecursively(new DirectoryInfo(Path.Combine(AssemblyDirectory, "jsreport", "reports")),
+                                 new DirectoryInfo(Path.Combine(AbsolutePathToServer, "../reports")));
+
             File.Copy(Path.Combine(AssemblyDirectory, "jsreport", "production", "server.js"),
                       Path.Combine(AbsolutePathToServer, "server.js"), true);
             File.Copy(Path.Combine(AssemblyDirectory, "jsreport", "production", "prod.config.json"),
@@ -212,6 +216,13 @@ namespace jsreport.Local
                        StringComparison.OrdinalIgnoreCase);
         }
 
+        private void CopyFilesRecursively(DirectoryInfo source, DirectoryInfo target)
+        {
+            foreach (DirectoryInfo dir in source.GetDirectories())
+                CopyFilesRecursively(dir, target.CreateSubdirectory(dir.Name));
+            foreach (FileInfo file in source.GetFiles())
+                file.CopyTo(Path.Combine(target.FullName, file.Name), true);
+        }
 
         private void DeleteDirectoryContent(string path, bool skipMainDir = true)
         {

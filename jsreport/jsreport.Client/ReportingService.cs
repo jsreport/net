@@ -92,6 +92,30 @@ namespace jsreport.Client
             return RenderAsync(templateShortid, string.IsNullOrEmpty(jsonData) ? (object) null : JObject.Parse(jsonData));
         }
 
+        public async Task<Report> RenderAsync(object request)
+        {
+            var client = CreateClient();
+            var settings = new JsonSerializerSettings()
+            {
+                NullValueHandling = NullValueHandling.Ignore,
+                ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Serialize,
+                PreserveReferencesHandling = PreserveReferencesHandling.All
+            };
+
+            var response =
+                await
+                client.PostAsync("api/report",
+                                 new StringContent(JsonConvert.SerializeObject(request, settings), Encoding.UTF8,
+                                                   "application/json")).ConfigureAwait(false);
+
+            if (response.StatusCode != HttpStatusCode.OK)
+                throw JsReportException.Create("Unable to render template. ", response);
+
+            response.EnsureSuccessStatusCode();
+
+            return await ReportFromResponse(response).ConfigureAwait(false);
+        }
+
         /// <summary>
         /// Overload for more sophisticated rendering.
         /// </summary>
@@ -105,26 +129,7 @@ namespace jsreport.Client
 
             request.Validate();
 
-            var client = CreateClient();           
-            var settings = new JsonSerializerSettings()
-                {
-                    NullValueHandling = NullValueHandling.Ignore,
-                    ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Serialize,
-                    PreserveReferencesHandling = PreserveReferencesHandling.All
-                };
-          
-            var response =
-                await
-                client.PostAsync("api/report",
-                                 new StringContent(JsonConvert.SerializeObject(request, settings), Encoding.UTF8,
-                                                   "application/json")).ConfigureAwait(false);
-
-            if (response.StatusCode != HttpStatusCode.OK)
-                throw JsReportException.Create("Unable to render template. ", response);
-
-            response.EnsureSuccessStatusCode();
-
-            return await ReportFromResponse(response).ConfigureAwait(false);
+            return await RenderAsync((object)request).ConfigureAwait(false);
         }
 
         /// <summary>

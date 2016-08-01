@@ -30,13 +30,31 @@ namespace jsreport.Client.Test
 
             //http://localhost:1337/odata
 
-            var rs = new ReportingService("http://localhost:4000", "admin", "password");
+            var rs = new ReportingService("http://localhost:3000", "admin", "password");
 
-            Parallel.ForEach(Enumerable.Range(1, 1000), new ParallelOptions() {
+            var data = new
+                {
+                    list = Enumerable.Range(1, 10000).Select(i => i.ToString())
+                };
+
+            var str = string.Join(",", data.list);
+
+            
+
+            Parallel.ForEach(Enumerable.Range(1, 100000), new ParallelOptions() {
                 MaxDegreeOfParallelism = 3 }, i =>
             {
                 Console.WriteLine(i);
-                var rep = rs.RenderAsync("X1ltdPq7t", null).Result;
+                var rep = rs.RenderAsync(new RenderRequest()
+                    {
+                        data = data,
+                        template =  new Template()
+                            {
+                                content = str,
+                                engine = "jsrender",
+                                recipe = "html"
+                            }
+                    }).Result;
             });
 
             Console.WriteLine("Done");

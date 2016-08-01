@@ -6,9 +6,12 @@ using System.IO.Compression;
 using System.Linq;
 using System.Management;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Reflection;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using jsreport.Client;
 
@@ -24,12 +27,11 @@ namespace jsreport.Embedded
         private bool _disposed;
         private bool _stopped = true;
         private bool _stopping;
-
+        
         public EmbeddedReportingServer(long port = 2000)
         {
             _port = port;
             EmbeddedServerUri = "http://localhost:" + port;
-            RelativePathToServer = "";
             StartTimeout = new TimeSpan(0, 0, 0, 20);
             PingTimeout = new TimeSpan(0, 0, 0, 30);
             StopTimeout = new TimeSpan(0, 0, 0, 3);
@@ -68,8 +70,12 @@ namespace jsreport.Embedded
             }
         }
 
+    
         public string ServerStandardOutput { get; set; }
         public string ServerErrorOutput { get; set; }
+
+        public string Username { get; set; }
+        public string Password { get; set; }
 
         private IReportingService _reportingService;
         /// <summary>
@@ -77,7 +83,12 @@ namespace jsreport.Embedded
         /// </summary>
         public IReportingService ReportingService
         {
-            get { return _reportingService = _reportingService ?? new ReportingService(EmbeddedServerUri) { ReportsDirectory = AssemblyDirectory }; }
+            get { return _reportingService = _reportingService ?? new ReportingService(EmbeddedServerUri)
+                {
+                    ReportsDirectory = AssemblyDirectory,
+                    Username = Username,
+                    Password = Password
+                }; }
         }
 
         /// <summary>
@@ -105,23 +116,14 @@ namespace jsreport.Embedded
             InitializeServerPath();
             await StopAsync().ConfigureAwait(false);
 
-            if (!File.Exists(Path.Combine(AbsolutePathToServer, "jsreport-net-embedded", "server.js")))
-            {
-                Decompress();
-            }
-            else
-            {
-                string packageFile = Path.Combine(AbsolutePathToServer, "jsreport-net-embedded", "package.json");
-                if (JObject.Parse(File.ReadAllText(packageFile))["version"].Value<string>() != PACKAGE_VERSION)
-                {
-                    Decompress();
-                }
-            }
+            Decompress();
 
             StartWorker();
 
             await WaitForStarted().ConfigureAwait(false);
         }
+
+
 
         /// <summary>
         ///     Sends kill signal to jsreport server and wait for it's exit
@@ -141,18 +143,8 @@ namespace jsreport.Embedded
             {
                 List<Process> alreadyRunningProcess =
                     Process.GetProcessesByName("node")
-                           .Where(p => GetMainModuleFilePath(p.Id) == Path.Combine(AssemblyDirectory, "node.exe"))
+                           .Where(p => GetMainModuleFilePath(p.Id) == Path.Combine(AbsolutePathToServer, "node.exe"))
                            .ToList();
-                
-                alreadyRunningProcess.AddRange(Process.GetProcessesByName("phantomjs")
-                                                      .Where(
-                                                          p =>
-                                                          GetMainModuleFilePath(p.Id) == Path.GetFullPath(
-                                                          Path.Combine(AbsolutePathToServer, "jsreport-net-embedded",
-                                                                       "node_modules",
-                                                                       "phantomjs", "lib", "phantom", "phantomjs.exe")))
-                                                      .ToList());
-
 
                 if (alreadyRunningProcess.Any())
                 {
@@ -163,8 +155,7 @@ namespace jsreport.Embedded
             {
             }
 
-            var client = new HttpClient();
-            client.BaseAddress = new Uri(EmbeddedServerUri);
+            var client = CreateClient();
             client.Timeout = new TimeSpan(0, 0, 0, 0, 500);
 
             var timeoutSw = new Stopwatch();
@@ -219,9 +210,26 @@ namespace jsreport.Embedded
 
         private void InitializeServerPath()
         {
+            if (RelativePathToServer == null)
+            {
+                if (IsWebApp(AppDomain.CurrentDomain))
+                {
+                    RelativePathToServer = Path.Combine("../App_Data/jsreport", "app");
+                }
+                else
+                {
+                    RelativePathToServer = Path.Combine("jsreport", "app");
+                }
+            }
+
             if (AbsolutePathToServer == null)
             {
-                AbsolutePathToServer = Path.Combine(AssemblyDirectory, RelativePathToServer);
+                AbsolutePathToServer = Path.GetFullPath(Path.Combine(AssemblyDirectory, RelativePathToServer));
+            }
+
+            if (!Directory.Exists(AbsolutePathToServer))
+            {
+                Directory.CreateDirectory(AbsolutePathToServer);
             }
         }
 
@@ -244,18 +252,22 @@ namespace jsreport.Embedded
 
         private void StartWorker()
         {
-            Worker = new Process();
-            Worker.StartInfo.FileName = Path.Combine(AssemblyDirectory, "node.exe");
-            Worker.StartInfo.WorkingDirectory = Path.Combine(AbsolutePathToServer, "jsreport-net-embedded");
-            Worker.StartInfo.Arguments = "server.js " + " --httpPort=" + _port + SerializeConfiguration() + 
-                                         (Debugger.IsAttached
-                                              ? (" --pingTimeout=" + PingTimeout.TotalSeconds)
-                                              : "");
-            Worker.StartInfo.UseShellExecute = false;
-            Worker.StartInfo.CreateNoWindow = true;
-            Worker.StartInfo.RedirectStandardOutput = true;
-            Worker.StartInfo.RedirectStandardError = true;
+            Worker = new Process()
+            {
+                StartInfo = new ProcessStartInfo(Path.Combine(AbsolutePathToServer, "node.exe"))
+                {
+                    FileName = Path.Combine(AbsolutePathToServer, "node.exe"),
+                    WorkingDirectory = AbsolutePathToServer,
+                    Arguments = "server.js " + " --httpPort=" + _port + SerializeConfiguration(),
+                    UseShellExecute = false,
+                    CreateNoWindow = true,
+                    RedirectStandardOutput = true,
+                    RedirectStandardError = true,
+                }
+            };
 
+            Worker.StartInfo.EnvironmentVariables.Remove("NODE_ENV");
+            Worker.StartInfo.EnvironmentVariables.Add("NODE_ENV", "production");
 
             Worker.OutputDataReceived += (sender, e) =>
                 {
@@ -266,7 +278,7 @@ namespace jsreport.Embedded
                 };
             Worker.ErrorDataReceived += (sender, e) =>
                 {
-                    if (e.Data == null)
+                    if (e.Data != null)
                     {
                         ServerErrorOutput += e.Data;
                     }
@@ -326,14 +338,13 @@ namespace jsreport.Embedded
             timeoutSw.Start();
 
             bool done = false;
-            var client = new HttpClient();
-            client.BaseAddress = new Uri(EmbeddedServerUri);
+            var client = CreateClient();
 
             var tcs = new TaskCompletionSource<object>();
 
             Task.Run(async () =>
                 {
-                    while (!done || Debugger.IsAttached)
+                    while (!done)
                     {
                         if (_stopping || _stopped)
                             return;
@@ -343,7 +354,7 @@ namespace jsreport.Embedded
                             await StopAsync();
                             tcs.SetException(
                                 new EmbeddedReportingServerException(
-                                    "Failed to start jsreport server. Examine ServerStandardOutput and ServerErrorOutput properties for details ")
+                                    "Failed to start jsreport server, output: " + ServerErrorOutput + ServerStandardOutput)
                                     {
                                         ServerErrorOutput = ServerErrorOutput,
                                         ServerStandardOutput = ServerStandardOutput
@@ -353,7 +364,7 @@ namespace jsreport.Embedded
 
                         try
                         {
-                            HttpResponseMessage response = client.GetAsync("/api/alive").Result;
+                            HttpResponseMessage response = client.GetAsync("/api/ping").Result;
                             response.EnsureSuccessStatusCode();
 
                             string res = response.Content.ReadAsStringAsync().Result;
@@ -364,8 +375,9 @@ namespace jsreport.Embedded
                                 tcs.SetResult(new object());
                             }
                         }
-                        catch (Exception e)
+                        catch (Exception)
                         {
+                            //waiting for server to startup
                         }
 
                         Thread.Sleep(500);
@@ -373,73 +385,109 @@ namespace jsreport.Embedded
                 });
 
             await tcs.Task.ConfigureAwait(false);
+       }
+
+        private HttpClient CreateClient()
+        {
+            var client = new HttpClient() { BaseAddress = new Uri(EmbeddedServerUri) };
+
+            if (Username != null)
+            {
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", System.Convert.ToBase64String(
+                    Encoding.UTF8.GetBytes(String.Format("{0}:{1}", Username, Password))));
+            }
+
+            return client;
         }
 
         private void Decompress()
         {
-            var fileToDecompress = new FileInfo(Path.Combine(AssemblyDirectory, "jsreport-net-embedded.zip"));
+            var zippedFromSolution =
+                new FileInfo(Path.Combine(AssemblyDirectory, "jsreport", "jsreport.zip"));
+            var zippedFromApp = new FileInfo(Path.Combine(AbsolutePathToServer, "jsreport.zip"));
+            var isSame = zippedFromApp.Exists && zippedFromSolution.Exists &&
+                             (zippedFromApp.Length == zippedFromSolution.Length);
 
-            if (!fileToDecompress.Exists)
-                throw new InvalidOperationException(fileToDecompress.FullName + " file not found.");
 
-            var dirWithJsReportContent = new DirectoryInfo(Path.Combine(AbsolutePathToServer, "jsreport-net-embedded"));
-
-            if (dirWithJsReportContent.Exists)
+            if (!Directory.Exists(Path.Combine(AbsolutePathToServer, "node_modules")) || !isSame)
             {
-                DeleteDirectory(dirWithJsReportContent.FullName);
+                DeleteDirectoryContent(AbsolutePathToServer);
+
+                var fileToDecompress =
+                    new FileInfo(Path.Combine(AssemblyDirectory, "jsreport", "jsreport.zip"));
+
+                if (!fileToDecompress.Exists)
+                    throw new InvalidOperationException(fileToDecompress.FullName + " file not found.");
+
+                new DirectoryInfo(AbsolutePathToServer).Delete(true);
+                ZipFile.ExtractToDirectory(fileToDecompress.FullName, AbsolutePathToServer);
             }
 
-            try
+            //copy report templates
+            var reportsInBin = new DirectoryInfo(Path.Combine(AssemblyDirectory, "jsreport", "reports"));
+            var reportsInServer = new DirectoryInfo(Path.Combine(AbsolutePathToServer, "../reports"));
+            if (reportsInBin.Exists && reportsInBin.FullName != reportsInServer.FullName)
             {
-                ZipFile.ExtractToDirectory(fileToDecompress.FullName, dirWithJsReportContent.FullName);
+                CopyFilesRecursively(reportsInBin, reportsInServer);
             }
-            catch (PathTooLongException e)
+
+            //copy jsreport.zip for later comparing if there was a change
+            foreach (FileInfo file in new DirectoryInfo(Path.Combine(AssemblyDirectory, "jsreport")).GetFiles())
             {
-                throw new PathTooLongException(
-                    "It seems project hosting jsreport is too deep in the directory tree and hits limit for 256 chars long path when extracting jsreport embedded server.",
-                    e);
+                file.CopyTo(Path.Combine(AbsolutePathToServer, file.Name), true);
+            }
+
+            //copy the config files, package.json and server.js
+            foreach (FileInfo file in new DirectoryInfo(Path.Combine(AssemblyDirectory, "jsreport", "app")).GetFiles())
+            {
+                file.CopyTo(Path.Combine(AbsolutePathToServer, file.Name), true);
             }
         }
 
-        public void CleanServerData()
+        private static bool IsWebApp(AppDomain appDomain)
         {
-            InitializeServerPath();
-
-            string dataPath = Path.Combine(AbsolutePathToServer, "jsreport-net-embedded", "data");
-            if (Directory.Exists(dataPath))
-                Directory.Delete(dataPath, true);
+            var configFile = (string)appDomain.GetData("APP_CONFIG_FILE");
+            if (string.IsNullOrEmpty(configFile)) return false;
+            return (
+                       Path.GetFileNameWithoutExtension(configFile) ?? string.Empty
+                   ).Equals(
+                       "WEB",
+                       StringComparison.OrdinalIgnoreCase);
         }
 
-        private void DomainUnloadOrProcessExit(object sender, EventArgs e)
+        private void CopyFilesRecursively(DirectoryInfo source, DirectoryInfo target)
         {
-            Dispose();
+            foreach (DirectoryInfo dir in source.GetDirectories())
+                CopyFilesRecursively(dir, target.CreateSubdirectory(dir.Name));
+            foreach (FileInfo file in source.GetFiles())
+                file.CopyTo(Path.Combine(target.FullName, file.Name), true);
         }
 
-        public void DeleteDirectory(string path)
+        private void DeleteDirectoryContent(string path, bool skipMainDir = true)
         {
-            if (path == Path.Combine(AbsolutePathToServer, "jsreport-net-embedded", "data"))
+            if (!Directory.Exists(path))
                 return;
 
             foreach (string directory in Directory.GetDirectories(path))
             {
-                DeleteDirectory(directory);
+                DeleteDirectoryContent(directory, false);
             }
 
-            if (path == Path.Combine(AbsolutePathToServer, "jsreport-net-embedded"))
+            try
             {
-                try
-                {
-                    Directory.EnumerateFiles(path).ToList().ForEach(File.Delete);
-                }
-                catch (IOException)
-                {
-                    Directory.EnumerateFiles(path).ToList().ForEach(File.Delete);
-                }
-                catch (UnauthorizedAccessException)
-                {
-                    Directory.EnumerateFiles(path).ToList().ForEach(File.Delete);
-                }
+                Directory.EnumerateFiles(path).ToList().ForEach(File.Delete);
+            }
+            catch (IOException)
+            {
+                Directory.EnumerateFiles(path).ToList().ForEach(File.Delete);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                Directory.EnumerateFiles(path).ToList().ForEach(File.Delete);
+            }
 
+            if (skipMainDir)
+            {
                 return;
             }
 
@@ -455,6 +503,12 @@ namespace jsreport.Embedded
             {
                 Directory.Delete(path, true);
             }
+        }
+       
+
+        private void DomainUnloadOrProcessExit(object sender, EventArgs e)
+        {
+            Dispose();
         }
     }
 }

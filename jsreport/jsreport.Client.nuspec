@@ -21,7 +21,7 @@
     </dependencies>
   </metadata>
   <files>   
-    <file src="jsreport.Client\bin\Release\jsreport.Client.dll" target="lib\net45\jsreport.Client.dll" />
+    <file src="jsreport.Client\bin\Debug\jsreport.Client.dll" target="lib\net45\jsreport.Client.dll" />
     <file src="jsreport.Client\bin\Debug\jsreport.Client.pdb" target="lib\net45\jsreport.Client.pdb" />
     <file src="jsreport.Client\bin\Debug\jsreport.Client.xml" target="lib\net45\jsreport.Client.xml" />
   </files>

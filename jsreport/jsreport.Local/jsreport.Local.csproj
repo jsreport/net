@@ -65,7 +65,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="jsreport\development\package.json" />
-    <None Include="jsreport\development\prod.config.json" />
+    <None Include="jsreport\development\dev.config.json" />
     <None Include="jsreport\production\prod.config.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

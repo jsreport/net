@@ -1,0 +1,6 @@
+{
+  "name": "jsreport-server",
+  "dependencies": {    
+  },
+  "main": "server.js"
+}

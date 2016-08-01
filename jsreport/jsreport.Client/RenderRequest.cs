@@ -40,6 +40,8 @@ namespace jsreport.Client
         {
             dynamicTemplate = new ExpandoObject();
 
+            if (template.name != null)
+                dynamicTemplate.name = template.name;
             if (template.content != null)
                 dynamicTemplate.content = template.content;
             if (template.helpers != null)
@@ -81,10 +83,10 @@ namespace jsreport.Client
             if (template == null)
                 throw new ArgumentNullException("template cannot be null");
 
-            if (template.shortid == null && string.IsNullOrEmpty(template.recipe))
+            if (template.shortid == null && template.name == null && string.IsNullOrEmpty(template.recipe))
                 throw new ArgumentNullException("recipe cannot be null");
 
-            if (template.shortid == null &&  string.IsNullOrEmpty(template.content))
+            if (template.shortid == null && template.name == null && string.IsNullOrEmpty(template.content))
                 throw new ArgumentNullException("template.content cannot be null");
         }
     }

@@ -1,0 +1,9 @@
+﻿{ 
+    "connectionString": {
+        "name": "fs"       
+    },	
+	"sample-template": {
+		"enabled": false
+	},
+    "httpPort": 3000  
+}

@@ -1,1 +1,2 @@
-call .\.nuget\nuget pack -sym jsreport.Local.nuspec -Symbols -Version %1 -OutputDirectory Packages 
+
+call .\.nuget\nuget pack -sym jsreport.Embedded.nuspec -Symbols -Version %1 -OutputDirectory Packages 
