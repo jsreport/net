@@ -1,0 +1,13 @@
+﻿{ 
+    "connectionString": {
+        "name": "fs"       
+    },
+	"sample-template": {
+		"enabled": false
+	},
+	"studio": {
+		"enabled": false
+	},
+	"dataDirectory": "../reports",
+	"tempDirectory": "../temp"
+}

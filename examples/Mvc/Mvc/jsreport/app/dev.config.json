@@ -1,0 +1,10 @@
+﻿{ 
+    "connectionString": {
+        "name": "fs"       
+    },	
+	"sample-template": {
+		"enabled": false
+	},
+	"dataDirectory": "../reports",
+    "httpPort": 5488  
+}

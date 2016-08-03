@@ -1,0 +1,2225 @@
+﻿npm WARN deprecated tough-cookie@2.2.2: ReDoS vulnerability parsing Set-Cookie https://nodesecurity.io/advisories/130
+WARN engine xmlbuilder@2.5.0: wanted: {"node":"0.8.x || 0.10.x || 0.11.x  || 1.0.x"} (current: {"node":"5.3.0","npm":"3.5.2"})
+npm WARN deprecated graceful-fs@1.2.3: graceful-fs v3.0.0 and before will fail on node releases >= v7.0. Please update to graceful-fs@^4.0.0 as soon as possible. Use 'npm ls graceful-fs' to find it in the tree.
+npm WARN deprecated npmconf@2.0.9: this package has been reintegrated into npm and is now out of date with respect to npm
+npm WARN deprecated graceful-fs@3.0.8: graceful-fs v3.0.0 and before will fail on node releases >= v7.0. Please update to graceful-fs@^4.0.0 as soon as possible. Use 'npm ls graceful-fs' to find it in the tree.
+npm WARN deprecated npmconf@2.1.1: this package has been reintegrated into npm and is now out of date with respect to npm
+
+> phantomjs@1.9.15 install F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs
+> node install.js
+
+Download already available at C:\Users\JANBLA~1\AppData\Local\Temp\phantomjs\phantomjs-1.9.8-windows.zip
+Extracting zip contents
+Removing F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\lib\phantom
+Copying extracted folder C:\Users\JANBLA~1\AppData\Local\Temp\phantomjs\phantomjs-1.9.8-windows.zip-extract-1470226442733\phantomjs-1.9.8-windows -> F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\lib\phantom
+Writing location.js file
+Done. Phantomjs binary available at F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\lib\phantom\phantomjs.exe
+
+> phantomjs@1.9.17 install F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\phantomjs
+> node install.js
+
+Download already available at C:\Users\JANBLA~1\AppData\Local\Temp\phantomjs\phantomjs-1.9.8-windows.zip
+Extracting zip contents
+Removing F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\phantomjs\lib\phantom
+Copying extracted folder C:\Users\JANBLA~1\AppData\Local\Temp\phantomjs\phantomjs-1.9.8-windows.zip-extract-1470226459618\phantomjs-1.9.8-windows -> F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\phantomjs\lib\phantom
+Writing location.js file
+Done. Phantomjs binary available at F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\phantomjs\lib\phantom\phantomjs.exe
+
+> phantomjs@1.9.15 install F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\phantom-workers\node_modules\phantomjs
+> node install.js
+
+Download already available at C:\Users\JANBLA~1\AppData\Local\Temp\phantomjs\phantomjs-1.9.8-windows.zip
+Extracting zip contents
+Removing F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\phantom-workers\node_modules\phantomjs\lib\phantom
+Copying extracted folder C:\Users\JANBLA~1\AppData\Local\Temp\phantomjs\phantomjs-1.9.8-windows.zip-extract-1470226474219\phantomjs-1.9.8-windows -> F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\phantom-workers\node_modules\phantomjs\lib\phantom
+Writing location.js file
+Done. Phantomjs binary available at F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\phantom-workers\node_modules\phantomjs\lib\phantom\phantomjs.exe
+jsreport-server@ F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app
+└─┬ jsreport@1.0.9 
+  ├─┬ commander@2.9.0 
+  │ └── graceful-readlink@1.0.1 
+  ├── daemon@1.1.0 
+  ├─┬ jsreport-authentication@1.0.3 
+  │ ├─┬ body-parser@1.15.1 
+  │ │ ├── bytes@2.3.0 
+  │ │ ├── content-type@1.0.2 
+  │ │ ├── depd@1.1.0 
+  │ │ ├─┬ http-errors@1.4.0 
+  │ │ │ └── statuses@1.3.0 
+  │ │ ├── iconv-lite@0.4.13 
+  │ │ ├─┬ on-finished@2.3.0 
+  │ │ │ └── ee-first@1.1.1 
+  │ │ ├── qs@6.1.0 
+  │ │ ├─┬ raw-body@2.1.7 
+  │ │ │ ├── bytes@2.4.0 
+  │ │ │ └── unpipe@1.0.0 
+  │ │ └─┬ type-is@1.6.13 
+  │ │   └── media-typer@0.3.0 
+  │ ├─┬ client-sessions@0.7.0 
+  │ │ └─┬ cookies@0.5.0 
+  │ │   └── keygrip@1.0.1 
+  │ ├── ejs@2.4.2 
+  │ ├── in-publish@2.0.0 
+  │ ├─┬ passport@0.3.2 
+  │ │ ├── passport-strategy@1.0.0 
+  │ │ └── pause@0.0.1 
+  │ ├── passport-http@0.3.0 
+  │ ├── passport-local@1.0.0 
+  │ ├── password-hash@1.2.2 
+  │ ├── q@1.4.1 
+  │ ├── shortid@2.2.6 
+  │ └── string@3.3.1 
+  ├─┬ jsreport-authorization@1.0.2 
+  │ └─┬ request@2.72.0 
+  │   ├── aws-sign2@0.6.0 
+  │   ├── aws4@1.4.1 
+  │   ├── bl@1.1.2 
+  │   ├── caseless@0.11.0 
+  │   ├─┬ combined-stream@1.0.5 
+  │   │ └── delayed-stream@1.0.0 
+  │   ├── extend@3.0.0 
+  │   ├── forever-agent@0.6.1 
+  │   ├── form-data@1.0.0-rc4 
+  │   ├─┬ har-validator@2.0.6 
+  │   │ ├─┬ chalk@1.1.3 
+  │   │ │ ├── ansi-styles@2.2.1 
+  │   │ │ ├── escape-string-regexp@1.0.5 
+  │   │ │ ├─┬ has-ansi@2.0.0 
+  │   │ │ │ └── ansi-regex@2.0.0 
+  │   │ │ ├── strip-ansi@3.0.1 
+  │   │ │ └── supports-color@2.0.0 
+  │   │ └─┬ is-my-json-valid@2.13.1 
+  │   │   ├── generate-function@2.0.0 
+  │   │   ├─┬ generate-object-property@1.2.0 
+  │   │   │ └── is-property@1.0.2 
+  │   │   └── jsonpointer@2.0.0 
+  │   ├─┬ hawk@3.1.3 
+  │   │ ├── boom@2.10.1 
+  │   │ ├── cryptiles@2.0.5 
+  │   │ ├── hoek@2.16.3 
+  │   │ └── sntp@1.0.9 
+  │   ├─┬ http-signature@1.1.1 
+  │   │ ├── assert-plus@0.2.0 
+  │   │ ├─┬ jsprim@1.3.0 
+  │   │ │ ├── extsprintf@1.0.2 
+  │   │ │ ├── json-schema@0.2.2 
+  │   │ │ └── verror@1.3.6 
+  │   │ └─┬ sshpk@1.9.2 
+  │   │   ├── asn1@0.2.3 
+  │   │   ├── assert-plus@1.0.0 
+  │   │   ├─┬ dashdash@1.14.0 
+  │   │   │ └── assert-plus@1.0.0 
+  │   │   ├── ecc-jsbn@0.1.1 
+  │   │   ├─┬ getpass@0.1.6 
+  │   │   │ └── assert-plus@1.0.0 
+  │   │   ├── jodid25519@1.0.2 
+  │   │   ├── jsbn@0.1.0 
+  │   │   └── tweetnacl@0.13.3 
+  │   ├── is-typedarray@1.0.0 
+  │   ├── json-stringify-safe@5.0.1 
+  │   ├─┬ mime-types@2.1.11 
+  │   │ └── mime-db@1.23.0 
+  │   ├── node-uuid@1.4.7 
+  │   ├── oauth-sign@0.8.2 
+  │   ├── stringstream@0.0.5 
+  │   ├── tough-cookie@2.2.2 
+  │   └── tunnel-agent@0.4.3 
+  ├─┬ jsreport-browser-client@1.0.2 
+  │ ├── jsreport-browser-client-dist@1.0.2 
+  │ └─┬ q-io@1.13.2 
+  │   ├─┬ collections@0.2.2 
+  │   │ └── weak-map@1.0.0 
+  │   ├── mime@1.3.4 
+  │   ├── mimeparse@0.1.4 
+  │   ├── qs@1.2.2 
+  │   └── url2@0.0.0 
+  ├─┬ jsreport-child-templates@0.4.0 
+  │ └─┬ async-replace@1.0.0 
+  │   └── async@0.1.22 
+  ├─┬ jsreport-core@1.0.6 
+  │ ├── app-root-path@1.2.0 
+  │ ├─┬ debug@2.2.0 
+  │ │ └── ms@0.7.1 
+  │ ├─┬ hasha@2.2.0 
+  │ │ ├── is-stream@1.1.0 
+  │ │ └─┬ pinkie-promise@2.0.1 
+  │ │   └── pinkie@2.0.4 
+  │ ├─┬ listener-collection@0.1.0 
+  │ │ ├── async@0.9.0 
+  │ │ └── q@1.2.0 
+  │ ├─┬ lru-cache@4.0.1 
+  │ │ ├── pseudomap@1.0.2 
+  │ │ └── yallist@2.0.0 
+  │ ├─┬ nconf@0.8.4 
+  │ │ ├── ini@1.3.4 
+  │ │ ├── secure-keys@1.0.0 
+  │ │ └─┬ yargs@3.32.0 
+  │ │   ├── camelcase@2.1.1 
+  │ │   ├─┬ cliui@3.2.0 
+  │ │   │ └── wrap-ansi@2.0.0 
+  │ │   ├── decamelize@1.2.0 
+  │ │   ├─┬ os-locale@1.4.0 
+  │ │   │ └─┬ lcid@1.0.0 
+  │ │   │   └── invert-kv@1.0.0 
+  │ │   ├─┬ string-width@1.0.1 
+  │ │   │ ├─┬ code-point-at@1.0.0 
+  │ │   │ │ └── number-is-nan@1.0.0 
+  │ │   │ └── is-fullwidth-code-point@1.0.0 
+  │ │   ├── window-size@0.1.4 
+  │ │   └── y18n@3.2.1 
+  │ ├─┬ nedb@1.8.0 
+  │ │ ├── async@0.2.10 
+  │ │ ├─┬ binary-search-tree@0.2.5 
+  │ │ │ └── underscore@1.4.4 
+  │ │ ├─┬ localforage@1.4.2 
+  │ │ │ └─┬ lie@3.0.2 
+  │ │ │   ├─┬ es3ify@0.1.4 
+  │ │ │   │ ├── esprima-fb@3001.1.0-dev-harmony-fb 
+  │ │ │   │ ├─┬ jstransform@3.0.0 
+  │ │ │   │ │ ├── base62@0.1.1 
+  │ │ │   │ │ └── source-map@0.1.31 
+  │ │ │   │ └── through@2.3.8 
+  │ │ │   ├── immediate@3.0.6 
+  │ │ │   ├─┬ inline-process-browser@1.0.0 
+  │ │ │   │ ├─┬ falafel@1.2.0 
+  │ │ │   │ │ ├── acorn@1.2.2 
+  │ │ │   │ │ ├── foreach@2.0.5 
+  │ │ │   │ │ ├── isarray@0.0.1 
+  │ │ │   │ │ └── object-keys@1.0.11 
+  │ │ │   │ └─┬ through2@0.6.5 
+  │ │ │   │   └─┬ readable-stream@1.0.34 
+  │ │ │   │     └── isarray@0.0.1 
+  │ │ │   └─┬ unreachable-branch-transform@0.3.0 
+  │ │ │     ├── esmangle-evaluator@1.0.1 
+  │ │ │     └─┬ recast@0.10.43 
+  │ │ │       ├── ast-types@0.8.15 
+  │ │ │       ├── esprima-fb@15001.1001.0-dev-harmony-fb 
+  │ │ │       ├── private@0.1.6 
+  │ │ │       └── source-map@0.5.6 
+  │ │ └── underscore@1.4.4 
+  │ ├─┬ reap@0.1.0 
+  │ │ ├── batch@0.4.0 
+  │ │ ├── bytes@0.2.1 
+  │ │ ├─┬ commander@1.2.0 
+  │ │ │ └── keypress@0.1.0 
+  │ │ └── ms@0.6.2 
+  │ ├─┬ script-manager@0.5.6 
+  │ │ ├── net-cluster@0.0.2 
+  │ │ ├─┬ portscanner@1.0.0 
+  │ │ │ └── async@0.1.15 
+  │ │ ├─┬ request@2.53.0 
+  │ │ │ ├── aws-sign2@0.5.0 
+  │ │ │ ├─┬ bl@0.9.5 
+  │ │ │ │ └─┬ readable-stream@1.0.34 
+  │ │ │ │   └── isarray@0.0.1 
+  │ │ │ ├── caseless@0.9.0 
+  │ │ │ ├─┬ combined-stream@0.0.7 
+  │ │ │ │ └── delayed-stream@0.0.5 
+  │ │ │ ├── forever-agent@0.5.2 
+  │ │ │ ├─┬ form-data@0.2.0 
+  │ │ │ │ └── async@0.9.2 
+  │ │ │ ├── hawk@2.3.1 
+  │ │ │ ├─┬ http-signature@0.10.1 
+  │ │ │ │ ├── asn1@0.1.11 
+  │ │ │ │ ├── assert-plus@0.1.5 
+  │ │ │ │ └── ctype@0.5.3 
+  │ │ │ ├─┬ mime-types@2.0.14 
+  │ │ │ │ └── mime-db@1.12.0 
+  │ │ │ ├── oauth-sign@0.6.0 
+  │ │ │ └── qs@2.3.3 
+  │ │ ├── string@3.0.0 
+  │ │ ├── underscore@1.8.2 
+  │ │ └── uuid@2.0.1 
+  │ └── streamifier@0.1.1 
+  ├── jsreport-data@1.0.1 
+  ├── jsreport-debug@1.0.2 
+  ├─┬ jsreport-express@1.0.2 
+  │ ├─┬ cookie-parser@1.4.3 
+  │ │ ├── cookie@0.3.1 
+  │ │ └── cookie-signature@1.0.6 
+  │ ├─┬ cors@2.7.1 
+  │ │ └── vary@1.1.0 
+  │ ├─┬ express@4.13.4 
+  │ │ ├─┬ accepts@1.2.13 
+  │ │ │ └── negotiator@0.5.3 
+  │ │ ├── array-flatten@1.1.1 
+  │ │ ├── content-disposition@0.5.1 
+  │ │ ├── cookie@0.1.5 
+  │ │ ├── escape-html@1.0.3 
+  │ │ ├── etag@1.7.0 
+  │ │ ├── finalhandler@0.4.1 
+  │ │ ├── fresh@0.3.0 
+  │ │ ├── merge-descriptors@1.0.1 
+  │ │ ├── methods@1.1.2 
+  │ │ ├── parseurl@1.3.1 
+  │ │ ├── path-to-regexp@0.1.7 
+  │ │ ├─┬ proxy-addr@1.0.10 
+  │ │ │ ├── forwarded@0.1.0 
+  │ │ │ └── ipaddr.js@1.0.5 
+  │ │ ├── qs@4.0.0 
+  │ │ ├── range-parser@1.0.3 
+  │ │ ├─┬ send@0.13.1 
+  │ │ │ ├── destroy@1.0.4 
+  │ │ │ ├── http-errors@1.3.1 
+  │ │ │ └── statuses@1.2.1 
+  │ │ ├─┬ serve-static@1.10.3 
+  │ │ │ └─┬ send@0.13.2 
+  │ │ │   ├── http-errors@1.3.1 
+  │ │ │   └── statuses@1.2.1 
+  │ │ ├── utils-merge@1.0.0 
+  │ │ └── vary@1.0.1 
+  │ ├─┬ serve-static@1.11.0 
+  │ │ └─┬ send@0.14.0 
+  │ │   ├─┬ http-errors@1.5.0 
+  │ │   │ └── setprototypeof@1.0.1 
+  │ │   └── range-parser@1.2.0 
+  │ └─┬ simple-odata-server@0.2.0 
+  │   ├── methods@1.1.1 
+  │   ├── odata-parser@1.2.0 
+  │   ├─┬ path-to-regexp@1.0.3 
+  │   │ └── isarray@0.0.1 
+  │   └─┬ xmlbuilder@2.5.0 
+  │     └── lodash@3.0.1 
+  ├─┬ jsreport-fop-pdf@0.2.0 
+  │ ├─┬ q-io@1.13.1 
+  │ │ └── qs@1.2.2 
+  │ └── shortid@2.2.4 
+  ├─┬ jsreport-fs-store@1.0.5 
+  │ ├── async@1.5.2 
+  │ ├─┬ chokidar@1.5.2 
+  │ │ ├─┬ anymatch@1.3.0 
+  │ │ │ ├── arrify@1.0.1 
+  │ │ │ └─┬ micromatch@2.3.11 
+  │ │ │   ├─┬ arr-diff@2.0.0 
+  │ │ │   │ └── arr-flatten@1.0.1 
+  │ │ │   ├── array-unique@0.2.1 
+  │ │ │   ├─┬ braces@1.8.5 
+  │ │ │   │ ├─┬ expand-range@1.8.2 
+  │ │ │   │ │ └─┬ fill-range@2.2.3 
+  │ │ │   │ │   ├── is-number@2.1.0 
+  │ │ │   │ │   ├── isobject@2.1.0 
+  │ │ │   │ │   ├── randomatic@1.1.5 
+  │ │ │   │ │   └── repeat-string@1.5.4 
+  │ │ │   │ ├── preserve@0.2.0 
+  │ │ │   │ └── repeat-element@1.1.2 
+  │ │ │   ├─┬ expand-brackets@0.1.5 
+  │ │ │   │ └── is-posix-bracket@0.1.1 
+  │ │ │   ├── extglob@0.3.2 
+  │ │ │   ├── filename-regex@2.0.0 
+  │ │ │   ├─┬ kind-of@3.0.4 
+  │ │ │   │ └── is-buffer@1.1.3 
+  │ │ │   ├─┬ object.omit@2.0.0 
+  │ │ │   │ ├─┬ for-own@0.1.4 
+  │ │ │   │ │ └── for-in@0.1.5 
+  │ │ │   │ └── is-extendable@0.1.1 
+  │ │ │   ├─┬ parse-glob@3.0.4 
+  │ │ │   │ ├── glob-base@0.3.0 
+  │ │ │   │ └── is-dotfile@1.0.2 
+  │ │ │   └─┬ regex-cache@0.4.3 
+  │ │ │     ├── is-equal-shallow@0.1.3 
+  │ │ │     └── is-primitive@2.0.0 
+  │ │ ├── async-each@1.0.0 
+  │ │ ├── glob-parent@2.0.0 
+  │ │ ├── inherits@2.0.1 
+  │ │ ├─┬ is-binary-path@1.0.1 
+  │ │ │ └── binary-extensions@1.5.0 
+  │ │ ├─┬ is-glob@2.0.1 
+  │ │ │ └── is-extglob@1.0.0 
+  │ │ ├── path-is-absolute@1.0.0 
+  │ │ └─┬ readdirp@2.1.0 
+  │ │   └── set-immediate-shim@1.0.1 
+  │ ├─┬ fs-extra@0.30.0 
+  │ │ ├── graceful-fs@4.1.5 
+  │ │ ├── jsonfile@2.3.1 
+  │ │ ├── klaw@1.3.0 
+  │ │ └── rimraf@2.5.4 
+  │ ├─┬ glob@7.0.5 
+  │ │ ├── fs.realpath@1.0.0 
+  │ │ ├─┬ inflight@1.0.5 
+  │ │ │ └── wrappy@1.0.2 
+  │ │ ├─┬ minimatch@3.0.2 
+  │ │ │ └─┬ brace-expansion@1.1.6 
+  │ │ │   ├── balanced-match@0.4.2 
+  │ │ │   └── concat-map@0.0.1 
+  │ │ └── once@1.3.3 
+  │ └─┬ socket.io@1.4.6 
+  │   ├─┬ engine.io@1.6.9 
+  │   │ ├─┬ accepts@1.1.4 
+  │   │ │ ├─┬ mime-types@2.0.14 
+  │   │ │ │ └── mime-db@1.12.0 
+  │   │ │ └── negotiator@0.4.9 
+  │   │ ├── base64id@0.1.0 
+  │   │ ├─┬ engine.io-parser@1.2.4 
+  │   │ │ ├── after@0.8.1 
+  │   │ │ ├── arraybuffer.slice@0.0.6 
+  │   │ │ ├── base64-arraybuffer@0.1.2 
+  │   │ │ ├── blob@0.0.4 
+  │   │ │ ├─┬ has-binary@0.1.6 
+  │   │ │ │ └── isarray@0.0.1 
+  │   │ │ └── utf8@2.1.0 
+  │   │ └─┬ ws@1.0.1 
+  │   │   ├── options@0.0.6 
+  │   │   └── ultron@1.0.2 
+  │   ├─┬ has-binary@0.1.7 
+  │   │ └── isarray@0.0.1 
+  │   ├─┬ socket.io-adapter@0.4.0 
+  │   │ └─┬ socket.io-parser@2.2.2 
+  │   │   ├── debug@0.7.4 
+  │   │   ├── isarray@0.0.1 
+  │   │   └── json3@3.2.6 
+  │   ├─┬ socket.io-client@1.4.6 
+  │   │ ├── backo2@1.0.2 
+  │   │ ├── component-bind@1.0.0 
+  │   │ ├── component-emitter@1.2.0 
+  │   │ ├─┬ engine.io-client@1.6.9 
+  │   │ │ ├── component-inherit@0.0.3 
+  │   │ │ ├── has-cors@1.1.0 
+  │   │ │ ├── parsejson@0.0.1 
+  │   │ │ ├── parseqs@0.0.2 
+  │   │ │ ├── xmlhttprequest-ssl@1.5.1 
+  │   │ │ └── yeast@0.1.2 
+  │   │ ├── indexof@0.0.1 
+  │   │ ├── object-component@0.0.3 
+  │   │ ├─┬ parseuri@0.0.4 
+  │   │ │ └─┬ better-assert@1.0.2 
+  │   │ │   └── callsite@1.0.0 
+  │   │ └── to-array@0.1.4 
+  │   └─┬ socket.io-parser@2.2.6 
+  │     ├── benchmark@1.0.0 
+  │     ├── component-emitter@1.1.2 
+  │     ├── isarray@0.0.1 
+  │     └── json3@3.3.2 
+  ├─┬ jsreport-handlebars@1.0.1 
+  │ └─┬ handlebars@4.0.5 
+  │   ├─┬ optimist@0.6.1 
+  │   │ └── wordwrap@0.0.3 
+  │   ├─┬ source-map@0.4.4 
+  │   │ └── amdefine@1.0.0 
+  │   └─┬ uglify-js@2.7.0 
+  │     ├── async@0.2.10 
+  │     ├── source-map@0.5.6 
+  │     ├── uglify-to-browserify@1.0.2 
+  │     └─┬ yargs@3.10.0 
+  │       ├── camelcase@1.2.1 
+  │       ├─┬ cliui@2.1.0 
+  │       │ ├─┬ center-align@0.1.3 
+  │       │ │ ├─┬ align-text@0.1.4 
+  │       │ │ │ └── longest@1.0.1 
+  │       │ │ └── lazy-cache@1.0.4 
+  │       │ ├── right-align@0.1.3 
+  │       │ └── wordwrap@0.0.2 
+  │       └── window-size@0.1.0 
+  ├─┬ jsreport-html-to-xlsx@1.0.1 
+  │ └─┬ html-to-xlsx@0.5.0 
+  │   ├─┬ msexcel-builder-extended@0.0.2 
+  │   │ ├── async@0.2.10 
+  │   │ └─┬ fs-extra@0.5.0 
+  │   │   ├── jsonfile@0.0.1 
+  │   │   ├── mkdirp@0.3.5 
+  │   │   └─┬ rimraf@2.1.4 
+  │   │     └── graceful-fs@1.2.3 
+  │   ├─┬ phantom-workers@0.3.1 
+  │   │ └── underscore@1.8.2 
+  │   └─┬ phantomjs@1.9.15 
+  │     ├── adm-zip@0.4.4 
+  │     ├─┬ fs-extra@0.16.5 
+  │     │ └── graceful-fs@3.0.8 
+  │     ├── kew@0.4.0 
+  │     ├─┬ npmconf@2.0.9 
+  │     │ ├─┬ config-chain@1.1.10 
+  │     │ │ └── proto-list@1.2.4 
+  │     │ ├─┬ nopt@3.0.6 
+  │     │ │ └── abbrev@1.0.9 
+  │     │ ├─┬ osenv@0.1.3 
+  │     │ │ ├── os-homedir@1.0.1 
+  │     │ │ └── os-tmpdir@1.0.1 
+  │     │ ├── semver@4.3.6 
+  │     │ └── uid-number@0.0.5 
+  │     ├── progress@1.1.8 
+  │     ├─┬ request@2.42.0 
+  │     │ ├── aws-sign2@0.5.0 
+  │     │ ├─┬ bl@0.9.5 
+  │     │ │ └─┬ readable-stream@1.0.34 
+  │     │ │   └── isarray@0.0.1 
+  │     │ ├── caseless@0.6.0 
+  │     │ ├── forever-agent@0.5.2 
+  │     │ ├─┬ form-data@0.1.4 
+  │     │ │ ├── async@0.9.2 
+  │     │ │ ├─┬ combined-stream@0.0.7 
+  │     │ │ │ └── delayed-stream@0.0.5 
+  │     │ │ └── mime@1.2.11 
+  │     │ ├─┬ hawk@1.1.1 
+  │     │ │ ├── boom@0.4.2 
+  │     │ │ ├── cryptiles@0.2.2 
+  │     │ │ ├── hoek@0.9.1 
+  │     │ │ └── sntp@0.2.4 
+  │     │ ├─┬ http-signature@0.10.1 
+  │     │ │ ├── asn1@0.1.11 
+  │     │ │ └── assert-plus@0.1.5 
+  │     │ ├── mime-types@1.0.2 
+  │     │ ├── oauth-sign@0.4.0 
+  │     │ └── qs@1.2.2 
+  │     ├─┬ request-progress@0.3.1 
+  │     │ └── throttleit@0.0.2 
+  │     └── which@1.0.9 
+  ├─┬ jsreport-images@1.0.3 
+  │ ├── async-replace@1.0.1 
+  │ └─┬ multer@1.1.0 
+  │   ├── append-field@0.1.0 
+  │   ├─┬ busboy@0.2.13 
+  │   │ ├─┬ dicer@0.2.5 
+  │   │ │ ├─┬ readable-stream@1.1.14 
+  │   │ │ │ └── isarray@0.0.1 
+  │   │ │ └── streamsearch@0.1.2 
+  │   │ └─┬ readable-stream@1.1.14 
+  │   │   └── isarray@0.0.1 
+  │   ├─┬ concat-stream@1.5.1 
+  │   │ └── typedarray@0.0.6 
+  │   ├── object-assign@3.0.0 
+  │   └── xtend@4.0.1 
+  ├─┬ jsreport-jsrender@1.0.1 
+  │ └─┬ jsrender@0.9.76 
+  │   └── through2@2.0.1 
+  ├─┬ jsreport-licensing@1.0.3 
+  │ └─┬ q-io@1.13.1 
+  │   └── qs@1.2.2 
+  ├─┬ jsreport-phantom-pdf@1.0.3 
+  │ ├── bluebird@3.4.0 
+  │ ├─┬ phantom-html-to-pdf@0.4.5 
+  │ │ ├── lodash@4.13.1 
+  │ │ ├─┬ phantom-workers@0.4.0 
+  │ │ │ ├─┬ phantomjs@1.9.15 
+  │ │ │ │ └── fs-extra@0.16.5 
+  │ │ │ └── underscore@1.8.2 
+  │ │ ├─┬ phantomjs@1.9.17 
+  │ │ │ ├─┬ fs-extra@0.18.4 
+  │ │ │ │ └── graceful-fs@3.0.8 
+  │ │ │ ├── npmconf@2.1.1 
+  │ │ │ └─┬ request@2.42.0 
+  │ │ │   ├── aws-sign2@0.5.0 
+  │ │ │   ├─┬ bl@0.9.5 
+  │ │ │   │ └─┬ readable-stream@1.0.34 
+  │ │ │   │   └── isarray@0.0.1 
+  │ │ │   ├── caseless@0.6.0 
+  │ │ │   ├── forever-agent@0.5.2 
+  │ │ │   ├─┬ form-data@0.1.4 
+  │ │ │   │ ├── async@0.9.2 
+  │ │ │   │ ├─┬ combined-stream@0.0.7 
+  │ │ │   │ │ └── delayed-stream@0.0.5 
+  │ │ │   │ └── mime@1.2.11 
+  │ │ │   ├─┬ hawk@1.1.1 
+  │ │ │   │ ├── boom@0.4.2 
+  │ │ │   │ ├── cryptiles@0.2.2 
+  │ │ │   │ ├── hoek@0.9.1 
+  │ │ │   │ └── sntp@0.2.4 
+  │ │ │   ├─┬ http-signature@0.10.1 
+  │ │ │   │ ├── asn1@0.1.11 
+  │ │ │   │ └── assert-plus@0.1.5 
+  │ │ │   ├── mime-types@1.0.2 
+  │ │ │   ├── oauth-sign@0.4.0 
+  │ │ │   └── qs@1.2.2 
+  │ │ └── uuid@2.0.2 
+  │ └─┬ stream-to-array@2.3.0 
+  │   └── any-promise@1.3.0 
+  ├─┬ jsreport-public-templates@1.0.1 
+  │ └── uuid@2.0.2 
+  ├─┬ jsreport-reports@1.0.2 
+  │ └─┬ url@0.11.0 
+  │   ├── punycode@1.3.2 
+  │   └── querystring@0.2.0 
+  ├── jsreport-resources@1.0.1 
+  ├── jsreport-sample-template@1.0.1 
+  ├─┬ jsreport-scheduling@1.0.3 
+  │ └─┬ cron@1.1.0 
+  │   └─┬ moment-timezone@0.3.1 
+  │     └── moment@2.14.1 
+  ├── jsreport-scripts@1.0.3 
+  ├─┬ jsreport-studio@1.0.7 
+  │ ├─┬ compression@1.6.2 
+  │ │ ├─┬ accepts@1.3.3 
+  │ │ │ └── negotiator@0.6.1 
+  │ │ ├── compressible@2.0.8 
+  │ │ └── on-headers@1.0.1 
+  │ ├── lodash@4.12.0 
+  │ └── serve-favicon@2.3.0 
+  ├─┬ jsreport-templates@1.0.1 
+  │ └── node.extend.without.arrays@1.1.5 
+  ├── jsreport-text@1.0.1 
+  ├─┬ jsreport-xlsx@1.0.11 
+  │ ├─┬ archiver@1.0.0 
+  │ │ ├─┬ archiver-utils@1.2.0 
+  │ │ │ ├── lazystream@1.0.0 
+  │ │ │ ├── lodash@4.14.1 
+  │ │ │ └── normalize-path@2.0.1 
+  │ │ ├── buffer-crc32@0.2.5 
+  │ │ ├── lodash@4.14.1 
+  │ │ ├─┬ readable-stream@2.0.6 
+  │ │ │ ├── core-util-is@1.0.2 
+  │ │ │ ├── isarray@1.0.0 
+  │ │ │ ├── process-nextick-args@1.0.7 
+  │ │ │ ├── string_decoder@0.10.31 
+  │ │ │ └── util-deprecate@1.0.2 
+  │ │ ├─┬ tar-stream@1.5.2 
+  │ │ │ └── end-of-stream@1.1.0 
+  │ │ └─┬ zip-stream@1.0.0 
+  │ │   ├─┬ compress-commons@1.0.0 
+  │ │   │ ├── crc32-stream@1.0.0 
+  │ │   │ └── node-int64@0.4.0 
+  │ │   └── lodash@4.14.1 
+  │ ├── file-type@3.8.0 
+  │ ├─┬ get-stream@2.2.0 
+  │ │ └── object-assign@4.1.0 
+  │ ├── lodash@4.13.1 
+  │ ├─┬ msexcel-builder-extended@0.0.3 
+  │ │ ├── async@0.2.10 
+  │ │ ├─┬ easy-zip@0.0.4 
+  │ │ │ └─┬ async@2.0.1 
+  │ │ │   └── lodash@4.14.1 
+  │ │ └─┬ fs-extra@0.5.0 
+  │ │   ├── jsonfile@0.0.1 
+  │ │   ├── mkdirp@0.3.5 
+  │ │   ├── ncp@0.2.7 
+  │ │   └─┬ rimraf@2.1.4 
+  │ │     └── graceful-fs@1.2.3 
+  │ ├── pify@2.3.0 
+  │ ├── uuid@2.0.2 
+  │ ├─┬ xml2js@0.4.16 
+  │ │ ├── sax@1.2.1 
+  │ │ └─┬ xmlbuilder@4.2.1 
+  │ │   └── lodash@4.14.1 
+  │ └─┬ yauzl@2.4.3 
+  │   └─┬ fd-slicer@1.0.1 
+  │     └── pend@1.2.0 
+  ├─┬ mkdirp@0.5.1 
+  │ └── minimist@0.0.8 
+  ├─┬ node.extend@1.1.5 
+  │ └── is@3.1.0 
+  ├── underscore@1.8.3 
+  ├─┬ winser@1.0.2 
+  │ ├── async@0.9.0 
+  │ └── stdio@0.2.2 
+  └─┬ winston@2.2.0 
+    ├── async@1.0.0 
+    ├── colors@1.0.3 
+    ├── cycle@1.0.3 
+    ├── eyes@0.1.8 
+    ├── isstream@0.1.2 
+    ├── pkginfo@0.3.1 
+    └── stack-trace@0.0.9 
+
+npm WARN optional Skipping failed optional dependency /chokidar/fsevents:
+npm WARN notsup Not compatible with your operating system or architecture: fsevents@1.0.14
+npm WARN jsreport-server@ No description
+npm WARN jsreport-server@ No repository field.
+npm WARN jsreport-server@ No license field.
+node_modules\phantom-html-to-pdf\node_modules\lodash\add.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\after.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\array.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\ary.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\assign.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\assignIn.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\assignInWith.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\assignWith.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\at.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\attempt.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\before.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\bind.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\bindAll.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\bindKey.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\camelCase.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\capitalize.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\castArray.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\ceil.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\chain.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\chunk.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\clamp.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\clone.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\cloneDeep.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\cloneDeepWith.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\cloneWith.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\collection.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\commit.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\compact.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\concat.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\cond.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\conforms.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\constant.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\core.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\core.min.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\countBy.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\create.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\curry.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\curryRight.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\date.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\debounce.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\deburr.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\defaults.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\defaultsDeep.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\defer.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\delay.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\difference.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\differenceBy.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\differenceWith.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\divide.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\drop.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\dropRight.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\dropRightWhile.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\dropWhile.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\each.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\eachRight.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\endsWith.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\entries.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\entriesIn.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\eq.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\escape.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\escapeRegExp.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\every.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\extend.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\extendWith.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\fill.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\filter.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\find.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\findIndex.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\findKey.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\findLast.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\findLastIndex.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\findLastKey.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\first.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\flatMap.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\flatMapDeep.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\flatMapDepth.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\flatten.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\flattenDeep.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\flattenDepth.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\flip.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\floor.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\flow.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\flowRight.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\forEach.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\forEachRight.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\forIn.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\forInRight.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\forOwn.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\forOwnRight.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\fp.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\fromPairs.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\function.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\functions.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\functionsIn.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\get.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\groupBy.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\gt.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\gte.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\has.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\hasIn.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\head.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\identity.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\includes.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\index.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\indexOf.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\initial.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\inRange.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\intersection.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\intersectionBy.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\intersectionWith.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\invert.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\invertBy.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\invoke.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\invokeMap.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\isArguments.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\isArray.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\isArrayBuffer.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\isArrayLike.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\isArrayLikeObject.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\isBoolean.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\isBuffer.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\isDate.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\isElement.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\isEmpty.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\isEqual.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\isEqualWith.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\isError.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\isFinite.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\isFunction.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\isInteger.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\isLength.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\isMap.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\isMatch.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\isMatchWith.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\isNaN.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\isNative.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\isNil.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\isNull.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\isNumber.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\isObject.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\isObjectLike.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\isPlainObject.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\isRegExp.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\isSafeInteger.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\isSet.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\isString.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\isSymbol.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\isTypedArray.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\isUndefined.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\isWeakMap.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\isWeakSet.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\iteratee.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\join.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\kebabCase.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\keyBy.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\keys.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\keysIn.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\lang.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\last.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\lastIndexOf.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\LICENSE
+node_modules\phantom-html-to-pdf\node_modules\lodash\lodash.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\lodash.min.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\lowerCase.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\lowerFirst.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\lt.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\lte.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\map.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\mapKeys.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\mapValues.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\matches.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\matchesProperty.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\math.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\max.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\maxBy.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\mean.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\meanBy.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\memoize.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\merge.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\mergeWith.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\method.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\methodOf.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\min.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\minBy.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\mixin.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\multiply.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\negate.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\next.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\noop.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\now.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\nth.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\nthArg.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\number.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\object.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\omit.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\omitBy.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\once.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\orderBy.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\over.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\overArgs.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\overEvery.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\overSome.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\package.json
+node_modules\phantom-html-to-pdf\node_modules\lodash\pad.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\padEnd.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\padStart.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\parseInt.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\partial.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\partialRight.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\partition.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\pick.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\pickBy.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\plant.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\property.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\propertyOf.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\pull.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\pullAll.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\pullAllBy.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\pullAllWith.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\pullAt.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\random.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\range.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\rangeRight.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\README.md
+node_modules\phantom-html-to-pdf\node_modules\lodash\rearg.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\reduce.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\reduceRight.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\reject.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\remove.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\repeat.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\replace.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\rest.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\result.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\reverse.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\round.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\sample.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\sampleSize.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\seq.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\set.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\setWith.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\shuffle.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\size.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\slice.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\snakeCase.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\some.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\sortBy.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\sortedIndex.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\sortedIndexBy.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\sortedIndexOf.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\sortedLastIndex.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\sortedLastIndexBy.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\sortedLastIndexOf.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\sortedUniq.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\sortedUniqBy.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\split.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\spread.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\startCase.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\startsWith.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\string.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\stubArray.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\stubFalse.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\stubObject.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\stubString.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\stubTrue.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\subtract.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\sum.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\sumBy.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\tail.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\take.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\takeRight.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\takeRightWhile.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\takeWhile.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\tap.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\template.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\templateSettings.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\throttle.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\thru.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\times.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\toArray.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\toFinite.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\toInteger.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\toIterator.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\toJSON.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\toLength.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\toLower.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\toNumber.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\toPairs.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\toPairsIn.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\toPath.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\toPlainObject.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\toSafeInteger.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\toString.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\toUpper.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\transform.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\trim.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\trimEnd.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\trimStart.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\truncate.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\unary.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\unescape.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\union.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\unionBy.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\unionWith.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\uniq.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\uniqBy.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\uniqueId.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\uniqWith.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\unset.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\unzip.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\unzipWith.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\update.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\updateWith.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\upperCase.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\upperFirst.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\util.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\value.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\valueOf.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\values.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\valuesIn.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\without.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\words.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\wrap.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\wrapperAt.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\wrapperChain.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\wrapperLodash.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\wrapperReverse.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\wrapperValue.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\xor.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\xorBy.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\xorWith.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\zip.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\zipObject.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\zipObjectDeep.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\zipWith.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_addMapEntry.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_addSetEntry.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_apply.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_arrayAggregator.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_arrayEach.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_arrayEachRight.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_arrayEvery.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_arrayFilter.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_arrayIncludes.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_arrayIncludesWith.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_arrayMap.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_arrayPush.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_arrayReduce.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_arrayReduceRight.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_arraySome.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_assignInDefaults.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_assignMergeValue.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_assignValue.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_assocIndexOf.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseAggregator.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseAssign.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseAt.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseClamp.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseClone.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseConforms.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseCreate.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseDelay.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseDifference.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseEach.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseEachRight.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseEvery.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseExtremum.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseFill.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseFilter.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseFindIndex.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseFindKey.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseFlatten.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseFor.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseForOwn.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseForOwnRight.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseForRight.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseFunctions.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseGet.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseGetAllKeys.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseGt.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseHas.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseHasIn.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseIndexOf.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseIndexOfWith.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseInRange.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseIntersection.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseInverter.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseInvoke.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseIsEqual.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseIsEqualDeep.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseIsMatch.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseIsNative.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseIteratee.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseKeys.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseKeysIn.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseLodash.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseLt.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseMap.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseMatches.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseMatchesProperty.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseMean.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseMerge.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseMergeDeep.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseNth.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseOrderBy.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_basePick.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_basePickBy.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseProperty.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_basePropertyDeep.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_basePullAll.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_basePullAt.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseRandom.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseRange.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseReduce.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseRepeat.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseSet.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseSetData.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseSlice.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseSome.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseSortBy.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseSortedIndex.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseSortedIndexBy.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseSortedUniq.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseSum.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseTimes.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseToNumber.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseToPairs.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseToString.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseUnary.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseUniq.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseUnset.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseUpdate.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseValues.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseWhile.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseWrapperValue.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseXor.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_baseZipObject.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_cacheHas.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_castArrayLikeObject.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_castFunction.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_castPath.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_castSlice.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_charsEndIndex.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_charsStartIndex.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_checkGlobal.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_cloneArrayBuffer.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_cloneBuffer.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_cloneDataView.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_cloneMap.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_cloneRegExp.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_cloneSet.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_cloneSymbol.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_cloneTypedArray.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_compareAscending.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_compareMultiple.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_composeArgs.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_composeArgsRight.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_copyArray.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_copyObject.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_copySymbols.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_coreJsData.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_countHolders.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_createAggregator.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_createAssigner.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_createBaseEach.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_createBaseFor.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_createBaseWrapper.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_createCaseFirst.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_createCompounder.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_createCtorWrapper.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_createCurryWrapper.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_createFind.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_createFlow.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_createHybridWrapper.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_createInverter.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_createMathOperation.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_createOver.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_createPadding.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_createPartialWrapper.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_createRange.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_createRecurryWrapper.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_createRelationalOperation.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_createRound.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_createSet.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_createToPairs.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_createWrapper.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_DataView.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_deburrLetter.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_equalArrays.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_equalByTag.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_equalObjects.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_escapeHtmlChar.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_escapeStringChar.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_getAllKeys.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_getAllKeysIn.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_getData.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_getFuncName.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_getHolder.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_getLength.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_getMapData.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_getMatchData.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_getNative.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_getPrototype.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_getSymbols.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_getSymbolsIn.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_getTag.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_getValue.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_getView.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_Hash.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_hashClear.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_hashDelete.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_hashGet.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_hashHas.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_hashSet.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_hasPath.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_indexKeys.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_indexOfNaN.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_initCloneArray.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_initCloneByTag.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_initCloneObject.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_isFlattenable.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_isFlattenableIteratee.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_isHostObject.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_isIndex.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_isIterateeCall.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_isKey.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_isKeyable.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_isLaziable.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_isMaskable.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_isMasked.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_isPrototype.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_isStrictComparable.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_iteratorToArray.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_lazyClone.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_lazyReverse.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_lazyValue.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_LazyWrapper.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_ListCache.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_listCacheClear.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_listCacheDelete.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_listCacheGet.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_listCacheHas.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_listCacheSet.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_LodashWrapper.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_Map.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_MapCache.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_mapCacheClear.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_mapCacheDelete.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_mapCacheGet.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_mapCacheHas.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_mapCacheSet.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_mapToArray.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_matchesStrictComparable.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_mergeData.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_mergeDefaults.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_metaMap.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_nativeCreate.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_parent.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_Promise.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_realNames.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_reEscape.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_reEvaluate.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_Reflect.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_reHasComplexSymbol.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_reInterpolate.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_reorder.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_replaceHolders.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_root.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_Set.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_SetCache.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_setCacheAdd.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_setCacheHas.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_setData.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_setToArray.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_setToPairs.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_Stack.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_stackClear.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_stackDelete.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_stackGet.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_stackHas.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_stackSet.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_stringSize.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_stringToArray.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_stringToPath.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_Symbol.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_toKey.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_toSource.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_Uint8Array.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_unescapeHtmlChar.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_WeakMap.js
+node_modules\phantom-html-to-pdf\node_modules\lodash\_wrapperClone.js
+590 File(s) copied
+The directory name is invalid.
+The directory name is invalid.
+The directory name is invalid.
+The directory name is invalid.
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\moment-timezone\data\unpacked\latest.json
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\moment\min\locales.js
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\moment\min\locales.min.js
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\moment\min\moment-with-locales.js
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\moment\min\moment-with-locales.min.js
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\moment\min\moment.min.js
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\boom\images\boom.png
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\colors\screenshots\colors.png
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\hawk\images\hawk.png
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\hawk\images\logo.png
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\hoek\images\hoek.png
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-studio\src\components\Toolbar\js-logo.png
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-studio\src\components\Toolbar\jsreport-logo.png
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\boom\images\boom.png
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\hawk\images\hawk.png
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\hawk\images\logo.png
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\hoek\images\hoek.png
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\boom\images\boom.png
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\hawk\images\hawk.png
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\hawk\images\logo.png
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\hoek\images\hoek.png
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\script-manager\node_modules\hawk\images\hawk.png
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\script-manager\node_modules\hawk\images\logo.png
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\abbrev\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\accepts\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\acorn\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\align-text\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\amdefine\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\ansi-regex\license
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\ansi-styles\license
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\any-promise\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\anymatch\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\app-root-path\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\append-field\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\archiver\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\archiver-utils\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\arr-diff\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\arr-flatten\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\array-flatten\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\array-unique\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\arrify\license
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\asn1\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\ast-types\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\async\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\async-replace\node_modules\async\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\aws-sign2\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\aws4\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\base62\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\benchmark\LICENSE.txt
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\binary-extensions\license
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\binary-search-tree\node_modules\underscore\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\bluebird\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\body-parser\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\boom\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\braces\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\buffer-crc32\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\busboy\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\busboy\node_modules\readable-stream\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\bytes\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\camelcase\license
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\caseless\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\center-align\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\chalk\license
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\client-sessions\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\cliui\LICENSE.txt
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\code-point-at\license
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\combined-stream\License
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\commander\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\compress-commons\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\compressible\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\compression\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\compression\node_modules\accepts\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\compression\node_modules\negotiator\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\concat-map\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\concat-stream\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\content-disposition\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\content-type\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\cookie\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\cookie-parser\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\cookies\LICENSE.txt
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\core-util-is\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\cors\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\crc32-stream\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\cryptiles\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\ctype\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\daemon\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\decamelize\license
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\delayed-stream\License
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\depd\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\destroy\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\dicer\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\dicer\node_modules\readable-stream\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\easy-zip\node_modules\async\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\ecc-jsbn\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\ee-first\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\ejs\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\end-of-stream\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\engine.io\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\engine.io\node_modules\accepts\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\engine.io\node_modules\mime-db\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\engine.io\node_modules\mime-types\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\engine.io\node_modules\negotiator\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\engine.io-client\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\engine.io-parser\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\engine.io-parser\node_modules\has-binary\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\es3ify\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\escape-html\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\escape-string-regexp\license
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\esprima-fb\LICENSE.BSD
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\etag\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\expand-brackets\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\expand-range\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\express\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\express\node_modules\cookie\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\express\node_modules\http-errors\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\express\node_modules\qs\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\express\node_modules\serve-static\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\express\node_modules\serve-static\node_modules\send\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\express\node_modules\statuses\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\express\node_modules\vary\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\extend\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\extglob\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\extsprintf\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\eyes\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\fd-slicer\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\file-type\license
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\fill-range\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\finalhandler\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\for-in\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\for-own\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\foreach\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\forever-agent\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\form-data\License
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\forwarded\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\fresh\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\fs-extra\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\fs.realpath\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\generate-object-property\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\get-stream\license
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\get-stream\node_modules\object-assign\license
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\getpass\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\glob\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\glob-base\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\glob-parent\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\graceful-fs\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\graceful-readlink\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\handlebars\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\har-validator\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\has-ansi\license
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\has-binary\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\hasha\license
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\hawk\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\hoek\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\html-to-xlsx\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\http-errors\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\http-signature\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\iconv-lite\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\immediate\LICENSE.txt
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\in-publish\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\inflight\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\inherits\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\ini\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\ipaddr.js\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\is-binary-path\license
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\is-buffer\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\is-dotfile\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\is-equal-shallow\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\is-extendable\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\is-extglob\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\is-fullwidth-code-point\license
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\is-glob\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\is-my-json-valid\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\is-number\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\is-posix-bracket\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\is-primitive\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\is-property\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\is-stream\license
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\isobject\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jodid25519\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsbn\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\json-stringify-safe\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\json3\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsonfile\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsprim\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsrender\node_modules\through2\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-authentication\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-authorization\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-browser-client\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-browser-client-dist\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-child-templates\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-core\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-data\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-debug\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-express\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-fop-pdf\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-fop-pdf\node_modules\q-io\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-fop-pdf\node_modules\qs\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-fop-pdf\node_modules\shortid\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-fs-store\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-handlebars\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-html-to-xlsx\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-images\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-jsrender\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-licensing\node_modules\q-io\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-licensing\node_modules\qs\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-phantom-pdf\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-public-templates\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-reports\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-resources\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-sample-template\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-scheduling\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-scripts\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-studio\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-templates\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-text\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-xlsx\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-xlsx\node_modules\async\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-xlsx\node_modules\fs-extra\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-xlsx\node_modules\graceful-fs\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-xlsx\node_modules\jsonfile\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-xlsx\node_modules\mkdirp\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-xlsx\node_modules\msexcel-builder-extended\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-xlsx\node_modules\rimraf\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jstransform\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\kew\LICENSE.TXT
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\keygrip\LICENSE.txt
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\kind-of\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\klaw\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\lazy-cache\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\lcid\license
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\listener-collection\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\listener-collection\node_modules\async\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\listener-collection\node_modules\q\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\localforage\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\lodash\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\lodash\LICENSE.txt
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\longest\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\lru-cache\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\media-typer\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\merge-descriptors\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\methods\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\micromatch\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\mime\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\mime-db\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\mime-types\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\mimeparse\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\minimatch\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\minimist\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\mkdirp\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\moment\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\moment-timezone\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\ms\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\msexcel-builder-extended\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\msexcel-builder-extended\node_modules\async\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\msexcel-builder-extended\node_modules\fs-extra\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\msexcel-builder-extended\node_modules\graceful-fs\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\msexcel-builder-extended\node_modules\jsonfile\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\msexcel-builder-extended\node_modules\mkdirp\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\msexcel-builder-extended\node_modules\rimraf\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\multer\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\nconf\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\nedb\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\nedb\node_modules\async\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\nedb\node_modules\underscore\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\negotiator\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\net-cluster\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\node-int64\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\nopt\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\normalize-path\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\npmconf\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\number-is-nan\license
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\oauth-sign\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\object-assign\license
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\object-keys\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\object.omit\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\odata-parser\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\on-finished\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\on-headers\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\once\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\optimist\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\os-homedir\license
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\os-locale\license
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\os-tmpdir\license
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\osenv\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\parse-glob\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\parseurl\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\passport\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\passport-http\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\passport-local\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\passport-strategy\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\password-hash\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\path-is-absolute\license
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\path-to-regexp\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\pend\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\asn1\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\async\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\aws-sign2\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\boom\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\combined-stream\License
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\cryptiles\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\delayed-stream\License
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\forever-agent\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\form-data\License
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\fs-extra\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\graceful-fs\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\hawk\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\hoek\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\http-signature\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\mime\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\mime-types\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\oauth-sign\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\phantom-workers\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\qs\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\readable-stream\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\request\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\sntp\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\underscore\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-workers\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-workers\node_modules\underscore\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\LICENSE.txt
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\lib\phantom\LICENSE.BSD
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\asn1\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\async\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\aws-sign2\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\boom\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\combined-stream\License
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\cryptiles\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\delayed-stream\License
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\forever-agent\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\form-data\License
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\fs-extra\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\graceful-fs\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\hawk\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\hoek\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\http-signature\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\mime\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\mime-types\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\oauth-sign\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\qs\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\readable-stream\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\request\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\sntp\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\pify\license
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\pinkie\license
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\pinkie-promise\license
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\pkginfo\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\portscanner\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\portscanner\node_modules\async\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\preserve\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\private\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\progress\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\proto-list\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\proxy-addr\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\pseudomap\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\q\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\q-io\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\q-io\node_modules\qs\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\qs\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\randomatic\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\range-parser\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\raw-body\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\raw-body\node_modules\bytes\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\readable-stream\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\readdirp\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\recast\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\regex-cache\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\repeat-element\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\repeat-string\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\request\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\request-progress\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\right-align\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\rimraf\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\sax\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\script-manager\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\script-manager\node_modules\asn1\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\script-manager\node_modules\async\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\script-manager\node_modules\aws-sign2\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\script-manager\node_modules\combined-stream\License
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\script-manager\node_modules\delayed-stream\License
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\script-manager\node_modules\forever-agent\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\script-manager\node_modules\form-data\License
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\script-manager\node_modules\hawk\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\script-manager\node_modules\http-signature\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\script-manager\node_modules\mime-db\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\script-manager\node_modules\mime-types\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\script-manager\node_modules\oauth-sign\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\script-manager\node_modules\qs\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\script-manager\node_modules\readable-stream\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\script-manager\node_modules\request\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\script-manager\node_modules\underscore\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\semver\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\send\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\send\node_modules\http-errors\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\send\node_modules\statuses\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\serve-favicon\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\serve-static\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\serve-static\node_modules\http-errors\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\serve-static\node_modules\range-parser\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\serve-static\node_modules\send\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\setprototypeof\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\shortid\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\simple-odata-server\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\simple-odata-server\node_modules\methods\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\simple-odata-server\node_modules\path-to-regexp\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\sntp\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\socket.io\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\socket.io-adapter\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\socket.io-client\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\socket.io-client\node_modules\component-emitter\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\socket.io-parser\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\socket.io-parser\node_modules\json3\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\sshpk\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\stack-trace\License
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\statuses\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\stdio\license
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\stream-to-array\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\streamifier\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\streamsearch\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\string-width\license
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\stringstream\LICENSE.txt
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\string_decoder\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\strip-ansi\license
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\supports-color\license
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\tar-stream\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\through\LICENSE.APACHE2
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\through\LICENSE.MIT
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\through2\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\through2\node_modules\readable-stream\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\tough-cookie\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\tunnel-agent\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\type-is\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\typedarray\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\uid-number\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\ultron\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\underscore\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\unpipe\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\unreachable-branch-transform\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\url\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\util-deprecate\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\utils-merge\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\vary\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\verror\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\which\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\window-size\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\winser\node_modules\async\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\winston\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\winston\node_modules\async\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\wordwrap\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\wrap-ansi\license
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\wrappy\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\xml2js\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\xml2js\node_modules\xmlbuilder\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\xmlbuilder\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\xmlhttprequest-ssl\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\y18n\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\yallist\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\yargs\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\yauzl\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\yeast\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\zip-stream\LICENSE
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\acorn\.gitattributes
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-xlsx\node_modules\msexcel-builder-extended\.gitattributes
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\msexcel-builder-extended\.gitattributes
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\preserve\.gitattributes
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\utf8\.gitattributes
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\acorn\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\after\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\any-promise\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\app-root-path\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\append-field\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\arraybuffer.slice\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\asn1\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\ast-types\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\async-each\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\async-replace\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\async-replace\node_modules\async\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\aws4\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\backo2\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\balanced-match\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\base64-arraybuffer\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\base64id\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\batch\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\better-assert\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\binary-search-tree\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\binary-search-tree\node_modules\underscore\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\bl\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\blob\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\boom\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\buffer-crc32\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\busboy\node_modules\readable-stream\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\callsite\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\client-sessions\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\collections\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\component-bind\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\component-emitter\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\component-inherit\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\config-chain\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\cookie-signature\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\cookies\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\cors\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\cron\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\cryptiles\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\ctype\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\daemon\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\debug\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\delayed-stream\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\dicer\node_modules\readable-stream\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\ecc-jsbn\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\end-of-stream\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\engine.io\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\engine.io-client\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\engine.io-parser\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\engine.io-parser\node_modules\has-binary\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\es3ify\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\esmangle-evaluator\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\esprima-fb\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\express\node_modules\qs\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\extend\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\fd-slicer\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\foreach\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\fs-extra\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\generate-function\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\generate-object-property\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\getpass\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\glob-parent\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\graceful-readlink\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\handlebars\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\has-binary\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\has-cors\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\hawk\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\hoek\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\html-to-xlsx\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\html-to-xlsx\lib\scripts\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\http-signature\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\iconv-lite\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\in-publish\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\indexof\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\ipaddr.js\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\is-my-json-valid\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\is-property\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\isarray\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\isstream\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jodid25519\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsbn\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\json-stringify-safe\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\json3\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsonfile\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsrender\node_modules\through2\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-authentication\studio\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-authorization\studio\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-child-templates\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-data\studio\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-debug\studio\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-fop-pdf\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-fop-pdf\node_modules\q-io\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-fop-pdf\node_modules\qs\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-fop-pdf\node_modules\shortid\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-fs-store\studio\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-images\node_modules\async-replace\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-images\studio\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-jsrender\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-licensing\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-licensing\node_modules\q-io\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-licensing\node_modules\qs\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-licensing\studio\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-phantom-pdf\studio\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-public-templates\node_modules\uuid\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-public-templates\studio\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-reports\studio\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-resources\studio\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-scheduling\studio\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-scripts\studio\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-templates\studio\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-text\studio\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-xlsx\node_modules\fs-extra\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-xlsx\node_modules\graceful-fs\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-xlsx\node_modules\jsonfile\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-xlsx\node_modules\mkdirp\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-xlsx\node_modules\msexcel-builder-extended\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-xlsx\node_modules\uuid\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-xlsx\studio\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jstransform\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\kew\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\keygrip\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\klaw\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\lazystream\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\lie\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\lie\dist\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\listener-collection\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\localforage\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\mime\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\moment\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\moment-timezone\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\ms\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\msexcel-builder-extended\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\msexcel-builder-extended\node_modules\fs-extra\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\msexcel-builder-extended\node_modules\graceful-fs\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\msexcel-builder-extended\node_modules\jsonfile\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\msexcel-builder-extended\node_modules\mkdirp\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\nconf\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\ncp\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\nedb\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\nedb\node_modules\underscore\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\net-cluster\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\node-int64\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\node-uuid\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\node.extend\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\node.extend.without.arrays\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\nopt\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\npmconf\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\object-component\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\object-keys\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\odata-parser\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\options\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\osenv\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\password-hash\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\pause\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\lib\scripts\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\asn1\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\bl\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\boom\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\cryptiles\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\delayed-stream\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\fs-extra\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\graceful-fs\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\hawk\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\hoek\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\http-signature\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\mime-types\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\phantom-workers\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\qs\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\readable-stream\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\request\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\sntp\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\uuid\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-workers\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\asn1\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\bl\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\boom\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\cryptiles\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\delayed-stream\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\fs-extra\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\graceful-fs\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\hawk\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\hoek\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\http-signature\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\mime-types\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\qs\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\readable-stream\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\request\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\sntp\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\pkginfo\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\portscanner\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\preserve\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\progress\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\q-io\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\q-io\node_modules\qs\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\qs\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\readable-stream\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\readdirp\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\reap\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\reap\node_modules\bytes\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\reap\node_modules\ms\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\recast\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\request\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\request-progress\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\script-manager\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\script-manager\node_modules\asn1\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\script-manager\node_modules\bl\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\script-manager\node_modules\delayed-stream\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\script-manager\node_modules\hawk\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\script-manager\node_modules\http-signature\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\script-manager\node_modules\qs\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\script-manager\node_modules\readable-stream\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\script-manager\node_modules\request\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\script-manager\node_modules\string\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\secure-keys\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\semver\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\shortid\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\simple-odata-server\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\sntp\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\socket.io\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\socket.io-adapter\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\socket.io-adapter\node_modules\socket.io-parser\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\socket.io-parser\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\sshpk\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\stack-trace\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\stdio\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\string\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\stringstream\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\string_decoder\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\throttleit\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\through2\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\through2\node_modules\readable-stream\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\to-array\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\tweetnacl\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\ultron\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\url\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\url2\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\utf8\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\uuid\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\verror\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\winser\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\ws\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\xml2js\node_modules\xmlbuilder\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\xmlbuilder\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\xtend\.npmignore
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\yallist\.npmignore
+Could Not Find F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\.gitignore.*
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\acorn\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\after\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\asn1\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\ast-types\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\async-replace\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\aws4\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\base62\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\base64-arraybuffer\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\binary-search-tree\node_modules\underscore\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\bl\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\boom\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\buffer-crc32\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\busboy\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\client-sessions\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\collections\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\colors\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\component-emitter\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\concat-map\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\cors\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\cron\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\cryptiles\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\daemon\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\dicer\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\engine.io\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\engine.io-client\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\engine.io-parser\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\es3ify\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\express\node_modules\qs\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\extend\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\falafel\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\fd-slicer\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\generate-function\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\generate-object-property\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\getpass\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\glob-parent\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\graceful-readlink\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\hawk\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\hoek\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\html-to-xlsx\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\iconv-lite\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\ipaddr.js\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\is-buffer\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\is-my-json-valid\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\isarray\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\isstream\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jodid25519\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\json3\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsonpointer\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-child-templates\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-fop-pdf\node_modules\q-io\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-fop-pdf\node_modules\qs\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-images\node_modules\async-replace\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-jsrender\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-licensing\node_modules\q-io\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-licensing\node_modules\qs\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-public-templates\node_modules\uuid\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-xlsx\node_modules\fs-extra\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-xlsx\node_modules\jsonfile\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-xlsx\node_modules\mkdirp\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-xlsx\node_modules\uuid\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\keygrip\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\lazystream\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\lie\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\listener-collection\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\listener-collection\node_modules\async\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\localforage\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\minimist\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\mkdirp\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\msexcel-builder-extended\node_modules\fs-extra\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\msexcel-builder-extended\node_modules\jsonfile\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\msexcel-builder-extended\node_modules\mkdirp\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\nconf\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\ncp\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\nedb\node_modules\underscore\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\net-cluster\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\node.extend\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\node.extend.without.arrays\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\nopt\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\object-keys\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\odata-parser\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\optimist\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\osenv\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\passport-http\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\passport-strategy\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\password-hash\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\async\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\bl\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\boom\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\cryptiles\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\hawk\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\hoek\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\mime-types\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\phantom-workers\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\qs\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\request\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\sntp\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\uuid\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-workers\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\async\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\bl\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\boom\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\cryptiles\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\hawk\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\hoek\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\mime-types\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\qs\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\request\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\sntp\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\preserve\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\private\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\process-nextick-args\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\q-io\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\q-io\node_modules\qs\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\qs\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\querystring\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\readable-stream\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\readdirp\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\recast\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\request\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\request-progress\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\script-manager\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\script-manager\node_modules\async\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\script-manager\node_modules\bl\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\script-manager\node_modules\hawk\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\script-manager\node_modules\qs\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\script-manager\node_modules\request\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\secure-keys\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\semver\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\simple-odata-server\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\sntp\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\socket.io\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\socket.io-adapter\node_modules\socket.io-parser\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\socket.io-parser\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\sshpk\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\stdio\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\stringstream\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\through\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\typedarray\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\ultron\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\url\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\url2\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\utf8\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\utils-merge\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\uuid\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\winser\node_modules\async\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\winston\node_modules\async\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\ws\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\yallist\.travis.yml
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-studio\.babelrc
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\localforage\.babelrc
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\cors\.eslintrc
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\esprima-fb\.eslintrc
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\extend\.eslintrc
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\form-data\.eslintrc
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-child-templates\.eslintrc
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-licensing\.eslintrc
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\node.extend.without.arrays\.eslintrc
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\object-keys\.eslintrc
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\qs\.eslintrc
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\request\.eslintrc
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\script-manager\node_modules\request\.eslintrc
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\acorn\.editorconfig
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\form-data\.editorconfig
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\object-keys\.editorconfig
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\recast\.editorconfig
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\request-progress\.editorconfig
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\any-promise\.jshintrc
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\bl\.jshintrc
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\client-sessions\.jshintrc
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\debug\.jshintrc
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\isstream\.jshintrc
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-fop-pdf\node_modules\qs\.jshintrc
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-licensing\node_modules\qs\.jshintrc
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jstransform\.jshintrc
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\lie\.jshintrc
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\localforage\.jshintrc
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\passport-strategy\.jshintrc
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\bl\.jshintrc
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\qs\.jshintrc
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\.jshintrc
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\bl\.jshintrc
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\qs\.jshintrc
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\preserve\.jshintrc
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\q-io\node_modules\qs\.jshintrc
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\request-progress\.jshintrc
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\script-manager\node_modules\bl\.jshintrc
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\script-manager\node_modules\qs\.jshintrc
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\stdio\.jshintrc
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\winston\node_modules\async\.jshintrc
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\xtend\.jshintrc
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsrender\jsrender.min.js.map
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-authentication\studio\main.js.map
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-authorization\studio\main.js.map
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-data\studio\main.js.map
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-debug\studio\main.js.map
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-fs-store\studio\main.js.map
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-images\studio\main.js.map
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-licensing\studio\main.js.map
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-phantom-pdf\studio\main.js.map
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-public-templates\studio\main.js.map
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-reports\studio\main.js.map
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-resources\studio\main.js.map
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-scheduling\studio\main.js.map
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-scripts\studio\main.js.map
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-studio\static\dist\1.client.js.map
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-studio\static\dist\client.js.map
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-templates\studio\main.js.map
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-text\studio\main.js.map
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-xlsx\studio\main.js.map
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\underscore\underscore-min.map
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-workers\node_modules\underscore\underscore-min.map
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\script-manager\node_modules\underscore\underscore-min.map
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\underscore\underscore-min.map
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\arraybuffer.slice\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\async-replace\node_modules\async\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\backo2\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\batch\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\better-assert\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\binary-search-tree\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\blob\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\callsite\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\component-bind\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\component-emitter\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\component-inherit\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\cron\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\debug\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\delayed-stream\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\engine.io\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\engine.io-client\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\engine.io-parser\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\engine.io-parser\node_modules\has-binary\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\extsprintf\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\extsprintf\Makefile.deps
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\extsprintf\Makefile.targ
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\eyes\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\foreach\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\has-binary\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\has-cors\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\indexof\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\is\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\isarray\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\json-stringify-safe\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-fop-pdf\node_modules\qs\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\jsreport-licensing\node_modules\qs\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\object-component\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\options\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\parsejson\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\parseqs\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\parseuri\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\password-hash\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\pause\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\boom\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\cryptiles\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\delayed-stream\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\hawk\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\hoek\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\mime-types\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\qs\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantom-html-to-pdf\node_modules\sntp\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\boom\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\cryptiles\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\delayed-stream\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\hawk\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\hoek\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\mime-types\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\qs\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\phantomjs\node_modules\sntp\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\portscanner\node_modules\async\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\progress\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\q-io\node_modules\qs\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\reap\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\reap\node_modules\bytes\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\script-manager\node_modules\delayed-stream\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\script-manager\node_modules\hawk\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\script-manager\node_modules\qs\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\script-manager\node_modules\string\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\semver\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\sntp\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\socket.io\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\socket.io-adapter\node_modules\socket.io-parser\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\socket.io-parser\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\stack-trace\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\throttleit\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\verror\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\verror\Makefile.targ
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\ws\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\xtend\Makefile
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\any-promise\implementation.d.ts
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\any-promise\index.d.ts
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\any-promise\register.d.ts
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\any-promise\register\bluebird.d.ts
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\any-promise\register\es6-promise.d.ts
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\any-promise\register\lie.d.ts
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\any-promise\register\native-promise-only.d.ts
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\any-promise\register\pinkie.d.ts
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\any-promise\register\promise.d.ts
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\any-promise\register\q.d.ts
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\any-promise\register\rsvp.d.ts
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\any-promise\register\vow.d.ts
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\any-promise\register\when.d.ts
+Deleted file - F:\work\jsreport\net\examples\Mvc\Mvc\jsreport\app\node_modules\moment\moment.d.ts
+Done
