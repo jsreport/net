@@ -1,1 +1,0 @@
-cmd.exe /C "cd development&&"../../.bin/npm.cmd" start"

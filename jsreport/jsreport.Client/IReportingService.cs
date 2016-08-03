@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace jsreport.Client
@@ -21,7 +22,25 @@ namespace jsreport.Client
         /// <param name="data">any json serializable object</param>
         /// <exception cref="JsReportException"></exception>
         /// <returns>Report result promise</returns>
-        Task<Report> RenderAsync(string templateShortid, object data);
+        Task<Report> RenderAsync(string templateShortid, object data, CancellationToken ct = default(CancellationToken));
+
+        /// <summary>
+        /// The simpliest rendering using template name and input data
+        /// </summary>
+        /// <param name="templateName">template shortid can be taken from jsreport studio or from filename in jsreport embedded</param>
+        /// <param name="jsonData">any json string</param>
+        /// <exception cref="JsReportException"></exception>
+        /// <returns>Report result promise</returns>
+        Task<Report> RenderByNameAsync(string templateName, string jsonData, CancellationToken ct = default(CancellationToken));
+
+        /// <summary>
+        /// The simpliest rendering using template name and input data
+        /// </summary>
+        /// <param name="templateName">template name</param>
+        /// <param name="data">any json serializable object</param>
+        /// <exception cref="JsReportException"></exception>
+        /// <returns>Report result promise</returns>
+        Task<Report> RenderByNameAsync(string templateName, object data, CancellationToken ct = default(CancellationToken));
 
         /// <summary>
         /// The simpliest rendering using template shortid and input data
@@ -30,25 +49,24 @@ namespace jsreport.Client
         /// <param name="jsonData">any json string</param>
         /// <exception cref="JsReportException"></exception>
         /// <returns>Report result promise</returns>
-        Task<Report> RenderAsync(string templateShortid, string jsonData);
-
-        Task<Report> RenderAsync(object request);
+        Task<Report> RenderAsync(string templateShortid, string jsonData, CancellationToken ct = default(CancellationToken));
 
         /// <summary>
-        /// Overload for more sophisticated rendering.
+        /// Specify comnpletely the rendering requests, see http://jsreport.net/learn/api for details
         /// </summary>
         /// <param name="request">ram name="request">Description of rendering process <see cref="RenderRequest"/></param>
         /// <exception cref="JsReportException"></exception>
         /// <returns>Report result promise</returns>
-        Task<Report> RenderAsync(RenderRequest request);
+        Task<Report> RenderAsync(RenderRequest request, CancellationToken ct = default(CancellationToken));
 
         /// <summary>
-        /// Reads previously rendered report. see http://jsreport.net/learn/reports
+        /// Specify comnpletely the rendering requests, see http://jsreport.net/learn/api for details
         /// </summary>
-        /// <param name="permanentLink">link Report.PernamentLink from previously rendered report</param>
+        /// <param name="request">ram name="request">Description of rendering process</param>
         /// <exception cref="JsReportException"></exception>
         /// <returns>Report result promise</returns>
-        Task<Report> ReadReportAsync(string permanentLink);
+        Task<Report> RenderAsync(object request, CancellationToken ct = default(CancellationToken));
+        
 
         /// <summary>
         /// Request list of recipes registered in jsreport server
@@ -69,15 +87,18 @@ namespace jsreport.Client
         Task<string> GetServerVersionAsync();
 
         /// <summary>
-        /// Synchronize all *.jsrep files into jsreport server including images and sample json files
+        /// Credentials for jsreport having authentication enabled
         /// </summary>
-        Task SynchronizeTemplatesAsync();
-
-        Task CreateOrUpdateSampleData(string name, string content);
-
         string Username { get; set; }
+
+        /// <summary>
+        /// Credentials for jsreport having authentication enabled
+        /// </summary>
         string Password { get; set; }
 
+        /// <summary>
+        /// Timeout for http client requests
+        /// </summary>
         TimeSpan? HttpClientTimeout { get; set; }
     }
 }

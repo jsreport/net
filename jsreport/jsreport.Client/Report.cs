@@ -28,10 +28,8 @@ namespace jsreport.Client
         public string FileExtension { get; set; }
 
         /// <summary>
-        /// Optional pernament link to report
+        /// The full response
         /// </summary>
-        public string PermanentLink { get; set; }
-
         public HttpResponseMessage Response { get; set; }
     }
 }

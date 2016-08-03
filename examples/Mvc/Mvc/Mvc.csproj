@@ -284,24 +284,6 @@
     <Content Include="jsreport\jsreport.zip">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="jsreport\reports\data\Sample data\config.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="jsreport\reports\data\Sample data\dataJson.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="jsreport\reports\templates\Sample report\config.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="jsreport\reports\templates\Sample report\content.handlebars">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="jsreport\reports\templates\Sample report\footer.handlebars">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="jsreport\reports\templates\Sample report\header.handlebars">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="jsreport\studio.cmd" />
     <Content Include="jsreport\update.cmd" />
     <None Include="Scripts\jquery-3.1.0.intellisense.js" />
@@ -309,9 +291,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="jsreport\install-log.txt" />
-    <Content Include="jsreport\reports\templates\Sample report\helpers.js">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Scripts\jquery-3.1.0.js" />
     <Content Include="Scripts\jquery-3.1.0.min.js" />
     <Content Include="Scripts\jquery-3.1.0.slim.js" />

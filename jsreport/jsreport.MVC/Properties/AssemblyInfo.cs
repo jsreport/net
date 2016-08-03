@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("jsreport.MVC")]
 [assembly: AssemblyDescription("jsreport asp.net mvc integration")]
 [assembly: AssemblyProduct("jsreport.MVC")]
-[assembly: AssemblyCopyright("Copyright © Jan Blaha  2014")]
+[assembly: AssemblyCopyright("Copyright © Jan Blaha  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -17,5 +17,5 @@ using System.Runtime.InteropServices;
 // COM, set the ComVisible attribute to true on that type.
 [assembly: ComVisible(false)]
 
-[assembly: AssemblyVersion("0.1.4.0")]
-[assembly: AssemblyFileVersion("0.1.4.0")]
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]

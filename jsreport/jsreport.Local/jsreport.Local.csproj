@@ -60,49 +60,10 @@
     <None Include="install.ps1">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="jsreport\install.cmd" />
-    <None Include="jsreport\production\jsreport.zip">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="jsreport\development\package.json" />
-    <None Include="jsreport\development\dev.config.json" />
-    <None Include="jsreport\production\prod.config.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="jsreport\pack-production.cmd" />
-    <None Include="jsreport\reports\data\Sample data\config.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="jsreport\reports\data\Sample data\dataJson.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="jsreport\reports\templates\Sample report\config.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="jsreport\reports\templates\Sample report\content.handlebars">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="jsreport\reports\templates\Sample report\footer.handlebars">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="jsreport\reports\templates\Sample report\header.handlebars">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="jsreport\start-local.cmd" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ILocalReportingService.cs" />
-    <Content Include="jsreport\install-log.txt" />
-    <Content Include="jsreport\install.js" />
-    <Content Include="jsreport\development\server.js" />
-    <Content Include="jsreport\production\server.js">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="jsreport\pack-production.js" />
-    <Content Include="jsreport\reports\templates\Sample report\helpers.js">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

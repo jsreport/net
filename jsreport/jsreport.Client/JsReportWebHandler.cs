@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Net;
 using System.Net.Http;
 using System.Text;
@@ -23,7 +24,7 @@ namespace jsreport.Client
             var url = CreateRequestUrl(context);
 
             var request =
-                (HttpWebRequest)WebRequest.Create(ReportingService.ServiceUri.ToString().TrimEnd('/') + (url.StartsWith("/") ? url : ("/" + url)));
+                (HttpWebRequest)WebRequest.Create(ReportingService.ServiceUri.ToString().TrimEnd('/') + context.Request.Url.PathAndQuery.Replace("/jsreport.axd", ""));
             request.Method = context.Request.HttpMethod;
 
             ParseRequestHeaders(context, request);
@@ -50,17 +51,10 @@ namespace jsreport.Client
         {
             string url = context.Request.QueryString["url"] ?? "/";
 
-            if (url.EndsWith("main_embed") || url.EndsWith("main_dev") || url.EndsWith("main"))
-                url += ".js";
-
             if (url.Contains("?"))
                 url += "&";
             else
                 url += "?";
-
-            //TODO this should be maybe removed
-            if (!url.Contains("studio=embed"))
-                url += "studio=embed";
 
             if (!url.EndsWith("&"))
                 url += "&";
@@ -99,7 +93,7 @@ namespace jsreport.Client
                         request.Referer = headerValue;
                         continue;
                     case "User-Agent":
-                        request.Referer = headerValue;
+                        request.UserAgent = headerValue;
                         continue;
                 }
 
@@ -112,6 +106,8 @@ namespace jsreport.Client
 
                 request.Headers.Add(header, context.Request.Headers.Get(header));
             }
+
+            request.Referer = context.Request.Url.ToString();
         }
 
         private static void ProcessResponse(HttpContext context, HttpWebResponse responseMerge)
@@ -126,8 +122,22 @@ namespace jsreport.Client
                                            string.Join(";", responseMerge.Headers.GetValues(headerKey)));
             }
 
-            context.Response.StatusCode = (int) responseMerge.StatusCode;
-            responseMerge.GetResponseStream().CopyTo(context.Response.OutputStream);
+            context.Response.StatusCode = (int)responseMerge.StatusCode;
+
+            if (context.Request.Path == "/jsreport.axd")
+            {
+                using (var reader = new StreamReader(responseMerge.GetResponseStream()))
+                {
+                    var content = reader.ReadToEnd();
+                    var buf = System.Text.Encoding.ASCII.GetBytes(content.Replace("/studio/assets/client", "/jsreport.axd/studio/assets/client"));
+                    context.Response.OutputStream.Write(buf, 0, buf.Length);
+                }
+            }
+            else
+            {
+                responseMerge.GetResponseStream().CopyTo(context.Response.OutputStream);    
+            }
+            
             context.Response.OutputStream.Flush();
         }
     }

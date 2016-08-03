@@ -30,7 +30,7 @@ namespace jsreport.Client
         /// <summary>
         /// Rendering custom options, OPTIONAL
         /// </summary>
-         [JsonIgnore]
+        [JsonIgnore]
         public RenderOptions options { get; set; }
 
         [JsonProperty("options")]

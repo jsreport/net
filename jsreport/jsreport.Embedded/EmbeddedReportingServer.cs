@@ -11,8 +11,6 @@ using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using jsreport.Client;
 
 namespace jsreport.Embedded
@@ -27,7 +25,7 @@ namespace jsreport.Embedded
         private bool _disposed;
         private bool _stopped = true;
         private bool _stopping;
-        
+
         public EmbeddedReportingServer(long port = 2000)
         {
             _port = port;
@@ -70,7 +68,7 @@ namespace jsreport.Embedded
             }
         }
 
-    
+
         public string ServerStandardOutput { get; set; }
         public string ServerErrorOutput { get; set; }
 
@@ -78,17 +76,20 @@ namespace jsreport.Embedded
         public string Password { get; set; }
 
         private IReportingService _reportingService;
+
         /// <summary>
         ///     Shortcut to new ReportingService(EmbeddedServerUri)
         /// </summary>
         public IReportingService ReportingService
         {
-            get { return _reportingService = _reportingService ?? new ReportingService(EmbeddedServerUri)
-                {
-                    ReportsDirectory = AssemblyDirectory,
-                    Username = Username,
-                    Password = Password
-                }; }
+            get
+            {
+                return _reportingService = _reportingService ?? new ReportingService(EmbeddedServerUri)
+                    {
+                        Username = Username,
+                        Password = Password
+                    };
+            }
         }
 
         /// <summary>
@@ -124,7 +125,6 @@ namespace jsreport.Embedded
         }
 
 
-
         /// <summary>
         ///     Sends kill signal to jsreport server and wait for it's exit
         /// </summary>
@@ -132,9 +132,6 @@ namespace jsreport.Embedded
         {
             bool done = false;
             _stopping = true;
-
-            //there are some issues when killing child process started from visual studio
-            //we send signal throught custom extension and wait until ping will timout
 
             var tcs = new TaskCompletionSource<object>();
 
@@ -218,7 +215,7 @@ namespace jsreport.Embedded
                 }
                 else
                 {
-                    RelativePathToServer = Path.Combine("jsreport", "app");
+                    RelativePathToServer = Path.Combine("jsreport", "app-prod");
                 }
             }
 
@@ -253,18 +250,18 @@ namespace jsreport.Embedded
         private void StartWorker()
         {
             Worker = new Process()
-            {
-                StartInfo = new ProcessStartInfo(Path.Combine(AbsolutePathToServer, "node.exe"))
                 {
-                    FileName = Path.Combine(AbsolutePathToServer, "node.exe"),
-                    WorkingDirectory = AbsolutePathToServer,
-                    Arguments = "server.js " + " --httpPort=" + _port + SerializeConfiguration(),
-                    UseShellExecute = false,
-                    CreateNoWindow = true,
-                    RedirectStandardOutput = true,
-                    RedirectStandardError = true,
-                }
-            };
+                    StartInfo = new ProcessStartInfo(Path.Combine(AbsolutePathToServer, "node.exe"))
+                        {
+                            FileName = Path.Combine(AbsolutePathToServer, "node.exe"),
+                            WorkingDirectory = AbsolutePathToServer,
+                            Arguments = "server.js " + " --httpPort=" + _port + SerializeConfiguration(),
+                            UseShellExecute = false,
+                            CreateNoWindow = true,
+                            RedirectStandardOutput = true,
+                            RedirectStandardError = true,
+                        }
+                };
 
             Worker.StartInfo.EnvironmentVariables.Remove("NODE_ENV");
             Worker.StartInfo.EnvironmentVariables.Add("NODE_ENV", "production");
@@ -273,14 +270,24 @@ namespace jsreport.Embedded
                 {
                     if (e.Data != null)
                     {
-                        ServerStandardOutput += e.Data;
+                        ServerStandardOutput += e.Data + "\n";
+
+                        if (ServerStandardOutput.Length > 10000)
+                        {
+                            ServerStandardOutput = ServerStandardOutput.Substring(ServerStandardOutput.Length - 10000);
+                        }
                     }
                 };
             Worker.ErrorDataReceived += (sender, e) =>
                 {
                     if (e.Data != null)
                     {
-                        ServerErrorOutput += e.Data;
+                        ServerErrorOutput += e.Data + "\n";
+
+                        if (ServerErrorOutput.Length > 10000)
+                        {
+                            ServerErrorOutput = ServerErrorOutput.Substring(ServerErrorOutput.Length - 10000);
+                        }
                     }
                 };
 
@@ -308,7 +315,8 @@ namespace jsreport.Embedded
             {
                 var value = property.GetValue(obj, null);
 
-                if (property.PropertyType.IsPrimitive || property.PropertyType == typeof(Decimal) || property.PropertyType == typeof(String))
+                if (property.PropertyType.IsPrimitive || property.PropertyType == typeof (Decimal) ||
+                    property.PropertyType == typeof (String))
                 {
                     result += " --";
                     if (!string.IsNullOrEmpty(path))
@@ -354,7 +362,8 @@ namespace jsreport.Embedded
                             await StopAsync();
                             tcs.SetException(
                                 new EmbeddedReportingServerException(
-                                    "Failed to start jsreport server, output: " + ServerErrorOutput + ServerStandardOutput)
+                                    "Failed to start jsreport server, output: " + ServerErrorOutput +
+                                    ServerStandardOutput)
                                     {
                                         ServerErrorOutput = ServerErrorOutput,
                                         ServerStandardOutput = ServerStandardOutput
@@ -385,16 +394,17 @@ namespace jsreport.Embedded
                 });
 
             await tcs.Task.ConfigureAwait(false);
-       }
+        }
 
         private HttpClient CreateClient()
         {
-            var client = new HttpClient() { BaseAddress = new Uri(EmbeddedServerUri) };
+            var client = new HttpClient() {BaseAddress = new Uri(EmbeddedServerUri)};
 
             if (Username != null)
             {
-                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", System.Convert.ToBase64String(
-                    Encoding.UTF8.GetBytes(String.Format("{0}:{1}", Username, Password))));
+                var basicAuth =
+                    Convert.ToBase64String(Encoding.UTF8.GetBytes(String.Format("{0}:{1}", Username, Password)));
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", basicAuth);
             }
 
             return client;
@@ -405,8 +415,9 @@ namespace jsreport.Embedded
             var zippedFromSolution =
                 new FileInfo(Path.Combine(AssemblyDirectory, "jsreport", "jsreport.zip"));
             var zippedFromApp = new FileInfo(Path.Combine(AbsolutePathToServer, "jsreport.zip"));
+
             var isSame = zippedFromApp.Exists && zippedFromSolution.Exists &&
-                             (zippedFromApp.Length == zippedFromSolution.Length);
+                         (zippedFromApp.Length == zippedFromSolution.Length);
 
 
             if (!Directory.Exists(Path.Combine(AbsolutePathToServer, "node_modules")) || !isSame)
@@ -431,14 +442,18 @@ namespace jsreport.Embedded
                 CopyFilesRecursively(reportsInBin, reportsInServer);
             }
 
-            //copy jsreport.zip for later comparing if there was a change
-            foreach (FileInfo file in new DirectoryInfo(Path.Combine(AssemblyDirectory, "jsreport")).GetFiles())
+            //copy the config files, package.json and server.js
+            if (Directory.Exists(Path.Combine(AssemblyDirectory, "jsreport", "app")))
             {
-                file.CopyTo(Path.Combine(AbsolutePathToServer, file.Name), true);
+                foreach (
+                    FileInfo file in new DirectoryInfo(Path.Combine(AssemblyDirectory, "jsreport", "app")).GetFiles())
+                {
+                    file.CopyTo(Path.Combine(AbsolutePathToServer, file.Name), true);
+                }
             }
 
-            //copy the config files, package.json and server.js
-            foreach (FileInfo file in new DirectoryInfo(Path.Combine(AssemblyDirectory, "jsreport", "app")).GetFiles())
+            //copy jsreport.zip for later comparing if there was a change
+            foreach (FileInfo file in new DirectoryInfo(Path.Combine(AssemblyDirectory, "jsreport")).GetFiles())
             {
                 file.CopyTo(Path.Combine(AbsolutePathToServer, file.Name), true);
             }
@@ -446,7 +461,7 @@ namespace jsreport.Embedded
 
         private static bool IsWebApp(AppDomain appDomain)
         {
-            var configFile = (string)appDomain.GetData("APP_CONFIG_FILE");
+            var configFile = (string) appDomain.GetData("APP_CONFIG_FILE");
             if (string.IsNullOrEmpty(configFile)) return false;
             return (
                        Path.GetFileNameWithoutExtension(configFile) ?? string.Empty
@@ -504,7 +519,7 @@ namespace jsreport.Embedded
                 Directory.Delete(path, true);
             }
         }
-       
+
 
         private void DomainUnloadOrProcessExit(object sender, EventArgs e)
         {

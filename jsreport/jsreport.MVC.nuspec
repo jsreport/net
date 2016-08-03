@@ -14,13 +14,13 @@
     <language>en-us</language>
     <tags>jsreport asp.net mvc</tags>
     <dependencies>
-      <dependency id="Microsoft.AspNet.Mvc" version="5.0.0" />      
-      <dependency id="jsreport.Client" version="0.3.0"/>
+      <dependency id="Microsoft.AspNet.Mvc" version="5.2.3" />      
+      <dependency id="jsreport.Client" version="1.0.0"/>
       <dependency id="Microsoft.Bcl.Async" version="1.0.168"/>
     </dependencies>
   </metadata>
   <files>
-    <file src="jsreport.MVC\bin\Release\jsreport.MVC.dll" target="lib\net45\jsreport.MVC.dll" />
+    <file src="jsreport.MVC\bin\Debug\jsreport.MVC.dll" target="lib\net45\jsreport.MVC.dll" />
     <file src="jsreport.MVC\bin\Debug\jsreport.MVC.pdb" target="lib\net45\jsreport.MVC.pdb" />
   </files>
 </package>

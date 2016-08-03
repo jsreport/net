@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Net;
+using System.Net.Http;
 using System.Threading;
+using System.Threading.Tasks;
 using NUnit.Framework;
-using Simple.OData.Client;
-using jsreport.Client.Entities;
 using jsreport.Embedded;
 
 namespace jsreport.Client.Test
@@ -14,7 +13,7 @@ namespace jsreport.Client.Test
     [TestFixture]
     public class ReportingServiceTest
     {
-        private ReportingService _reportingService;
+        private IReportingService _reportingService;
 
         private EmbeddedReportingServer _embeddedReportingServer;
         private static readonly object _locker = new object();
@@ -26,7 +25,7 @@ namespace jsreport.Client.Test
             _embeddedReportingServer = new EmbeddedReportingServer(3000);
             _embeddedReportingServer.StartAsync().Wait();
 
-            _reportingService = new ReportingService("http://localhost:3000");
+            _reportingService = _embeddedReportingServer.ReportingService;
         }
 
         [TearDown]
@@ -34,6 +33,84 @@ namespace jsreport.Client.Test
         {
             _embeddedReportingServer.StopAsync().Wait();
             Monitor.Exit(_locker);
+        }
+
+        [Test]
+        public async void html_report()
+        {
+            var result = await _reportingService.RenderAsync(new
+            {
+                template = new
+                {
+                    content = "foo",
+                    engine = "none",
+                    recipe = "html"
+                }
+            });
+
+            using (var reader = new StreamReader(result.Content))
+            {
+                Assert.AreEqual("foo", reader.ReadToEnd());
+            }
+        }
+
+        [Test]
+        public async void phantom_pdf_report()
+        {
+            var result = await _reportingService.RenderAsync(new
+            {
+                template = new
+                {
+                    content = "foo",
+                    engine = "none",
+                    recipe = "phantom-pdf"
+                }
+            });
+
+            using (var reader = new StreamReader(result.Content))
+            {
+                Assert.IsTrue(reader.ReadToEnd().StartsWith("%PDF"));
+            }
+        }
+
+        [Test]
+        public async void using_stored_templates()
+        {
+            var result = await _reportingService.RenderAsync(new
+            {
+                template = new
+                {
+                    name = "test"
+                }
+            });
+
+            using (var reader = new StreamReader(result.Content))
+            {
+                Assert.IsTrue(reader.ReadToEnd().StartsWith("foo"));
+            }
+        }
+
+        [Test]
+        public async void should_use_data()
+        {
+            var result = await _reportingService.RenderAsync(new
+            {
+                template = new
+                {
+                    content = "{{:foo}}",
+                    engine = "jsrender",
+                    recipe = "html"
+                },
+                data = new
+                    {
+                        foo = "hello"
+                    }
+            });
+
+            using (var reader = new StreamReader(result.Content))
+            {
+                Assert.IsTrue(reader.ReadToEnd().StartsWith("hello"));
+            }
         }
      
         [Test]
@@ -51,77 +128,14 @@ namespace jsreport.Client.Test
 
             Assert.IsTrue(engines.Count() > 1);
         }
-
-
-        [Test]
-        public async void render_and_store_result()
-        {
-            var report = await _reportingService.RenderAsync(new RenderRequest()
-            {
-                template = new Template() { content = "foo", recipe = "html", engine = "jsrender" },
-                options = new RenderOptions()
-                {
-                    additional = new
-                        {
-                            reports = new { save = true }
-                        }
-                }
-            });
-
-            var loadedReport = await _reportingService.ReadReportAsync(report.PermanentLink);
-
-            var reader = new StreamReader(loadedReport.Content);
-
-            var str = reader.ReadToEnd();
-            Assert.IsNotNull(str);
-        }
-
-        [Test]
-        public async void render_preview_should_return_excel_online()
-        {
-            var report = await _reportingService.RenderAsync(new RenderRequest()
-            {
-                template = new Template() { content = "<table><tr><td>a</td></tr></table>", recipe = "html-to-xlsx", engine = "jsrender" },
-                options = new RenderOptions()
-                {
-                    preview = true
-                }
-            });
-
-
-            var reader = new StreamReader(report.Content);
-
-            var str = reader.ReadToEnd();
-            Assert.IsTrue(str.Contains("iframe"));
-        }
-
-        [Test]
-        public async void odata_delete_should_work()
-        {
-            await _reportingService.SynchronizeTemplatesAsync();
-
-            var entry = await _reportingService.CreateODataClient().For<Template>()
-                             .Filter(x => x.shortid == "Report1")
-                             .FindEntryAsync();
-
-            await _reportingService.CreateODataClient().For<Template>().Key(entry._id).DeleteEntryAsync();
-
-            var entries = await _reportingService.CreateODataClient().For<Template>()
-                            .Filter(x => x.shortid == "Report1")
-                            .FindEntriesAsync();
-
-            Assert.IsFalse(entries.Any());
-        }
-
+     
         [Test]
         public async void should_throw_valid_exception_when_invalid_engine()
         {
             try
             {
-                var result = await _reportingService.RenderAsync(new RenderRequest()
-                {
-                    template = new Template()
-                    {
+                var result = await _reportingService.RenderAsync(new {
+                    template = new {
                         content = "foo",
                         engine = "NOT_EXISTING",
                         recipe = "phantom-pdf"
@@ -135,226 +149,161 @@ namespace jsreport.Client.Test
         }
 
         [Test]
-        public async void html_report()
+        [ExpectedException(typeof(TaskCanceledException))]
+        public async void httpClientTimeout_should_cancel_rendering_task()
         {
-            var result = await _reportingService.RenderAsync(new RenderRequest()
+            _reportingService.HttpClientTimeout = new TimeSpan(1);
+            var result = await _reportingService.RenderAsync(new
             {
-                template = new Template()
+                template = new
                 {
                     content = "foo",
-                    recipe = "html"
-                }
-            });
-
-            using (var reader = new StreamReader(result.Content))
-            {
-                Assert.AreEqual("foo", reader.ReadToEnd());
-            }
-        }
-
-        [Test]
-        public async void phantom_pdf_report()
-        {
-            var result = await _reportingService.RenderAsync(new RenderRequest()
-            {
-                template = new Template()
-                {
-                    content = "foo",
+                    engine = "none",
                     recipe = "phantom-pdf"
                 }
             });
+        }
 
-            using (var reader = new StreamReader(result.Content))
+        [Test]
+        [ExpectedException(typeof(TaskCanceledException))]
+        public async void cancel_token_should_cancel_task()
+        {
+            var ts = new CancellationTokenSource();
+            ts.CancelAfter(1);
+
+            var result = await _reportingService.RenderAsync(new
             {
-                Assert.IsTrue(reader.ReadToEnd().StartsWith("%PDF"));
-            }
-        }
-
-        [Test]
-        public async void synchronize_multiple_times_should_update()
-        {
-            File.WriteAllText("Report2.jsrep.html", "before");
-            await _reportingService.SynchronizeTemplatesAsync();
-
-            File.WriteAllText("Report2.jsrep.html", "update");
-            await _reportingService.SynchronizeTemplatesAsync();
-
-            var template = await _reportingService.CreateODataClient()
-                                    .For<Template>()
-                                    .Filter(t => t.name == "Report2")
-                                    .FindEntryAsync();
-
-            Assert.AreEqual("update", template.content);
-        }
-
-        [Test]
-        public async void synchronize_and_render_html()
-        {
-            await _reportingService.SynchronizeTemplatesAsync();
-
-            var result = await _reportingService.RenderAsync("Report1", null);
-
-            using (var reader = new StreamReader(result.Content))
-            {
-                Assert.AreEqual("foo", reader.ReadToEnd());
-            }
-        }
-
-        [Test]
-        public async void synchronize_and_render_phantom()
-        {
-            await _reportingService.SynchronizeTemplatesAsync();
-
-            var result = await _reportingService.RenderAsync("Report2", null);
-
-            using (var reader = new StreamReader(result.Content))
-            {
-                Assert.IsTrue(reader.ReadToEnd().StartsWith("%PDF"));
-            }
-        }
-
-        [Test]
-        public async void synchronize_images()
-        {
-            await _reportingService.SynchronizeTemplatesAsync();
-
-            var image = await _reportingService.CreateODataClient()
-                                    .For<Image>()
-                                    .Filter(t => t.name == "Image1")
-                                    .FindEntryAsync();
-
-            Assert.IsNotNull(image.content);
-        }
-
-        [Test]
-        public async void multiple_image_synchronize_should_update()
-        {
-            await _reportingService.SynchronizeTemplatesAsync();
-            await _reportingService.SynchronizeTemplatesAsync();
-
-            var images = await _reportingService.CreateODataClient()
-                                    .For<Image>()
-                                    .Filter(t => t.name == "Image1")
-                                    .FindEntriesAsync();
-
-            Assert.AreEqual(1, images.Count());
-        }
-
-        [Test]
-        public async void synchronize_and_use_images()
-        {
-            await _reportingService.SynchronizeTemplatesAsync();
-
-            var result = await _reportingService.RenderAsync(new RenderRequest()
-            {
-                template = new Template()
+                template = new
                 {
-                    content = "<img src='{#image Image1}' />",
-                    recipe = "html",
-                    engine = "jsrender"
+                    content = "foo",
+                    engine = "none",
+                    recipe = "phantom-pdf"
+                }
+            }, ts.Token);
+        }
+
+        [Test]
+        [ExpectedException(typeof(JsReportException))]
+        public async void timeout_in_rendering_should_throw_JsReportException()
+        {
+            var result = await _reportingService.RenderAsync(new
+            {
+                template = new
+                {
+                    content = "{{:~foo()}}",
+                    helpers = "function foo() { while(true) { } }",
+                    engine = "jsrender",
+                    recipe = "phantom-pdf"
+                }
+            });
+        }
+
+        [Test]
+        public async void GetServerVersionAsync_should_return_version()
+        {
+            var result = await _reportingService.GetServerVersionAsync();
+            Assert.IsTrue(result.Contains("."));
+        }
+
+        [Test]
+        public async void render_preview_should_return_excel_online()
+        {
+            var report = await _reportingService.RenderAsync(new
+            {
+
+                template = new { content = "<table><tr><td>a</td></tr></table>", recipe = "html-to-xlsx", engine = "jsrender" },
+                options = new
+                {
+                    preview = true
                 }
             });
 
-            using (var reader = new StreamReader(result.Content))
-            {
-                Assert.IsTrue(reader.ReadToEnd().Contains("base64"));
-            }
+
+            var reader = new StreamReader(report.Content);
+
+            var str = reader.ReadToEnd();
+            Assert.IsTrue(str.Contains("iframe"));
         }
-
-        [Test]
-        public async void synchronize_data_items()
-        {
-            await _reportingService.SynchronizeTemplatesAsync();
-
-            var dataItem = await _reportingService.CreateODataClient()
-                                    .For<DataItem>("data")
-                                    .Filter(t => t.name == "ReportSchema1")
-                                    .FindEntryAsync();
-
-            Assert.IsNotNull(dataItem.dataJson);
-        }
-
-        [Test]
-        public async void multiple_data_synchronize_should_update()
-        {
-            await _reportingService.SynchronizeTemplatesAsync();
-            await _reportingService.SynchronizeTemplatesAsync();
-
-            var dataItems = await _reportingService.CreateODataClient()
-                                    .For<DataItem>("data")
-                                    .Filter(t => t.name == "ReportSchema1")
-                                    .FindEntriesAsync();
-
-            Assert.AreEqual(1, dataItems.Count());
-        }
-
-        [Test]
-        public async void synchronize_and_use_sampleData()
-        {
-            await _reportingService.SynchronizeTemplatesAsync();
-
-            var result = await _reportingService.RenderAsync("Report4", null);
-
-            using (var reader = new StreamReader(result.Content))
-            {
-                Assert.AreEqual("Hello world", reader.ReadToEnd());
-            }
-        }
-
-        [Test]
-        public async void synchronize_and_use_sampleData_from_child_directory()
-        {
-            await _reportingService.SynchronizeTemplatesAsync();
-
-            var result = await _reportingService.RenderAsync(new RenderRequest()
-            {
-                template = new Template()
-                {
-                    content = "{{{foo}}}",
-                    recipe = "html",
-                    engine = "handlebars",
-                    additional = new
-                    {
-                        dataItemId = "NestedSchema"
-                    }
-                }
-            });
-
-            using (var reader = new StreamReader(result.Content))
-            {
-                Assert.AreEqual("nested", reader.ReadToEnd());
-            }
-        }
-
-        [Test]
+     
+        //until it is fixed in jsreport-core
+        /*[Test]
         public async void render_a_circular_structure_should_work()
         {
             var data = new Teacher() { Name = "John"};
             data.Students = new List<Student>() { new Student() { Name = "Doe", Teachers = new List<Teacher>() { data}}};
 
-            var report = await _reportingService.RenderAsync(new RenderRequest()
+            var report = await _reportingService.RenderAsync(new
             {
-                template = new Template() { content = "{{help this}}", recipe = "html", engine = "handlebars", helpers = "function help(data) { return data.Students[0].Name; }" },
+                template = new { content = "{{{help this}}}", recipe = "html", engine = "handlebars", helpers = "function help(data) { return data.Students[0].Teachers[0].Name; }" },
                 data = data
             });
 
             var reader = new StreamReader(report.Content);
 
             var str = reader.ReadToEnd();
-            Assert.AreEqual("Doe", str);
+            Assert.AreEqual("John", str);
+        }*/
+    }
+
+
+    [TestFixture]
+    public class AuthenticatedReportingServiceTest
+    {
+        private IReportingService _reportingService;
+
+        private EmbeddedReportingServer _embeddedReportingServer;
+        private static readonly object _locker = new object();
+
+        [SetUp]
+        public void SetUp()
+        {
+            Monitor.Enter(_locker);
+            _embeddedReportingServer = new EmbeddedReportingServer(3000)
+            {
+                Configuration = new
+                {
+                    authentication = new
+                    {
+                        cookieSession = new
+                        {
+                            secret = "dasd321as56d1sd5s61vdv32"
+                        },
+                        admin = new
+                        {
+                            username = "admin",
+                            password = "password"
+                        }
+                    },
+
+                },
+                Username = "admin",
+                Password = "password"
+            };
+            _embeddedReportingServer.StartAsync().Wait();
+
+            _reportingService = _embeddedReportingServer.ReportingService;
+        }
+
+        [TearDown]
+        public void TearDown()
+        {
+            _embeddedReportingServer.StopAsync().Wait();
+            Monitor.Exit(_locker);
         }
 
         [Test]
-        public async void synchronize_and_render_many_images()
+        public async void should_pass_through()
         {
-            await _reportingService.SynchronizeTemplatesAsync();
+            await _reportingService.GetServerVersionAsync();
+        }
 
-            var result = await _reportingService.RenderAsync("Report5", null);
-
-            using (var reader = new StreamReader(result.Content))
-            {
-                Assert.IsTrue(reader.ReadToEnd().StartsWith("%PDF"));
-            }
+        [Test]
+        [ExpectedException(typeof(HttpRequestException))]
+        public async void should_throw_without_auth()
+        {
+            _reportingService.Username = null;
+            _reportingService.Password = null;
+            await _reportingService.GetServerVersionAsync();
         }
     }
 

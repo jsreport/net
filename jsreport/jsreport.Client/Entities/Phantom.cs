@@ -57,5 +57,20 @@
         /// Milliseconds to wait for js rendering like 1000
         /// </summary>
         public int printDelay { get; set; }
+
+        /// <summary>
+        /// Block all the javascript on the page
+        /// </summary>
+        public bool blockJavaScript { get; set; }
+        
+        /// <summary>
+        /// The printing waits for the trigger, see http://jsreport.net/learn/phantom-pdf
+        /// </summary>
+        public bool waitForJS { get; set; }
+
+        /// <summary>
+        /// Timeout for external resources like scripts or css load
+        /// </summary>
+        public int resourceTimeout { get; set; }
     }
 }

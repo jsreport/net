@@ -72,27 +72,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="tools\install.ps1">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <None Include="tools\install.ps1" />
     <None Include="tools\jsreport\install.cmd" />
     <None Include="tools\jsreport\studio.cmd" />
     <None Include="tools\jsreport\update.cmd" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="tools\jsreport\app\dev.config.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="tools\jsreport\app\package.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="tools\jsreport\jsreport.zip">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="tools\jsreport\app\prod.config.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <None Include="tools\jsreport\app\dev.config.json" />
+    <None Include="tools\jsreport\app\package.json" />
+    <None Include="tools\jsreport\jsreport.zip" />
+    <None Include="tools\jsreport\app\prod.config.json" />
     <None Include="tools\jsreport\reports\data\Sample data\config.json" />
     <None Include="tools\jsreport\reports\data\Sample data\dataJson.json" />
     <None Include="tools\jsreport\reports\templates\Sample report\config.json" />
@@ -103,9 +93,7 @@
   <ItemGroup>
     <Content Include="tools\jsreport\install-log.txt" />
     <Content Include="tools\install.js" />
-    <Content Include="tools\jsreport\app\server.js">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Content Include="tools\jsreport\app\server.js" />
     <Content Include="tools\jsreport\reports\templates\Sample report\helpers.js" />
   </ItemGroup>
   <ItemGroup>

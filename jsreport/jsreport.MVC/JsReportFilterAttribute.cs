@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Dynamic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using jsreport.Client;
@@ -21,11 +24,12 @@ namespace jsreport.MVC
 
         protected IReportingService ReportingService { get; set; }
 
-        public void OnActionExecuting(ActionExecutingContext filterContext)
+        public virtual void OnActionExecuting(ActionExecutingContext filterContext)
         {
+            
         }
 
-        public void OnActionExecuted(ActionExecutedContext filterContext)
+        public virtual void OnActionExecuted(ActionExecutedContext filterContext)
         {
             EnableJsReportAttribute attr;
             if (ShouldUseJsReport(filterContext, out attr))
@@ -51,37 +55,82 @@ namespace jsreport.MVC
             }
         }
 
+        protected virtual object CreateRenderingRequest(ActionExecutedContext context,
+                                                          EnableJsReportAttribute jsreportAttribute, string htmlContent)
+        {
+            if (context.Controller.ViewData["jsreportRenderRequest"] == null)
+            {
+                return new RenderRequest()
+                    {
+                        template = new Template
+                            {
+                                content = RemoveVisualStudioBrowserLink(htmlContent),
+                                recipe = jsreportAttribute.Recipe ?? "phantom-pdf",
+                                engine = jsreportAttribute.Engine ?? "none",
+                                phantom = new Phantom
+                                    {
+                                        margin = jsreportAttribute.Margin,
+                                        headerHeight = jsreportAttribute.HeaderHeight,
+                                        header =
+                                            jsreportAttribute.HeaderPartialView != null
+                                                ? RenderPartialViewToString(context, jsreportAttribute.HeaderPartialView,
+                                                                            null)
+                                                : null,
+                                        footerHeight = jsreportAttribute.FooterHeight,
+                                        footer =
+                                            jsreportAttribute.FooterPartialView != null
+                                                ? RenderPartialViewToString(context, jsreportAttribute.FooterPartialView,
+                                                                            null)
+                                                : null,
+                                        orientation = jsreportAttribute.Orientation,
+                                        width = jsreportAttribute.Width,
+                                        height = jsreportAttribute.Height,
+                                        format = jsreportAttribute.Format,
+                                        waitForJS = jsreportAttribute.WaitForJS,
+                                        resourceTimeout = jsreportAttribute.ResourceTimeout,
+                                        blockJavaScript = jsreportAttribute.BlockJavaScript,
+                                        printDelay = jsreportAttribute.PrintDelay
+                                    }
+                            }
+                    };
+            }
+
+            var originalRequest = context.Controller.ViewData["jsreportRenderRequest"];
+
+            if (originalRequest is RenderRequest)
+            {
+                var castedRequest = ((RenderRequest) originalRequest);
+                castedRequest.template.content = string.IsNullOrEmpty(castedRequest.template.content)
+                                                     ? RemoveVisualStudioBrowserLink(htmlContent)
+                                                     : castedRequest.template.content;
+                return castedRequest;
+            }
+
+
+            dynamic request = ConvertToDynamic(originalRequest);            
+            IDictionary<string, object> template = ConvertToDynamic(request.template);
+            template["content"] = template.ContainsKey("content") ? template["content"] : RemoveVisualStudioBrowserLink(htmlContent);
+            request.template = template;            
+
+            return request;
+        }
+
+        private object ConvertToDynamic(object o)
+        {
+            dynamic dynamicO = new ExpandoObject();
+
+            foreach (var p in o.GetType().GetRuntimeProperties())
+            {
+                ((IDictionary<string, object>)dynamicO)[p.Name] = p.GetValue(o);
+            }
+
+            return dynamicO;
+        }
+
         protected virtual async Task<Report> RenderReport(ActionExecutedContext context,
                                                           EnableJsReportAttribute jsreportAttribute, string htmlContent)
         {
-            Report output = await ReportingService.RenderAsync(new RenderRequest
-                {
-                    template = new Template
-                        {
-                            content = RemoveVisualStudioBrowserLink(htmlContent),
-                            recipe = jsreportAttribute.Recipe ?? "phantom-pdf",
-                            phantom = new Phantom
-                                {
-                                    margin = jsreportAttribute.Margin,
-                                    headerHeight = jsreportAttribute.HeaderHeight,
-                                    header =
-                                        jsreportAttribute.HeaderPartialView != null
-                                            ? RenderPartialViewToString(context, jsreportAttribute.HeaderPartialView,
-                                                                        null)
-                                            : null,
-                                    footerHeight = jsreportAttribute.FooterHeight,
-                                    footer =
-                                        jsreportAttribute.FooterPartialView != null
-                                            ? RenderPartialViewToString(context, jsreportAttribute.FooterPartialView,
-                                                                        null)
-                                            : null,
-                                    orientation = jsreportAttribute.Orientation,
-                                    width = jsreportAttribute.Width,
-                                    height = jsreportAttribute.Height,
-                                    format = jsreportAttribute.Format
-                                }
-                        }
-                }).ConfigureAwait(false);
+            Report output = await ReportingService.RenderAsync(CreateRenderingRequest(context, jsreportAttribute, htmlContent)).ConfigureAwait(false);
            
             AddResponseHeaders(context, jsreportAttribute, output);
 
@@ -132,8 +181,20 @@ namespace jsreport.MVC
         }
 
 
-        private bool ShouldUseJsReport(ActionExecutedContext filterContext, out EnableJsReportAttribute attr)
+        protected virtual bool ShouldUseJsReport(ActionExecutedContext filterContext, out EnableJsReportAttribute attr)
         {
+            if ((filterContext.Exception != null && !filterContext.ExceptionHandled) || filterContext.Canceled)
+            {
+                attr = null;
+                return false;
+            }
+
+            if (!filterContext.Controller.ViewData.ModelState.IsValid)
+            {
+                attr = null;
+                return false;
+            }
+
             bool enableJsReport = false;
             attr = null;
 
