@@ -3,7 +3,7 @@ REM This is being run by the nuget install and also if you run update.cmd, there
 if exist "install.js" (
     "../.bin/node.cmd" install.js    
 ) else (
-    "../.bin/node.cmd" "../../packages/jsreport.Embedded.1.0.0/tools/install.js"
+    "../.bin/node.cmd" "../../packages/jsreport.Embedded.1.0.1/tools/install.js"
 )
 
 

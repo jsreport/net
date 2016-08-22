@@ -7,11 +7,75 @@ $projectDirectory = $fileInfo.DirectoryName
 $jsreport = join-path $projectDirectory jsreport
 
 if (-Not (Test-Path $jsreport)) { 
-  $jsreportTools = join-path $toolsPath jsreport
-  $project.ProjectItems.AddFromDirectory($jsreportTools)
+  $jsreportTools = join-path $toolsPath jsreport  
+    
+  $jsreport = $project.ProjectItems.AddFolder("jsreport")
 
-  $app = $project.ProjectItems.Item("jsreport").ProjectItems.Item("app")
-  $jsreport = $project.ProjectItems.Item("jsreport")
+  $filePath = join-path $jsreportTools install.cmd
+  $jsreport.ProjectItems.AddFromFileCopy($filePath)  
+
+  $filePath = join-path $jsreportTools jsreport.zip
+  $jsreport.ProjectItems.AddFromFileCopy($filePath)  
+
+  $filePath = join-path $jsreportTools studio.cmd
+  $jsreport.ProjectItems.AddFromFileCopy($filePath)  
+
+  $filePath = join-path $jsreportTools update.cmd
+  $jsreport.ProjectItems.AddFromFileCopy($filePath)  
+
+  $filePath = join-path $jsreportTools install-log.txt
+  $jsreport.ProjectItems.AddFromFileCopy($filePath)  
+
+  $app = $jsreport.ProjectItems.AddFolder("app")
+
+  $appPath = join-path $jsreportTools app  
+
+  $filePath = join-path $appPath dev.config.json
+  $app.ProjectItems.AddFromFileCopy($filePath)  
+
+  $filePath = join-path $appPath prod.config.json
+  $app.ProjectItems.AddFromFileCopy($filePath)  
+
+  $filePath = join-path $appPath package.json
+  $app.ProjectItems.AddFromFileCopy($filePath)  
+
+  $filePath = join-path $appPath server.js
+  $app.ProjectItems.AddFromFileCopy($filePath) 
+  
+  $reports = $jsreport.ProjectItems.AddFolder("reports") 
+  $data = $reports.ProjectItems.AddFolder("data") 
+  $templates = $reports.ProjectItems.AddFolder("templates") 
+
+  $sampleData = $data.ProjectItems.AddFolder("Sample data") 
+  $sampleReport = $templates.ProjectItems.AddFolder("Sample report") 
+
+  $reportsPath = join-path $jsreportTools reports
+  $dataPath = join-path $reportsPath data
+  $sampleDataPath = join-path $dataPath "Sample data"
+
+  $filePath = join-path $sampleDataPath config.json
+  $sampleData.ProjectItems.AddFromFileCopy($filePath)  
+
+  $filePath = join-path $sampleDataPath dataJson.json
+  $sampleData.ProjectItems.AddFromFileCopy($filePath)  
+
+  $templatesPath = join-path $reportsPath templates
+  $sampleReportPath = join-path $templatesPath "Sample report"
+
+  $filePath = join-path $sampleReportPath config.json
+  $sampleReport.ProjectItems.AddFromFileCopy($filePath)  
+
+  $filePath = join-path $sampleReportPath content.handlebars
+  $sampleReport.ProjectItems.AddFromFileCopy($filePath)  
+
+  $filePath = join-path $sampleReportPath footer.handlebars
+  $sampleReport.ProjectItems.AddFromFileCopy($filePath)  
+
+  $filePath = join-path $sampleReportPath header.handlebars
+  $sampleReport.ProjectItems.AddFromFileCopy($filePath)  
+
+  $filePath = join-path $sampleReportPath helpers.js
+  $sampleReport.ProjectItems.AddFromFileCopy($filePath)  
 
   $file1 = $jsreport.ProjectItems.Item("jsreport.zip")
   $copyToOutput1 = $file1.Properties.Item("CopyToOutputDirectory")
@@ -80,4 +144,4 @@ if (Test-Path $installPath) {
 
 Pop-Location
 
-start "http://jsreport.net/blog/csharp-integration-improvements"
+start "http://jsreport.net/learn/net-embedded"
