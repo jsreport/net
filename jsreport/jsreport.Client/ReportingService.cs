@@ -43,12 +43,14 @@ namespace jsreport.Client
         {
             Username = username;
             Password = password;
+            Compression = false;
         }
 
         public ReportingService(string serviceUri)
         {
             ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true; 
             ServiceUri = new Uri(serviceUri);
+            Compression = false;
         }
 
 
