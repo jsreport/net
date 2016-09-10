@@ -92,6 +92,11 @@ namespace jsreport.Client
         string Username { get; set; }
 
         /// <summary>
+        /// Boolean to indicate if compression should be enabled or not
+        /// </summary>
+        bool Compression { get; set; }
+
+        /// <summary>
         /// Credentials for jsreport having authentication enabled
         /// </summary>
         string Password { get; set; }

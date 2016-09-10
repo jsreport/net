@@ -22,6 +22,11 @@ namespace jsreport.Client
         /// Credentials for jsreport having authentication enabled
         /// </summary>
         public string Username { get; set; }
+       
+        /// <summary>
+        /// Boolean to indicate if compression should be enabled or not
+        /// </summary>
+        public bool Compression { get; set; }
 
         /// <summary>
         /// Credentials for jsreport having authentication enabled
@@ -56,6 +61,9 @@ namespace jsreport.Client
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", System.Convert.ToBase64String(
                     Encoding.UTF8.GetBytes(String.Format("{0}:{1}",Username,Password))));
             }
+
+            if (Compression)
+                client.DefaultRequestHeaders.AcceptEncoding.Add(new StringWithQualityHeaderValue("gzip"));
 
             if (HttpClientTimeout != null)
                 client.Timeout = HttpClientTimeout.Value;
