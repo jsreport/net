@@ -7,6 +7,8 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using System.IO;
+using System.IO.Compression;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using jsreport.Client.Entities;
@@ -22,6 +24,11 @@ namespace jsreport.Client
         /// Credentials for jsreport having authentication enabled
         /// </summary>
         public string Username { get; set; }
+       
+        /// <summary>
+        /// Boolean to indicate if compression should be enabled or not
+        /// </summary>
+        public bool Compression { get; set; }
 
         /// <summary>
         /// Credentials for jsreport having authentication enabled
@@ -38,12 +45,14 @@ namespace jsreport.Client
         {
             Username = username;
             Password = password;
+            Compression = false;
         }
 
         public ReportingService(string serviceUri)
         {
             ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true; 
             ServiceUri = new Uri(serviceUri);
+            Compression = false;
         }
 
 
@@ -56,7 +65,6 @@ namespace jsreport.Client
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", System.Convert.ToBase64String(
                     Encoding.UTF8.GetBytes(String.Format("{0}:{1}",Username,Password))));
             }
-
             if (HttpClientTimeout != null)
                 client.Timeout = HttpClientTimeout.Value;
 
@@ -151,13 +159,31 @@ namespace jsreport.Client
         public async Task<Report> RenderAsync(object request, CancellationToken ct = default(CancellationToken))
         {
             var client = CreateClient();
+            HttpContent content;
+            if (Compression)
+            {
+                byte[] jsonBytes = Encoding.UTF8.GetBytes(ValidateAndSerializeRequest(request));
+                var ms = new MemoryStream();
+                using (var gzip = new GZipStream(ms, CompressionMode.Compress, true))
+                {
+                    gzip.Write(jsonBytes, 0, jsonBytes.Length);
+                }
+                ms.Position = 0;
 
-            var response =
-                await
-                client.PostAsync("api/report",
-                                 new StringContent(ValidateAndSerializeRequest(request), Encoding.UTF8,
-                                                   "application/json"), ct).ConfigureAwait(false);
-            
+                content = new StreamContent(ms);
+                content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+                content.Headers.ContentEncoding.Add("gzip");
+            }
+            else
+            {
+                content = new StringContent(ValidateAndSerializeRequest(request), Encoding.UTF8,
+                    "application/json");
+            }
+
+           var response =
+                    await
+                        client.PostAsync("api/report", content, ct).ConfigureAwait(false);
+
 
             if (response.StatusCode != HttpStatusCode.OK)
                 throw JsReportException.Create("Unable to render template. ", response);
@@ -166,7 +192,6 @@ namespace jsreport.Client
 
             return await ReportFromResponse(response).ConfigureAwait(false);
         }
-
         /// <summary>
         /// Request list of recipes registered in jsreport server
         /// </summary>
