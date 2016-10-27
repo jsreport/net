@@ -43,9 +43,12 @@ try {
         execSync('xcopy node_modules\\phantom-html-to-pdf\\node_modules\\lodash node_modules\\lodash /Y', execOptions);
     }
     
+    //there are many lodash version in node modules, we trim and keep just those really required
     execSync('rename node_modules\\lodash .lodash', execOptions);
+    execSync('rename node_modules\\xmlbuilder\\node_modules\\lodash .lodash', execOptions);
     execSync('FOR /d /r . %d IN (lodash) DO @IF EXIST "%d" rd /s /q "%d"', execOptions);
     execSync('rename node_modules\\.lodash lodash', execOptions);
+    execSync('rename node_modules\\xmlbuilder\\node_modules\\.lodash lodash', execOptions);
     
     //remove some unnecesarry files
     execSync('rename node_modules\\phantomjs .phantomjs', execOptions);
