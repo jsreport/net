@@ -21,8 +21,6 @@ namespace jsreport.Client
             if (ReportingService == null)
                 throw new InvalidOperationException("Missing ReportingService on JsReportWebHandler");
 
-            var url = CreateRequestUrl(context);
-
             var request =
                 (HttpWebRequest)WebRequest.Create(ReportingService.ServiceUri.ToString().TrimEnd('/') + context.Request.Url.PathAndQuery.Replace("/jsreport.axd", ""));
             request.Method = context.Request.HttpMethod;
@@ -45,22 +43,6 @@ namespace jsreport.Client
             {
                 ProcessResponse(context, (HttpWebResponse) webException.Response);
             }
-        }
-
-        private static string CreateRequestUrl(HttpContext context)
-        {
-            string url = context.Request.QueryString["url"] ?? "/";
-
-            if (url.Contains("?"))
-                url += "&";
-            else
-                url += "?";
-
-            if (!url.EndsWith("&"))
-                url += "&";
-            
-            url += "serverUrl=" + context.Server.UrlEncode(context.Request.Url.GetLeftPart(UriPartial.Authority) + "/jsreport.axd?url=/");
-            return url;
         }
 
         private static void ParseRequestHeaders(HttpContext context, HttpWebRequest request)
@@ -124,7 +106,7 @@ namespace jsreport.Client
 
             context.Response.StatusCode = (int)responseMerge.StatusCode;
 
-            if (context.Request.Path == "/jsreport.axd")
+            if (context.Request.Path == "/jsreport.axd" || context.Request.Path == "/jsreport.axd/")
             {
                 using (var reader = new StreamReader(responseMerge.GetResponseStream()))
                 {
