@@ -12,6 +12,14 @@ var directoryExistsSync = function(file) {
     }
 };
 
+var execSyncSilent = function(p, o) {
+    try {
+        execSync(p, o);
+    } catch(e) {
+
+    }
+};
+
 
 console.log('Installing jsreport through NPM, this may take few minutes...');
 
@@ -45,10 +53,11 @@ try {
     
     //there are many lodash version in node modules, we trim and keep just those really required
     execSync('rename node_modules\\lodash .lodash', execOptions);
-    execSync('rename node_modules\\xmlbuilder\\node_modules\\lodash .lodash', execOptions);
+    // in some old versions of jsreport, the lodash version used in xml builder is required
+    execSyncSilent('rename node_modules\\xmlbuilder\\node_modules\\lodash .lodash', execOptions);
     execSync('FOR /d /r . %d IN (lodash) DO @IF EXIST "%d" rd /s /q "%d"', execOptions);
     execSync('rename node_modules\\.lodash lodash', execOptions);
-    execSync('rename node_modules\\xmlbuilder\\node_modules\\.lodash lodash', execOptions);
+    execSyncSilent('rename node_modules\\xmlbuilder\\node_modules\\.lodash lodash', execOptions);
     
     //remove some unnecesarry files
     execSync('rename node_modules\\phantomjs .phantomjs', execOptions);
