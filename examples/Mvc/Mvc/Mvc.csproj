@@ -75,17 +75,14 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="jsreport.Client, Version=0.8.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\jsreport.Client.1.1.2\lib\net45\jsreport.Client.dll</HintPath>
+    <Reference Include="jsreport.Client">
+      <HintPath>..\packages\jsreport.Client.1.0.3\lib\net45\jsreport.Client.dll</HintPath>
     </Reference>
-    <Reference Include="jsreport.Embedded, Version=0.8.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\jsreport.Embedded.1.0.80\lib\net45\jsreport.Embedded.dll</HintPath>
+    <Reference Include="jsreport.Embedded">
+      <HintPath>..\packages\jsreport.Embedded.1.0.3\lib\net45\jsreport.Embedded.dll</HintPath>
     </Reference>
-    <Reference Include="jsreport.MVC, Version=0.1.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\jsreport.MVC.1.1.2\lib\net45\jsreport.MVC.dll</HintPath>
+    <Reference Include="jsreport.MVC">
+      <HintPath>..\packages\jsreport.MVC.1.0.0\lib\net45\jsreport.MVC.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Data.Edm, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
