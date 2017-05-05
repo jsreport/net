@@ -8,7 +8,6 @@ namespace jsreport.Client
     /// <summary>
     /// Exception used when communication with jsreport fails
     /// </summary>
-    [Serializable]
     public class JsReportException : Exception
     {
         public JsReportException()

@@ -9,12 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Reference Include="System.Web" />
-    <Reference Include="System.Management" />
   </ItemGroup>
 
 </Project>

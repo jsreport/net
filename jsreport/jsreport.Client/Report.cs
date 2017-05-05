@@ -9,7 +9,7 @@ namespace jsreport.Client
     /// <summary>
     /// Output of jsreport rendering process
     /// </summary>
-    [Serializable]
+    //[Serializable]
     public class Report
     {
         /// <summary>
