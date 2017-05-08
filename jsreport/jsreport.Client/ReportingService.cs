@@ -50,7 +50,6 @@ namespace jsreport.Client
 
         public ReportingService(string serviceUri)
         {
-            //ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true; 
             ServiceUri = new Uri(serviceUri);
             Compression = false;
         }
@@ -58,15 +57,15 @@ namespace jsreport.Client
         protected virtual System.Net.Http.HttpClient CreateClient()
         {
 
-//#if NET46
-//            var handler = new WinHttpHandler()
-//            {
-//                ServerCertificateValidationCallback = (senderX, certificate, chain, sslPolicyErrors) => true
-//            };
-//            var client = new HttpClient(handler) { BaseAddress = ServiceUri };
-//#else
+#if NET46
+            var handler = new WinHttpHandler()
+            {
+                ServerCertificateValidationCallback = (senderX, certificate, chain, sslPolicyErrors) => true
+            };
+            var client = new HttpClient(handler) { BaseAddress = ServiceUri };
+#else
             var client = new HttpClient() { BaseAddress = ServiceUri };
-//#endif
+#endif
 
             if (Username != null)
             {

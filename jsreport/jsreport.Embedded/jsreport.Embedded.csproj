@@ -2,7 +2,48 @@
 
   <PropertyGroup>
     <TargetFramework>net46</TargetFramework>
+    <!--<NuspecFile>jsreport.Embedded.nuspec</NuspecFile>-->
+
+
+    <PackageId>jsreport.Embedded</PackageId>
+    <Title>jsreport embedded server</Title>
+    <Authors>Jan Blaha</Authors>
+    <Description>Installs jsreport server into solution and allows to run it in parallel with .net process. </Description>
+    <PackageProjectUrl>http://jsreport.net</PackageProjectUrl>
+    <PackageLicenseUrl>http://www.opensource.org/licenses/mit-license.php</PackageLicenseUrl>
+    <PackageIconUrl>http://jsreport.net/img/favicon.ico</PackageIconUrl>
+    <Copyright>Copyright 2013-2014 Jan Blaha</Copyright>
+    <PackageTags>jsreport;report;pdf</PackageTags>
+    <RepositoryUrl>https://github.com/jsreport/net</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <!--<IncludeSymbols>true</IncludeSymbols>-->
+
+    <Version>1.0.4</Version>
+    <AssemblyVersion>$(Version)</AssemblyVersion>
+    <IncludeContentInPack>true</IncludeContentInPack>
+    <ContentTargetFolders>tools</ContentTargetFolders>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="jsreport\app\dev.config.json" />
+    <Content Include="jsreport\app\package.json" />
+    <Content Include="jsreport\app\prod.config.json" />
+    <Content Include="jsreport\app\server.js" />
+    <Content Include="jsreport\install-log.txt" />
+    <Content Include="jsreport\install.cmd" />
+    <Content Include="jsreport\jsreport.zip" />
+    <Content Include="jsreport\reports\data\Sample data\config.json" />
+    <Content Include="jsreport\reports\data\Sample data\dataJson.json" />
+    <Content Include="jsreport\reports\templates\Sample report\config.json" />
+    <Content Include="jsreport\reports\templates\Sample report\content.handlebars" />
+    <Content Include="jsreport\reports\templates\Sample report\footer.handlebars" />
+    <Content Include="jsreport\reports\templates\Sample report\header.handlebars" />
+    <Content Include="jsreport\reports\templates\Sample report\helpers.js" />
+    <Content Include="jsreport\studio.cmd" />
+    <Content Include="jsreport\update.cmd" />
+    <Content Include="install.js" />
+    <Content Include="install.ps1" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\jsreport.Client\jsreport.Client.csproj" />
@@ -10,6 +51,8 @@
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
+    <PackageReference Include="Node.js" Version="5.3.0" />
+    <PackageReference Include="Npm" Version="3.5.2" />
   </ItemGroup>
 
   <ItemGroup>

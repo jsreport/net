@@ -2,8 +2,24 @@
 
   <PropertyGroup>
     <TargetFramework>net46</TargetFramework>
+
+    <PackageId>jsreport.Client.HttpHandler</PackageId>
+    <Title>jsreport Client HttpHandler</Title>
+    <Authors>Jan Blaha</Authors>
+    <Description>HttpHandler for jsreport, javascript based platform for designing and rendering business reports. </Description>
+    <PackageProjectUrl>http://jsreport.net</PackageProjectUrl>
+    <PackageLicenseUrl>http://www.opensource.org/licenses/mit-license.php</PackageLicenseUrl>
+    <PackageIconUrl>http://jsreport.net/img/favicon.ico</PackageIconUrl>
+    <Copyright>Copyright 2013-2014 Jan Blaha</Copyright>
+    <PackageTags>jsreport;report;pdf;httphandler</PackageTags>
+    <RepositoryUrl>https://github.com/jsreport/net</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+
   </PropertyGroup>
 
+  
+  
+  
   <ItemGroup>
     <ProjectReference Include="..\jsreport.Client\jsreport.Client.csproj" />
   </ItemGroup>

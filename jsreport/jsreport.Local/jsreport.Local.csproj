@@ -1,8 +1,20 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
   <PropertyGroup>
-    <VersionPrefix>1.1.0</VersionPrefix>
-    <VersionSuffix></VersionSuffix>
+    
     <TargetFrameworks>net451</TargetFrameworks>
+
+    <PackageId>jsreport.Local</PackageId>
+    <Title>jsreport local</Title>
+    <Authors>Jan Blaha</Authors>
+    <Description>BETA Adds easily distributable local instance of jsreport into the project</Description>
+    <PackageProjectUrl>http://jsreport.net</PackageProjectUrl>
+    <PackageLicenseUrl>http://www.opensource.org/licenses/mit-license.php</PackageLicenseUrl>
+    <PackageIconUrl>http://jsreport.net/img/favicon.ico</PackageIconUrl>
+    <Copyright>Copyright 2013-2014 Jan Blaha</Copyright>
+    <PackageTags>jsreport;report;pdf</PackageTags>
+    <RepositoryUrl>https://github.com/jsreport/net</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
