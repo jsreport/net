@@ -1,126 +1,63 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5A6C35FD-7AAF-4583-AD41-3B6AEDE96D41}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>jsreport.Embedded</RootNamespace>
-    <AssemblyName>jsreport.Embedded</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
-    <RestorePackages>true</RestorePackages>
-    <TargetFrameworkProfile />
+    <TargetFramework>net46</TargetFramework>
+    <!--<NuspecFile>jsreport.Embedded.nuspec</NuspecFile>-->
+
+
+    <PackageId>jsreport.Embedded</PackageId>
+    <Title>jsreport embedded server</Title>
+    <Authors>Jan Blaha</Authors>
+    <Description>Installs jsreport server into solution and allows to run it in parallel with .net process. </Description>
+    <PackageProjectUrl>http://jsreport.net</PackageProjectUrl>
+    <PackageLicenseUrl>http://www.opensource.org/licenses/mit-license.php</PackageLicenseUrl>
+    <PackageIconUrl>http://jsreport.net/img/favicon.ico</PackageIconUrl>
+    <Copyright>Copyright 2013-2014 Jan Blaha</Copyright>
+    <PackageTags>jsreport;report;pdf</PackageTags>
+    <RepositoryUrl>https://github.com/jsreport/net</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <!--<IncludeSymbols>true</IncludeSymbols>-->
+
+    <Version>1.0.4</Version>
+    <AssemblyVersion>$(Version)</AssemblyVersion>
+    <IncludeContentInPack>true</IncludeContentInPack>
+    <ContentTargetFolders>tools</ContentTargetFolders>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\jsreport.Embedded.XML</DocumentationFile>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
+
   <ItemGroup>
-    <Reference Include="Microsoft.Threading.Tasks, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Threading.Tasks.Extensions, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Threading.Tasks.Extensions.Desktop, Version=1.0.168.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.Desktop.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.IO.Compression" />
-    <Reference Include="System.IO.Compression.FileSystem" />
+    <Content Include="jsreport\app\dev.config.json" />
+    <Content Include="jsreport\app\package.json" />
+    <Content Include="jsreport\app\prod.config.json" />
+    <Content Include="jsreport\app\server.js" />
+    <Content Include="jsreport\install-log.txt" />
+    <Content Include="jsreport\install.cmd" />
+    <Content Include="jsreport\jsreport.zip" />
+    <Content Include="jsreport\reports\data\Sample data\config.json" />
+    <Content Include="jsreport\reports\data\Sample data\dataJson.json" />
+    <Content Include="jsreport\reports\templates\Sample report\config.json" />
+    <Content Include="jsreport\reports\templates\Sample report\content.handlebars" />
+    <Content Include="jsreport\reports\templates\Sample report\footer.handlebars" />
+    <Content Include="jsreport\reports\templates\Sample report\header.handlebars" />
+    <Content Include="jsreport\reports\templates\Sample report\helpers.js" />
+    <Content Include="jsreport\studio.cmd" />
+    <Content Include="jsreport\update.cmd" />
+    <Content Include="install.js" />
+    <Content Include="install.ps1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\jsreport.Client\jsreport.Client.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
+    <PackageReference Include="Node.js" Version="5.3.0" />
+    <PackageReference Include="Npm" Version="3.5.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Web" />
     <Reference Include="System.Management" />
-    <Reference Include="System.Net" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Net.Http.WebRequest" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="EmbeddedReportingServerException.cs" />
-    <Compile Include="IEmbeddedReportingServer.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="EmbeddedReportingServer.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-    <None Include="tools\install.ps1" />
-    <None Include="tools\jsreport\install.cmd" />
-    <None Include="tools\jsreport\studio.cmd" />
-    <None Include="tools\jsreport\update.cmd" />
-    <None Include="packages.config">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="tools\jsreport\app\dev.config.json" />
-    <None Include="tools\jsreport\app\package.json" />
-    <None Include="tools\jsreport\jsreport.zip" />
-    <None Include="tools\jsreport\app\prod.config.json" />
-    <None Include="tools\jsreport\reports\data\Sample data\config.json" />
-    <None Include="tools\jsreport\reports\data\Sample data\dataJson.json" />
-    <None Include="tools\jsreport\reports\templates\Sample report\config.json" />
-    <None Include="tools\jsreport\reports\templates\Sample report\content.handlebars" />
-    <None Include="tools\jsreport\reports\templates\Sample report\footer.handlebars" />
-    <None Include="tools\jsreport\reports\templates\Sample report\header.handlebars" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="tools\jsreport\install-log.txt" />
-    <Content Include="tools\install.js" />
-    <Content Include="tools\jsreport\app\server.js" />
-    <Content Include="tools\jsreport\reports\templates\Sample report\helpers.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\jsreport.Client\jsreport.Client.csproj">
-      <Project>{fae7d435-2660-4745-97b6-438fbfb22905}</Project>
-      <Name>jsreport.Client</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup />
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
-  </Target>
-  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
-  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
-    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
-    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
-  </Target>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+
 </Project>

@@ -7,7 +7,7 @@ namespace jsreport.Local
     {
         public static void Main()
         {
-            Console.WriteLine("Starging");
+            Console.WriteLine("Starting");
 
             var rs = new LocalReportingService();
             rs.Initialize();

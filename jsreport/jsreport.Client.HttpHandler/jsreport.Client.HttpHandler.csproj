@@ -3,31 +3,25 @@
   <PropertyGroup>
     <TargetFramework>net46</TargetFramework>
 
-
-    <PackageId>jsreport.MVC</PackageId>
-    <Title>jsreport asp.net mvc integration</Title>
+    <PackageId>jsreport.Client.HttpHandler</PackageId>
+    <Title>jsreport Client HttpHandler</Title>
     <Authors>Jan Blaha</Authors>
-    <Description>Pdf rendering from asp.net views using jsreport.</Description>
+    <Description>HttpHandler for jsreport, javascript based platform for designing and rendering business reports. </Description>
     <PackageProjectUrl>http://jsreport.net</PackageProjectUrl>
     <PackageLicenseUrl>http://www.opensource.org/licenses/mit-license.php</PackageLicenseUrl>
     <PackageIconUrl>http://jsreport.net/img/favicon.ico</PackageIconUrl>
     <Copyright>Copyright 2013-2014 Jan Blaha</Copyright>
-    <PackageTags>jsreport;report;pdf;asp.net;mvc</PackageTags>
+    <PackageTags>jsreport;report;pdf;httphandler</PackageTags>
     <RepositoryUrl>https://github.com/jsreport/net</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
 
-
   </PropertyGroup>
 
+  
+  
+  
   <ItemGroup>
     <ProjectReference Include="..\jsreport.Client\jsreport.Client.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.3" />
-    <PackageReference Include="Microsoft.AspNet.Razor" Version="3.2.3" />
-    <PackageReference Include="Microsoft.AspNet.WebPages" Version="3.2.3" />
-    <PackageReference Include="Microsoft.Web.Infrastructure" Version="1.0.0.0" />
   </ItemGroup>
 
   <ItemGroup>
