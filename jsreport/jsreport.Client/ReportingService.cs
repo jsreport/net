@@ -58,7 +58,15 @@ namespace jsreport.Client
 
         protected virtual HttpClient CreateClient()
         {
-            var client = new HttpClient() {BaseAddress = ServiceUri};
+#if NET46
+            var handler = new WinHttpHandler()
+            {
+                ServerCertificateValidationCallback = (senderX, certificate, chain, sslPolicyErrors) => true
+            };
+            var client = new HttpClient(handler) { BaseAddress = ServiceUri };
+#else
+            var client = new HttpClient() { BaseAddress = ServiceUri };
+#endif
 
             if (Username != null)
             {
