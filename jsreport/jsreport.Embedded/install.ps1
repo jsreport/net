@@ -128,6 +128,7 @@ if (-Not (Test-Path $jsreport)) {
 $jsreportPath = join-path $projectDirectory jsreport
 $installPath = join-path $projectDirectory jsreport/install.cmd
 $installToolsPath = join-path $toolsPath jsreport/install.cmd
+$installModulePath = join-path $toolsPath /install.js
 
 if (Test-Path $installPath) {   
   write-Host "Copy " $installToolsPath " to " $jsreportPath
@@ -135,10 +136,17 @@ if (Test-Path $installPath) {
 
   Push-Location $jsreportPath
   write-Host "Running " $installPath
-  & $installPath
+  & $installPath $installModulePath
 
   if ($lastexitcode) {
-	throw 'Failed to install jsreport from npm, check install-log.txt for details'
+    write-Host "ERROR Exit code: " $lastexitcode
+    if ($lastexitcode -eq 87) {
+      throw 'Empty installModulePath parameter.'
+    }
+    if ($lastexitcode -eq 2) {
+      throw 'installModulePath not found.'
+    }
+    throw 'Failed to install jsreport from npm, check install-log.txt for details'
   }
 }
 
